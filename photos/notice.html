@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice board</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+ 
+}
+
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    background-color: #b2b2b2b0;
+    
+    width: 100%;                    
+}
+#notice ,#news{
+    background-color: rgb(176, 227, 229);
+    width: 40vw;
+    height: 40vw;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:  30px;
+   
+    -webkit-border-radius:  30px;
+    -moz-border-radius:  30px;
+    -ms-border-radius:  30px;
+    -o-border-radius:  30px;
+}
+#notice h1,#news h1{
+    font-size: 2rem;
+    padding: 10px ;
+    padding-right: 10px;
+    padding-left: 10px; 
+    background-color: #616aeafd;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    background-color: #616aeafd;
+    margin: 10px;
+    text-align: center;
+    color: white;
+    top: 0%;
+    position: absolute;
+    text-transform: uppercase;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+#content-notice,#content-news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-color: #fff;
+    height: 90%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+
+}
+.notices ,.newses{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-block: hidden;
+    padding: 100px;
+    font-family: fantasy;
+list-style: none;
+text-wrap: wrap;
+
+   
+    font-size: 1.5rem;
+    
+}
+.notices ,.newses li{
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    font-size: 1.3rem;
+    overflow: hidden;
+
+    
+    transition: color 0.3s ease;
+    border-radius: 10px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-family: fantasy reguler;
+}
+i{
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: #616aeafd;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="notice"><h1>🔔Notice board</h1>'
+       <div id="content-notice">
+       <ul class="notices">
+       <li> <i class="ri-arrow-right-fill"></i>Importnat Notice regarding challange Diploma Engg examination</li>
+        <li> <i class="ri-arrow-right-fill"></i>Academic clelender for VI semester feb-june 2025</li>
+        <li> <i class="ri-arrow-right-fill"></i>Sarthak App  login  Required</li>
+        <li> <i class="ri-arrow-right-fill"></i>Attendence of student based on thier Academic Performance</li>
+        <li> <i class="ri-arrow-right-fill"></i>
+            regarding book  publication rights
+        </li>
+        <li> <i class="ri-arrow-right-fill"></i>Importnat Notice regarding challange Diploma Engg examination</li>
+        <li> <i class="ri-arrow-right-fill"></i>Academic clelender for VI semester feb-june 2025</li>
+        <li> <i class="ri-arrow-right-fill"></i>Sarthak App  login  Required</li>
+        <li> <i class="ri-arrow-right-fill"></i>Attendence of student based on thier Academic Performance</li>
+        <li> <i class="ri-arrow-right-fill"></i>
+            regarding book  publication rights
+        </li>
+       </ul>
+      
+       </div>
+       
+       
+    </div>
+    <div id="news"><h1>🗞 News</h1>'
+        <div id="content-news">
+         
+         <ul class="newses">
+            <li> <i class="ri-arrow-right-fill"></i>Republic day celebration  in Gpc Balaghat morning 7:00 am</li>
+            <li> <i class="ri-arrow-right-fill"></i>Mulna day  celebration</li>
+            <li> <i class="ri-arrow-right-fill"></i>Campus drive placement session is started</li>
+            <li> <i class="ri-arrow-right-fill"></i>Visiability in Khel  mahotsav  2025 on mulna stadium</li>
+            <li> <i class="ri-arrow-right-fill"></i> The Acedemic Session  for III year is extented
+            </li>
+            <li> <i class="ri-arrow-right-fill"></i>Republic day celebration  in Gpc Balaghat morning 7:00 am</li>
+            <li> <i class="ri-arrow-right-fill"></i>Mulna day  celebration</li>
+            <li> <i class="ri-arrow-right-fill"></i>Campus drive placement session is started</li>
+            <li> <i class="ri-arrow-right-fill"></i>Visiability in Khel  mahotsav  2025 on mulna stadium</li>
+            <li> <i class="ri-arrow-right-fill"></i> The Acedemic Session  for III year is extented
+            </li>
+         </ul>  
+        </div>
+    </div>
+</body>
+</html>
