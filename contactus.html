@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Government Polytechnic College Balaghat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a{
+    text-decoration: none;
+    
+}
+
+/* Main Content Styles */
+main {
+    padding: 40px 0;
+}
+
+.contact-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 32px;
+    color: #1a237e;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-header h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #1a237e;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact-header p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f5f7ff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #1a237e;
+    margin-right: 15px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.info-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #1a237e;
+}
+
+.info-item p {
+    color: #666;
+    font-size: 15px;
+}
+
+.social-media h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #1a237e;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #1a237e;
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a:hover {
+    background-color: #1a237e;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a237e;
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+
+.form-group button {
+    background-color: #1a237e;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #303f9f;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #ffebee;
+    color: #c62828;
+    display: block;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+ 
+    
+    
+    .contact-container {
+        flex-direction: column;
+    }
+    
+   
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 20px;
+    }
+    
+    .contact-header h2 {
+        font-size: 24px;
+    }
+    
+    nav ul li {
+        margin: 0 8px;
+    }
+    
+    .form-group button {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+
+        <main>
+            <section class="contact-section">
+                <div class="contact-header">
+                    <h2>Contact Us</h2>
+                    <p>We'd love to hear from you. Please fill out the form below or reach out using the contact information.</p>
+                </div>
+
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>Government Polytechnic College, Balaghat, Madhya Pradesh, India</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+91 7632 242443</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p> infogpcb@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Office Hours</h3>
+                                <p>Monday - Saturday: 10:30 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="social-media">
+                            <h3>Connect With Us</h3>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/profile.php?id=61574799926006"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/poly.bgt1962/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/""><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="contactForm" action="https://formsubmit.co/poly.bgt1962@gmail.com" method="POST">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                                <span class="error-message" id="subjectError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="submitBtn">Send Message</button>
+                            </div>
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+       
+        </footer>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    // Form validation
+    function validateForm() {
+        let isValid = true;
+        
+        // Name validation
+        const name = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        if (name.value.trim() === '') {
+            nameError.textContent = 'Please enter your name';
+            isValid = false;
+        } else if (name.value.trim().length < 2) {
+            nameError.textContent = 'Name must be at least 2 characters';
+            isValid = false;
+        } else {
+            nameError.textContent = '';
+        }
+        
+        // Email validation
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() === '') {
+            emailError.textContent = 'Please enter your email';
+            isValid = false;
+        } else if (!emailPattern.test(email.value.trim())) {
+            emailError.textContent = 'Please enter a valid email address';
+            isValid = false;
+        } else {
+            emailError.textContent = '';
+        }
+        
+        // Phone validation (optional)
+        const phone = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+        if (phone.value.trim() !== '') {
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone.value.trim())) {
+                phoneError.textContent = 'Please enter a valid 10-digit phone number';
+                isValid = false;
+            } else {
+                phoneError.textContent = '';
+            }
+        } else {
+            phoneError.textContent = '';
+        }
+        
+        // Subject validation
+        const subject = document.getElementById('subject');
+        const subjectError = document.getElementById('subjectError');
+        if (subject.value.trim() === '') {
+            subjectError.textContent = 'Please enter a subject';
+            isValid = false;
+        } else if (subject.value.trim().length < 3) {
+            subjectError.textContent = 'Subject must be at least 3 characters';
+            isValid = false;
+        } else {
+            subjectError.textContent = '';
+        }
+        
+        // Message validation
+        const message = document.getElementById('message');
+        const messageError = document.getElementById('messageError');
+        if (message.value.trim() === '') {
+            messageError.textContent = 'Please enter your message';
+            isValid = false;
+        } else if (message.value.trim().length < 10) {
+            messageError.textContent = 'Message must be at least 10 characters';
+            isValid = false;
+        } else {
+            messageError.textContent = '';
+        }
+        
+        return isValid;
+    }
+    
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        const formData = new FormData(contactForm);
+        
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            
+            // Scroll to form status
+            formStatus.scrollIntoView({ behavior: 'smooth' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        })
+        .catch(error => {
+            formStatus.textContent = 'Oops! There was a problem sending your message. Please try again.';
+            formStatus.className = 'form-status error';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            console.error('Error:', error);
+        });
+    });
+    
+    // Clear error messages when input changes
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const errorElement = document.getElementById(`${input.id}Error`);
+            if (errorElement) {
+                errorElement.textContent = '';
+            }
+            formStatus.style.display = 'none';
+        });
+    });
+});
+</script>
+</body>
+</html>

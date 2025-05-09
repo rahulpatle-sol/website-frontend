@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer Lab - College</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+ <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/lab-sec.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+</head>
+<body>
+  
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="../navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+              <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+              <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+              <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+              <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+              <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <!--===============================End of Navigation Menu=========================================== -->
+
+  <div class="container">
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2>About Our Lab</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <p>
+            Our state-of-the-art computer lab provides students with access to the latest hardware and software. Equipped with high-speed internet, modern desktops, and advanced tools, it supports a wide range of computing needs from basic coursework to advanced research projects.
+          </p>
+          <p>
+            The lab is designed to foster collaboration, innovation, and technical skill development in a comfortable and productive environment. Our dedicated staff is always available to provide assistance and ensure all equipment is functioning optimally.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilities" class="section">
+      <div class="section-header">
+        <h2>Facilities</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>50+ High-Performance Computers</h3>
+          <p>Latest generation processors, ample RAM, and SSD storage for fast performance</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+          </div>
+          <h3>High-Speed Wi-Fi</h3>
+          <p>Gigabit internet connection throughout the facility for seamless online work</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Projectors & Smart Boards</h3>
+          <p>Interactive presentation equipment for collaborative learning and teaching</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+          </div>
+          <h3>Printing & Scanning Services</h3>
+          <p>Color and black & white printing with high-resolution scanning capabilities</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="section-header">
+        <h2>Labs </h2>
+        <div class="underline"></div>
+      </div>
+    
+      <div class="gallery-grid">
+        <!-- Semester 1 -->
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem1.html', '_blank')">
+         
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 1 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="span_lab">Semester 1</span>
+          </div>
+        </div>
+    
+        <!-- Semester 2 -->
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem2.html', '_blank')">
+        
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 2 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="span_lab">Semester 2</span>
+          </div>
+        </div>
+    
+        <!-- Semester 3 -->
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem3.html', '_blank')">
+         
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 3 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="span_lab">Semester 3</span>
+          </div>
+        </div>
+    
+        <!-- Semester 4 -->
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem4.html', '_blank')">
+       
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 4 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span  class="span_lab" >Semester 4</span>
+          </div>
+        </div>
+    
+        <!-- Semester 5 -->
+        
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem5.html', '_blank')">
+         
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 5 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="span_lab" >  Semester 5</span>
+          </div>
+        </div>
+    
+        <!-- Semester 6 -->
+        
+        <div class="gallery-item fade-in" onclick="window.open('/Departments/labs/cse/sem6.html', '_blank')">
+          
+          <img src="https://static.vecteezy.com/system/resources/previews/002/779/389/original/student-woman-with-laptop-studying-on-online-course-online-education-concept-illustration-flat-vector.jpg" alt="Semester 6 Lab" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="span_lab">Semester 6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+
+  <div class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Government Polytechnic College Balaghat</h3>
+            <div class="underline"></div>
+            <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+            <p>07632 242443</p>
+            <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+            <p><a href="https://www.gpcbalaghat.ac.in"  target="_blank">www.gpcbalaghat.ac.in</a></p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <div class="underline"></div>
+            <ul class="footer-links">
+                <li><a href="../navbar_pages/about.html">About Us</a></li>
+                <li><a href="../gallery.html">Photo Gallery</a></li>
+                <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                <li><a href="../contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Important Links</h3>
+            <div class="underline"></div>
+            <ul class="footer-links">
+              <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>College Tour & Activities</h3>
+            <div class="underline"></div>
+            <div class="f-video-container">
+                <iframe src="" title="College Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>

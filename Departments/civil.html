@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/department.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+
+<body>
+
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="../navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Civil Engineering</h1>
+            <p>We Build The Foundations of Tomorrow</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">About Department</div>
+                <div class="line"></div>
+            </div>
+            <p class="about-describe">The CIVIL Engineering Department is one of the oldest and most challenging branch
+                of Engineering. The Diploma course at Govt. Polytechnic college Balaghat is equipped to meet the present
+                day technological and industrial requirements . The department emphasizes more on practical applications
+                of engineering concepts in order to make students skilled professionals.
+                The department is committed to well being and all round development of its students.</p>
+            <br>
+            <p class="about-describe">The objective of the CIVIL Engineering Diploma program is to prepare the manpower
+                that is required in
+                industries/ MNCS / public services . Most of the students , who graduate from the department, end up
+                taking good job in industry / MNC / public services.</p>
+        </section>
+
+
+
+
+        <section class="content">
+            <div class="box mission">
+                <h2>Our Mission</h2>
+                <div class="mission-container">
+                    <img src="../photos/mission cv.jpg" alt="Mission">
+                    <p>The mission of the Civil Engineering Department at Government Polytechnic College Balaghat is to deliver
+                        high-quality technical education and practical training that prepares students for real-world
+                        challenges in the field of civil engineering. We are committed to developing knowledgeable,
+                        skilled, and ethical diploma engineers who are capable of contributing to the planning, design,
+                        and execution of sustainable infrastructure projects. Our department encourages innovation,
+                        teamwork, and continuous learning to help students grow both professionally and personally.</p>
+                </div>
+            </div>
+
+            <div class="box vision">
+                <h2>Our Vision</h2>
+                <div class="mission-container">
+                    <img src="../photos/vision cv.jpg" alt="Vision">
+                    <p>To be a premier department in civil engineering education that inspires excellence, fosters
+                        creativity, and supports sustainable development. The Civil Engineering Department at Government
+                        Polytechnic College Balaghat envisions shaping future-ready professionals who can contribute effectively
+                        to society through advanced technical skills, environmental responsibility, and leadership in
+                        the construction industry. We aim to create a learning environment that supports research,
+                        collaboration, and a passion for building a better world.</p>
+                </div>
+            </div>
+        </section>
+        <div class="heading-container">
+            <div class="line"></div>
+            <div class="heading-box">PO's, PEO's & PSO's</div>
+            <div class="line"></div>
+        </div>
+        <section class="po-cards-container">
+            <div class="po-card">
+                <h2 class="po-card-title">PO'S</h2>
+                <ul class="po-card-list">
+                    <li><b>Basic knowledge:</b> An ability to apply knowledge of basic mathematics, science and
+                        engineering to
+                        solve the engineering problems.</li>
+                    <li><b>Discipline knowledge:</b> An ability to apply discipline-specific knowledge to solve core
+                        and/or Applied
+                        engineering problems.</li>
+                    <li><b>Experiments and practice:</b> An ability to plan and perform experiments and practices and to
+                        use the
+                        results to solve engineering problems.</li>
+                    <li><b>Engineering Tools: </b> Apply appropriate technologies and tools with an understanding of the
+                        Limitations.</li>
+
+                </ul>
+                <a href="../PO, POE,POS/CIVILPOE.HTML" class="read-more-btn">Read More <span class="arrow">→</span></a>
+            </div>
+
+            <div class="po-card">
+                <h2 class="po-card-title">PEO'S</h2>
+                <ul class="po-card-list">
+                    <li> <b>POE 1.</b> Plan, distinguish and select appropriate technologies for implementation of
+                        specified civil engineering projects.</li>
+                    <li> <b>POE 2.</b>Work in a team using common tools and environment to achieve project objective.
+                    </li>
+                    <li> <b>POE 3.</b> Solve Field problems and supervise civil engineering projects.</li>
+                </ul>
+                <a href="../PO, POE,POS/CIVILPOE.HTML" class="read-more-btn">Read More <span class="arrow">→</span></a>
+            </div>
+
+            <div class="po-card">
+                <h2 class="po-card-title">PSO'S</h2>
+                <ul class="po-card-list">
+                    <li> Data Collection, prepare drawings, specifications and cost estimates for civil engineering
+                        projects.</li>
+                    <li> Supervise civil engineering constructions and maintenance work applying appropriate
+                        construction techniques.</li>
+                    <li> Understand modern management and construction techniques to complete the project within the
+                        stipulated time and funds.</li>
+                    <li> Implement prevailing codal provisions, environmental and safety regulations during the
+                        execution of civil engineering projects.</li>
+
+                </ul>
+                <a href="../PO, POE,POS/CIVILPOE.HTML" class="read-more-btn">Read More <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+
+
+
+        <!-- HOD Desk Section -->
+        <section>
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">H.O.D. Desk</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="hod-desk-container">
+                <div class="hod-profile">
+                    <div class="hod-info">
+                        <div class="hod-left">
+                            <img src="/Faculty and Staff/civilhod.jpg" alt="Mr. Sudhir Babu Patel" class="hod-photo">
+                            <div class="hod-details">
+                                <h2 class="hod-name">Dr. Sudhir Babu Patel</h2>
+                                <p class="hod-title">I/C Head of Department</p>
+                                <p class="hod-qualifications">PhD (Structural Engineering)</p>
+                                <p class="hod-experience">10+ Years of Experience</p>
+                            </div>
+                        </div>
+
+                        <div class="hod-message">
+                            <h3 class="message-title">Message from HOD</h3>
+                            <div class="message-quote">
+                                "Climbing to the top demands strength, whether it is to the top of Mount Everest or to the top of your career."                            </div>
+                            <div class="message-content">
+                                <p>Welcome to the Department of Civil Engineering. Our department has been at the
+                                    forefront of civil engineering education since its inception, consistently producing
+                                    industry-ready
+                                    professionals and innovative researchers.</p>
+
+                                <p>We pride ourselves on our state-of-the-art facilities, distinguished faculty, and a
+                                    curriculum that blends theoretical knowledge with practical applications. Our focus
+                                    remains
+                                    on providing students with a comprehensive learning experience that prepares them
+                                    for the
+                                    challenges of the rapidly evolving infrastructure industry.</p>
+
+                                <p>Through our various programs, research initiatives, and industry collaborations, we
+                                    strive to
+                                    create an environment that fosters innovation, critical thinking, and technical
+                                    excellence.
+                                </p>
+                            </div>
+
+                            <div class="contact-info">
+                                <h4 class="contact-title">Contact Information</h4>
+                                <div class="contact-item">
+                                    <span class="contact-icon">✉️</span>
+                                    <span>Email: sudhirpatel2012@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <span>Phone: 7049265782</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🕒</span>
+                                    <span>Office Hours: Monday - Saturday, 10:30 AM - 5:00 PM</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>Mr. Sudhir Babu Patel</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>I/C Head of Department</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>Civil Engineering</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faculty Section -->
+        <section id="faculty" class="section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">Faculties</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="faculty-grid">
+                <!-- Faculty Card 1 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/gungun mam.jpg" alt="Mrs. Gungun Kashyap" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mrs. Gungun Kashyap</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position: </b>Sr. Lecturer</p>
+                            <p><b>Qualifications: </b> B.E</p>
+                            <p><b>Experience: </b> 9 Years</p>
+                            <p><b>Email: </b> gungun.kashyap@gpcbalaghat.ac.in</p>
+                            <p><b>Phone: </b> 9009140738</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Card 2 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/uday sir.jpg" alt="Mr. Uday Singh Uikey" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. Uday Singh Uikey</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position: </b> Sr. Lecturer</p>
+                            <p><b>Qualifications: </b> B.E</p>
+                            <p><b>Experience: </b> 15 Years</p>
+                            <p><b>Email: </b> ---</p>
+                            <p><b>Phone: </b> 9424352789</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- Faculty Card 4 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/abhisekh d.jpg" alt="Mr. Abhishek Deshmukh" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. Abhishek Deshmukh </div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position:</b> Guest Faculty</p>
+                            <p><b>Qualifications: </b>M.E. & B.E.</p>
+                            <p><b>Experience: </b> 8 Years</p>
+                            <p><b>Email: </b> abhishek.d@gpcbalaghat.ac.in</p>
+                            <p><b>Phone: </b> 9039960304</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Card 5 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/mohit sir.jpg" alt="Mr. Mohit Rangare" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. Mohit Rangare</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position:</b> Guest Faculty</p>
+                            <p><b>Qualifications: </b>M.Tech.</p>
+                            <p><b>Experience: </b> 6 Years</p>
+                            <p><b>Email: </b> mohit.rangare@gpcbalaghat.ac.in</p>
+                            <p><b>Phone: </b> 9806008394</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supporting Staff Section -->
+        <section id="staff" class="section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">Supporting Staffs</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="faculty-grid">
+
+                <!-- Faculty Card 3 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/sk rana.jpg" alt="Mr. S.K. Rana" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. S.K. Rana</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position:</b> Lab Technician </p>
+                            <p><b>Qualifications: </b> Post Graduation </p>
+                            <p><b>Experience: </b> 10 Years</p>
+                            <p><b>Email: </b> skrana@gpcbalaghat.ac.in</p>
+                            <p><b>Phone: </b> 7803842612</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Staff Card 2 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/br dharne.jpg" alt="Sarita Matel" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">B.R Dharne</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position:</b> Workshop Instractor </p>
+                            <p><b>Qualifications: </b> B.A. ITI </p>
+                            <p><b>Experience: </b> 20 Years</p>
+                            <p><b>Email: </b> brdpoly3@gmail.com</p>
+                            <p><b>Phone: </b> 9406767288</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Staff Card 1 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/Israel khan.jpg" alt="Mr. Dwarpal Bisane" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. Esrail khan</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Civil</p>
+                            <p><b>Position:</b> workshop blast</p>
+                            <p><b>Qualifications: </b> 8th</p>
+                            <p><b>Experience: </b> 25 Years</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Featured Semesters Section -->
+        <section id="programs" class="section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">Featured Semesters</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="courses">
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/ISEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">First Semester</h3>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/IISEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">Second Semester</h3>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/IIISEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">Third Semester</h3>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/IVSEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">Fourth Semester</h3>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/VSEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">Fifth Semester</h3>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="https://www.rgpvdiploma.in/SchemePDF/Syallabus/VISEMESTERCIVIL.pdf">
+                        <h3 class="semester-heading">Sixth Semester</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Quick Links Section -->
+        <section class="QUICK_LINKS">
+            <div class="quick-links-container">
+                <div class="heading-container">
+                    <div class="line"></div>
+                    <div class="heading-box">Quick Links</div>
+                    <div class="line"></div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx" target="_blank"
+                        class="Q-link">ACADEMIC
+                        CURRICULUM</a>
+
+                    <a href="https://ekumbh.aicte-india.org/dbook.php" target="_blank" class="Q-link">E-BOOKS</a>
+                    <a href="../Departments/civil-lab.html" class="Q-link">LAB</a>
+                    <a href="../projects/civilprojects.html" class="Q-link">PROJECTS</a>
+                    <a href="https://www.rgpvdiploma.in/StudentLife/StudentRegSubscription.aspx" target="_blank"
+                        class="Q-link">STUDENT
+                        REGISTRATION</a>
+                    <a href="https://www.rgpvdiploma.in/index.aspx" target="_blank" class="Q-link">FILL EXAM FORM</a>
+                    <a href="https://www.rgpvdiploma.in/Exam/DiplomaIIIYrResult.aspx" target="_blank"
+                        class="Q-link">RESULT</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in"  target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="../contactus.html">Contact Us</a></li>                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

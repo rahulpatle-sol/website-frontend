@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPC Alumni Association</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-light: #007bff;
+            --primary-dark: #004494;
+            --secondary: #00a8ff;
+            --accent: #ffd700;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --bg-light: #f5f9ff;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 86, 179, 0.1);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+            --radius-lg: 12px;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--primary-dark);
+        }
+
+
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 123, 255, 0.7)), url('../photos/ABOUT\ GPC\ BGT.jpg') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-wrapper svg {
+            color: var(--primary);
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Mission Section */
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .mission-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .mission-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-item svg {
+            color: var(--primary);
+            min-width: 24px;
+        }
+
+
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+
+
+
+
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item svg {
+            color: var(--primary);
+            min-width: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-form {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .heart-icon {
+            color: #ff6b6b;
+            width: 16px;
+            height: 16px;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+
+            .mission-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-image {
+                order: -1;
+            }
+        }
+
+      
+    </style>
+</head>
+
+<body>
+   <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+                    
+
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="/navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate-fade-in">Welcome to GPC Alumni Association</h1>
+            <p class="animate-fade-in">Connecting Past, Present, and Future</p>
+            <div class="hero-buttons animate-fade-in">
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2>Our Alumni Community</h2>
+                <p class="section-subtitle">Government Polytechnic College Balaghat Alumni Association</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Connect with thousands of alumni across the globe and expand your professional network.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3>Proud Legacy</h3>
+                    <p>Celebrating the achievements and contributions of our alumni in various fields worldwide.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Supporting current students through mentorship, scholarships, and career guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="mission section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Mission</span>
+                <h2>What We Stand For</h2>
+                <p class="section-subtitle">Our goals and commitments to the alumni community</p>
+            </div>
+            <div class="mission-content">
+                <div class="mission-image">
+                    <img src="../photos/alumni banner.jpg" alt="Mission Image">
+                </div>
+                <div class="mission-text">
+                    <div class="mission-item">
+                        <i data-feather="check-circle"></i>
+                        <div>
+                            <h3>Promote Networking</h3>
+                            <p>Foster meaningful connections among alumni through regular events and digital platforms.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <i data-feather="check-circle"></i>
+                        <div>
+                            <h3>Support Students</h3>
+                            <p>Provide mentorship, internships, and career guidance to current students.</p>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <i data-feather="check-circle"></i>
+                        <div>
+                            <h3>Institutional Development</h3>
+                            <p>Contribute to the growth and development of our alma mater through various initiatives.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <i data-feather="check-circle"></i>
+                        <div>
+                            <h3>Celebrate Achievements</h3>
+                            <p>Recognize and celebrate the accomplishments of our alumni community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="gallery" class="gallery section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Gallery</span>
+                <h2>Memories & Moments</h2>
+                <p class="section-subtitle">Glimpses from our alumni events and gatherings</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="events">
+                    <img src="../Gallery/alumnies/10_img.jpeg" alt="Alumni Meet 2024">
+                    <div class="gallery-overlay">
+                        <h3>Alumni Meet 2024</h3>
+                        <p>Annual gathering at campus</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="workshops">
+                    <img src="../Gallery/alumnies/11_img.jpg" alt="Career Workshop">
+                   
+                </div>
+                <div class="gallery-item" data-category="events">
+                    <img src="../Gallery/alumnies/12_img.jpeg" alt="Silver Jubilee">
+                    <div class="gallery-overlay">
+                        
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/13_img.jpeg" alt="Campus Tour">
+                    <div class="gallery-overlay">
+                        
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="workshops">
+                    <img src="../Gallery/alumnies/2021 batch.jpg" alt="Mentorship Program">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/8_img.jpg" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/9_img.jpeg" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/DSC_0004.JPG" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/DSC_0359 - Copy.JPG" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/DSC_0360 - Copy.JPG" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/DSC_0366.JPG" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/DSC_0375.JPG" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/IMG_20241220_165258.jpg" alt="New Building Inauguration">
+                    
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="../Gallery/alumnies/Screenshot_20250427_145820_Instagram.jpg" alt="New Building Inauguration">
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Contact Us</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i data-feather="map-pin"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Govt. Polytechnic College, Balaghat, MP, India - 481001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i data-feather="mail"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>alumnigpcb@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i data-feather="phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 7632 242443</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i> </a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+
+
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Sticky Header
+        const header = document.querySelector('.header');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                // Simple validation
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                // Here you would typically send the form data to a server
+                // For demo purposes, we'll just show a success message
+                alert(`Thank you, ${name}! Your message has been sent successfully. We'll get back to you soon.`);
+
+                // Reset the form
+                contactForm.reset();
+            });
+        }
+
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-card, .mission-item, .gallery-item, .event-card');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial styles for animation
+        const elementsToAnimate = document.querySelectorAll('.about-card, .mission-item, .gallery-item, .event-card');
+        elementsToAnimate.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Run once on page load
+        animateOnScroll();
+        });
+
+
+    </script>
+</body>
+
+</html>

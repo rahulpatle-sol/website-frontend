@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>Janbhagidari Samiti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            margin: 100px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #4820a5;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+
+        th {
+            background: #4820a5;
+            color: white;
+        }
+
+        .member-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        .samanay-samiti {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #d8dae3;
+            border-radius: 10px;
+        }
+
+        .prabandhan-samiti {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #d8dae3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="/navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <div class="container">
+        <h1>जनभागीदारी समिति का कार्य विवरण</h1>
+        <p>शासकीय पोलीटेक्निक कालेजो मे जनभागीदारी सुनिश्चित करने के लिये उनके स्थानीय प्रबंधक को एक समिति का सौपा जाना
+            सुनिश्चित किया गया। यह समिति "मध्यप्रदेश सोसायटी रजिस्ट्रीकरण अधिनियम, 1973" के अंतर्गत शासकीय पोलीटेक्निक
+            महाविद्यालय बालाघाट वार्ड नम्बर 33 तह. बालाघाट जिला-बालाघाट मे स्थित है। जिसका मध्यप्रदेश सोसायटी
+            रजिस्ट्रीकरण अधिनियम 1973 (सन् 1973 का क्रमांक- 44) के अधीन 22.01.2003 को पंजीयित किया गया है।</p>
+        <br>
+        <h2>जनभागीदारी समिति के अन्तर्गत निम्न समितियां गठित है -</h2>
+        <ul>
+            <li>सामान्य परिषद</li>
+            <li>प्रबंध समिति</li>
+            <li>वित्तसमिति</li>
+
+        </ul>
+        <p>
+            साधारणतः सामान्य परिषद की बैठक वर्ष मे दो बार होती है।आवश्यकतानुसार परिषद की विशेष बैठक भी बुलाई जा सकती है
+            परिषद निति निर्धारण के साथ पोलीटेक्निक की गतिविधियो की सामान्य रुप से देखरेख करती है।
+            सामान्य परिषद के अतिरिक्त के कार्य-कलापो के समुचित प्रबंधन के लिये प्रबंध समिति एवं वित समिति होती है।
+        </p>
+        <br>
+        <h2>जनभागीदारी समिति के मुख्य उदेश्य</h2>
+        <ul>
+            <li>संस्था के पाठ्यक्रमों की पाठयचर्चा के अनुसार प्रयोगशालाओ मे अध्ययन प्रशिक्षण के लिये आधुनिक उपकरण उपलब्घ
+                कराना।</li>
+            <li>भारतसरकार के तकनीकी शिक्षा गुणवता सुधार कार्यक्रम; ज्म्फप्च्द्ध के माध्यम से संस्था का चुहुमुखी विकास
+                जिसम सामुदायिक सेवाये एवं शैक्षणिक उत्कृष्टता के क्रियाकलाप सम्मिलित है।</li>
+            <li>छात्रा और शिक्षको को पठन-पाठन के लिय पुस्तके, तकनीकी पत्रिकाये (टेक्नीकल जरनल्स) इत्यादि उपलब्ध करना है।
+            </li>
+            <li>संस्था मे छात्रो को प्रशिक्षण हेतु कम्प्यूटर, इन्टरनेट आदि सुविधा उपलब्ध कराना।</li>
+            <li>संस्था के भवनो एंव प्रयोगशालाओ का रखरखाव।</li>
+            <li>गैस्ट फेकल्टी की व्यवस्था।</li>
+        </ul>
+        <br>
+        <p>
+            जनभागीदारी समिति के अध्यक्ष एवं सदस्यो के नाम मनोनयन हेतु आयुक्त, तकनीकी शिक्षा मध्यप्रदेश भोपाल के समक्ष
+            प्रस्तुत किये है।</p>
+
+        <div class="samanay-samiti">
+            <h2 style="color: #254981; font-weight: 900; text-align: center;">समान्य परिषद</h2>
+            <table>
+                <tr>
+
+                    <th>नाम</th>
+                    <th>पद</th>
+
+                </tr>
+                <tr>
+
+                    <td>श्री मकरंद अंधारे, (माननीय सांसद जी के प्रतिनिधि) </td>
+                    <td>सदस्य </td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री नरेन्द्र मेश्राम, (माननीय विधायक जी के प्रतिनिधि) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>प्रबंधक, मायल, भरवेली </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>कार्यपालन यंत्री, लोनिवि, बालाघाट </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री किरण त्रिवेदी (स्थानीय औद्योगिक संगठन के प्रतिनिधि)</td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री प्रजेश विसेन (स्थानीय औद्योगिक संगठन के प्रतिनिधि)</td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री के.बी. सुरेश (छात्र अभिभावक) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री विजय वरकडे (छात्र अभिभावक) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>
+                        श्रीमती ओमेश्वरी योलेन्द (छात्र अभिभावक) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री योगेश ठाकरे (छात्र अभिभावक) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्रीमती अनीता शर्मा (छात्र अभिभावक) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>इंजी. इकबाल मंसूरी (भूतपूर्व छात्र प्रतिनिधि) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>इंजी. गुनेश्वर सिंह राहंगडाले (भूतपूर्व छात्र प्रतिनिधि) </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री आर.एम. सोनवे, प्राचार्य </td>
+                    <td>सचिव </td>
+
+                </tr>
+                <tr>
+
+                    <td>डॉ. सुधीर बाबू पटेल, व्याख्याता </td>
+                    <td>प्र.अ. </td>
+
+                </tr>
+            </table>
+
+
+        </div>
+        <div class="prabandhan-samiti">
+            <h2 style="color: #254981; font-weight: 900; text-align: center;">प्रबंध समिति</h2>
+            <table>
+                <tr>
+
+                    <th>नाम</th>
+                    <th>पद</th>
+
+                </tr>
+                <tr>
+
+                    <td>प्राचार्य, शासकीय पॉलीटेक्निक महाविद्यालय, सिवनी (म.प्र.) (राजीव गांधी प्रौद्योगिक विश्वविद्यालय
+                        द्वारा मनोनीत) </td>
+                    <td>सदस्य </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>प्रबंधक, मायल, भरवेली </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>कार्यपालन यंत्री, लोनिवि, बालाघाट </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री किरण त्रिवेदी (स्थानीय औद्योगिक संगठन के प्रतिनिधि)</td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री प्रजेश विसेन (स्थानीय औद्योगिक संगठन के प्रतिनिधि)</td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>श्री आलोक चौहान, विभागाध्यक्ष मैक. इंजी. शास. पॉली. महा. बालाघाट </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>सुश्री उमा घोष, व्याख्याता (चयन ग्रेड-1) शास. पॉली. महा. बालाघाट </td>
+                    <td>सदस्य</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>श्री आर.एम. सोनवे, प्राचार्य </td>
+                    <td>सचिव </td>
+
+                </tr>
+                <tr>
+
+                    <td>डॉ. सुधीर बाबू पटेल, व्याख्याता </td>
+                    <td>प्र.अ. </td>
+
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="prabandhan-samiti">
+            <h2 style="color: #254981; font-weight: 900; text-align: center;"> वित्त समिति (2024-25)
+
+            </h2>
+            <h4 style="color: #254981; font-weight: 900; text-align: center;">शा० पॉली. महाविद्यालय बालाघाट 
+
+            </h4>
+            <table>
+                <tr>
+
+                    <th>नाम</th>
+                    <th>पद</th>
+
+                </tr>
+                <tr>
+
+                    <td>प्राचार्य 
+                 </td>
+                    <td>अध्यक्ष</td>
+
+                </tr>
+
+                <tr>
+
+                    <td> जिला कोषालय अधिकारी  </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td> शाखा प्रबंधक,पंजाब नेशनल बैंक  </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>चार्टेड एकाउंटेंट </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>02-व्याख्याता </td>
+                    <td>सदस्य</td>
+
+                </tr>
+                <tr>
+
+                    <td>प्रभारी अधिकारी जनभागीदारी समिति   </td>
+                    <td>सदस्य</td>
+
+                </tr>
+               
+
+
+                
+                
+            </table>
+
+        </div>
+
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

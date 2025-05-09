@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Humanities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a7a;
+            --secondary-color: #e6f0fa;
+            --accent-color: #275492;
+            --text-color: #333;
+            --light-text: #fff;
+            --card-bg: #f0f0f0;
+            --card-border: #ddd;
+            --gradient-start: rgba(19, 106, 179, 1);
+            --gradient-end: rgba(48, 12, 133, 1);
+            --faculty-card-bg: rgb(82, 127, 147);
+            --quick-link-bg: #8B8878;
+            --quick-link-hover: #2a476b;
+            --heading-color: #1a237e;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+
+        /* Hero section */
+        .hero {
+            background-image: url('/photos/SCIENCEBANNER.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 90%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .hero-content:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Main content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .about-section {
+            margin-bottom: 2rem;
+            margin-top: 40px;
+        }
+
+        .about-describe {
+            text-align: justify;
+            text-justify: inter-word;
+            padding: 0 20px;
+            line-height: 1.8;
+        }
+
+        /* Heading container */
+        .heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px 0 30px;
+        }
+
+        .line {
+            width: 80px;
+            height: 4px;
+            background-color: rgb(25, 115, 234);
+            margin: 0 15px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .heading-box {
+            color: var(--heading-color);
+            padding: 6px 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 1s ease-in-out forwards;
+            text-align: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                width: 0;
+            }
+
+            to {
+                opacity: 1;
+                width: 80px;
+            }
+        }
+
+        /* HOD Desk */
+        .hod-desk-container {
+            width: 1400px;
+            justify-self: center;
+            padding: 20px;
+        }
+
+        .hod-profile {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .hod-info {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .hod-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--secondary-color);
+            padding: 20px;
+        }
+
+        .hod-photo {
+            width: 250px;
+            height: 300px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hod-details {
+            text-align: center;
+            width: 100%;
+        }
+
+        .hod-name {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .hod-title {
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .hod-qualifications {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .hod-experience {
+            font-size: 0.9rem;
+        }
+
+        .hod-message {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .message-title {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .message-quote {
+            font-style: italic;
+            color: var(--primary-color);
+            padding: 10px 0;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        .message-content p {
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            border-top: 1px solid var(--card-border);
+            padding-top: 15px;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Faculty section */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+            justify-self: center;
+        }
+
+        .faculty-card {
+            background-color: var(--faculty-card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            justify-self: center;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .faculty-image {
+            width: 100%;
+            height: 350px;
+
+        }
+
+        .faculty-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .faculty-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .faculty-details p {
+            margin: 3px 0;
+            font-size: 0.9em;
+        }
+
+
+
+   
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+
+            .heading-box {
+                font-size: 1.8rem;
+            }
+
+            .line {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hod-info {
+                flex-direction: column;
+            }
+
+            .hod-left {
+                width: 100%;
+            }
+
+            .hod-message {
+                width: 100%;
+            }
+
+            .heading-box {
+                font-size: 1.6rem;
+            }
+
+            .line {
+                width: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .hero {
+                height: 300px;
+                margin-top: 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .heading-box {
+                font-size: 1.4rem;
+            }
+
+            .line {
+                width: 40px;
+            }
+
+            .hod-desk-container {
+                width: 100%;
+            }
+
+            .hod-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .message-title {
+                font-size: 1.2rem;
+            }
+
+            .faculty-image {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 250px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .heading-box {
+                font-size: 1.2rem;
+                padding: 5px 10px;
+            }
+
+            .line {
+                width: 30px;
+                height: 3px;
+            }
+
+            .hod-desk-container {
+                padding: 10px;
+            }
+
+            .hod-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hod-name {
+                font-size: 1.3rem;
+            }
+
+            .message-quote {
+                padding-left: 10px;
+            }
+
+            .faculty-image {
+                height: 350px;
+            }
+
+            .course {
+                padding: 1rem;
+                margin-right: 40px;
+            }
+
+            .footer {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="../navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Science Humanities </h1>
+            <p>"Innovation in motion, shaping the future with precision."</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">About Department</div>
+                <div class="line"></div>
+            </div>
+            <p class="about-describe">The Science and Humanities Engineering Department at GPC Balaghat is dedicated to
+                providing
+                cutting-edge education and research opportunities in the field of civil engineering. Our programs
+                prepare students for exciting
+                careers in infrastructure development and innovation. The Civil Engineering Department is one of the
+                evolving departments of the institute which was established in the year 2007. The department has
+                well-equipped laboratories where students are well trained under the guidance of experienced faculty.
+                Civil engineering
+                is essential for all infrastructure development due to which the career possibilities are endless. The
+                present intake
+                capacity of the department is 60, having qualified faculty members and supporting staff. The
+                higher-ranked candidates in PPT opt for admission in Diploma (Civil Engineering) at this
+                department. Students passing out from this department get good placements. Since civil engineering
+                skills are integral to modern infrastructure development, you're likely to find our civil engineering
+                skills in high demand across
+                many different industries.</p>
+        </section>
+        <!-- HOD Desk Section -->
+        <section>
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">H.O.D. Desk</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="hod-desk-container">
+                <div class="hod-profile">
+                    <div class="hod-info">
+                        <div class="hod-left">
+                            <img src="/Faculty and Staff/hod cse.jpg" alt="HOD CSE" class="hod-photo">
+                            <div class="hod-details">
+                                <h2 class="hod-name">Miss Uma Ghosh</h2>
+                                <p class="hod-title">Head of Department</p>
+                                <p class="hod-qualifications">M.Sc. M.Phil</p>
+                                <p class="hod-experience">18+ Years of Experience</p>
+                            </div>
+                        </div>
+
+                        <div class="hod-message">
+                            <h3 class="message-title">Message from HOD</h3>
+                            <div class="message-quote">
+                                "Humanity without science is fragile; science without humanity is lethal."
+                            </div>
+                            <div class="message-content">
+                                <p>The Science and Humanities Department at Government Polytechnic College, Balaghat
+                                    forms the academic foundation for all diploma engineering programs offered at the
+                                    institution. With a mission to cultivate scientific temper, critical thinking, and
+                                    strong communication skills among students, the department plays a pivotal role in
+                                    nurturing well-rounded technical professionals.</p>
+
+                                <p>Our curriculum covers key subjects such as Mathematics, Physics, Chemistry, English,
+                                    Environmental Studies, and Professional Communication, ensuring students develop a
+                                    comprehensive understanding of the basic sciences and human values that are
+                                    essential for engineering excellence.</p>
+
+                                <p>The department boasts highly qualified and experienced faculty members who are
+                                    committed to delivering quality education through innovative teaching methodologies,
+                                    laboratory experiments, and project-based learning. By fostering a spirit of inquiry
+                                    and ethical responsibility, the Science and Humanities Department equips students
+                                    with the analytical abilities, creativity, and leadership qualities needed to thrive
+                                    in the modern technological world.
+                                </p>
+                            </div>
+
+                            <div class="contact-info">
+                                <h4 class="contact-title">Contact Information</h4>
+                                <div class="contact-item">
+                                    <span class="contact-icon">✉️</span>
+                                    <span>Email: csegpc@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <span>Phone: 9977018004</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🕒</span>
+                                    <span>Office Hours: Monday - Saturday, 10:30 AM - 5:00 PM</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>Miss Uma Ghosh</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>Head of Department</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span>Computer Science & Engineering</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faculty Section -->
+        <section id="faculty" class="section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">Faculties</div>
+                <div class="line"></div>
+            </div>
+            <div class="faculty-grid">
+
+
+                <!-- Faculty Card 1 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/kalyani mam.jpg" alt="Prof. David Lee" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mrs. Kalyani Rangire</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Guest Faculty</p>
+                            <p><b>Qualifications: </b> M.Sc(Mathematics)</p>
+                            <p><b>Experience: </b> 12 Years</p>
+                            <p><b>Email: </b> iamkalyani07@gmail.com</p>
+                            <p><b>Phone: </b> 8319245823</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Card 8 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/shubhi mam.jpg" alt="Dr. Lisa Wang" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Miss Shubhi Jain</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Guest Faculty</p>
+                            <p><b>Qualifications: </b> M.Sc.(Physics)</p>
+                            <p><b>Experience: </b> 06 Months</p>
+                            <p><b>Email: </b> shubhijainsjc@gmail.com</p>
+                            <p><b>Phone: </b> 9205305412</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Card 9 -->
+
+                <!-- Faculty Card 10 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/lal sir.jpg" alt="Prof. Robert Taylor" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Noel Christofer Lal</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Guest Faculty</p>
+                            <p><b>Qualifications: </b>M.A. M.Phil B.ed.</p>
+                            <p><b>Experience: </b> 16 Years</p>
+                            <p><b>Email: </b> noelchristofer1@gmail.com</p>
+                            <p><b>Phone: </b> 7828757946</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        </section>
+
+        <!-- Supporting Staff Section -->
+        <section id="staff" class="section">
+            <div class="heading-container">
+                <div class="line"></div>
+                <div class="heading-box">Supporting Staffs</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="faculty-grid">
+                <!-- Staff Card 1 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/vidyavati mam.jpg" alt="faculty-img" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mrs. Vidyavati Ukey</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Lab Technician</p>
+                            <p><b>Qualifications: </b> M.Sc.</p>
+                            <p><b>Experience: </b> 15 Years</p>
+                            <p><b>Email: </b> vidhyativibhu@gmail.com</p>
+                            <p><b>Phone: </b> 8517883008</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Faculty Card 1 -->
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/tilgam sir.jpg" alt="Prof. Robert Taylor" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Ashok Singh Tilgam</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Lab Technician</p>
+                            <p><b>Qualifications: </b> B.Sc.(Bio)</p>
+                            <p><b>Experience: </b> 15 Years</p>
+                            <p><b>Email: </b> ashokstilgam@gmail.com</p>
+                            <p><b>Phone: </b> 9424613625</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="faculty-card">
+                    <img src="/Faculty and Staff/dwarpalbhaiya.jpg" alt="Mr. Dwarpal Bisane" class="faculty-image">
+                    <div class="faculty-info">
+                        <div class="faculty-name">Mr. Dwarpal Bisane</div>
+                        <div class="faculty-details">
+                            <p><b>Department:</b> Computer Science</p>
+                            <p><b>Position:</b> Department Work</p>
+                            <p><b>Qualifications: </b> 8th</p>
+                            <p><b>Experience: </b> 25 Years</p>
+                            <p><b>Email: </b> dwarpal.b@gpcbalaghat.ac.in</p>
+                            <p><b>Phone: </b> 8349377029</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in"  target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="../contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

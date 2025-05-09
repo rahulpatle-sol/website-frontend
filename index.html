@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Government Polytechnic College Balaghat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+</head>
+
+<!-- Loader -->
+<!-- <div id="loader">
+  <img src="./photos/logogpc.png" alt="" style="width: 100px; height: 130px" />
+  <br />
+  <h2>शासकीय पॉलिटेक्निक महाविद्यालय बालाघाट</h2>
+  <h2>Government Polytechnic College Balaghat</h2>
+</div> -->
+
+<body>
+  <!-- Top Bar -->
+  <nav class="top-navbar">
+    <div class="top-social-icons">
+      <a href="https://www.instagram.com/poly.bgt1962/" class="top-social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61574799926006" class="top-social-icon">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="top-social-icon">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <div class="top-contact-info">
+      <div class="top-contact-item">
+        <div class="top-contact-icon"><i class="fas fa-phone"></i></div>
+        <span class="top-contact-text">07632 242443</span>
+      </div>
+      <div class="top-contact-item">
+        <div class="top-contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <span class="top-contact-text">poly.bgt1962@gmail.com</span>
+      </div>
+    </div>
+
+    <a href="http://localhost/backend/login.php" class="admin-login">
+      <i class="fas fa-user"></i>
+      Admin Login
+    </a>
+  </nav>
+
+  <!-- Main Header -->
+  <div class="main-header">
+    <img src="/photos/logogpc.png" alt="College Logo" class="logo" />
+    <div class="college-info">
+      <h1>शासकीय पॉलिटेक्निक महाविद्यालय बालाघाट</h1>
+      <h2>Government Polytechnic College Balaghat</h2>
+      <p>Moti Nagar, Ward No 33, Balaghat, Madhya Pradesh 481001.</p>
+    </div>
+    <img src="/photos/dte-removebg-preview (1).png" alt="Right Logo" class="logo-right" />
+  </div>
+
+  <!-- Navigation Menu -->
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div class="contact-info-icons">
+      <a href="https://www.instagram.com/poly.bgt1962/">
+        <i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61574799926006">
+        <i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/">
+        <i class="fa-brands fa-linkedin"></i></a>
+      <a href=""> <i class="fa-brands fa-youtube"></i></a>
+      <a href=""> <i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Overlay for mobile menu -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-items">
+      <div class="nav-item">
+        <a href="#">About</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/about.html">About College</a>
+          <a href="/navbar_pages/vision.html">Vision & Mission</a>
+          <a href="/Documents Pdf/organizational-chart.pdf" target="_blank">Organizational Chart</a>
+          <a href="/navbar_pages/administration.html">Administration</a>
+          <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+          <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Academic</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/admission process.html">Admission Process</a>
+          <a href="/navbar_pages/fees.html">Fees Structure</a>
+          <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx" target="_blank">Academic Calender</a>
+          <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$" target="_blank">RGPV Schemes &
+            Syllabus</a>
+          <a href="/navbar_pages/scholarship.html">Scholarships</a>
+          <a href="Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Departments</a>
+        <div class="dropdown">
+          <a href="../Departments/computer.html">Computer Science & Engineering</a>
+          <a href="../Departments/Electrical.html">Electrical Engineering</a>
+          <a href="../Departments/civil.html">Civil Engineering</a>
+          <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="../Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Placements</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/TPO.HTML">Overview</a>
+          <a href="/navbar_pages/mou.html">M.O.U.</a>
+          <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+          <a href="/navbar_pages/internship.html">Internships</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Student Zone</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="./navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Grievance Redressal</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+          <a href="/navbar_pages/women cell.html">Women Cell</a>
+          <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+          <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Downloads</a>
+        <div class="dropdown">
+          <a href="https://ekumbh.aicte-india.org/" target="_blank">E-Books</a>
+          <a href="navbar_pages/forms.html">Forms</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation -->
+  <div class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav-items">
+      <a href="#" class="bottom-nav-item active" data-panel="home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" class="bottom-nav-item" data-panel="academic">
+        <i class="fas fa-book"></i>
+        <span>Departments</span>
+      </a>
+      <a href="#" class="bottom-nav-item" data-panel="student">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Student Zone</span>
+      </a>
+      <a href="http://localhost/backend/login.php" class="bottom-nav-item" data-panel="about">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Admin</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Nav Panels -->
+  <!-- Home Panel -->
+  <div class="bottom-nav-panel" id="home-panel">
+    <div class="panel-header">
+      <h3>Home</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+        <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+        <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+        <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+        <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To
+          RGPV</a>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Panel -->
+  <div class="bottom-nav-panel" id="academic-panel">
+    <div class="panel-header">
+      <h3>Department</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="../Departments/computer.html">Computer Science & Engineering</a>
+        <a href="../Departments/Electrical.html">Electrical Engineering</a>
+        <a href="../Departments/civil.html">Civil Engineering</a>
+        <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+        <a href="../Departments/Science.html">Science & Humanities</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Panel -->
+  <div class="bottom-nav-panel" id="student-panel">
+    <div class="panel-header">
+      <h3>Student Zone</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="/navbar_pages/library2.html">Library</a>
+        <a href="/navbar_pages/hostel.html">Hostel</a>
+        <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+        <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+        <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+        <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Panel -->
+  <div class="bottom-nav-panel" id="about-panel">
+    <div class="panel-header">
+      <h3>Admin Login</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="http://localhost/backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Container -->
+  <div class="vid-container">
+    <video src="/photos/FONT VIDEO.mp4" autoplay loop muted></video>
+  </div>
+
+  <!-- About College Section -->
+  <div class="about-container">
+    <div class="about-main-content">
+      <div class="about-college-image">
+        <img src="/photos/ABOUT GPC BGT.jpg" alt="GPC Balaghat Campus" />
+      </div>
+      <div class="about-college-info">
+        <div class="heading-container">
+          <div class="line" style="background-color: red"></div>
+          <div class="heading-box">About GPC Balaghat</div>
+          <div class="line" style="background-color: red"></div>
+        </div>
+        <div class="approval">AICTE APPROVED & RGPV AFFILIATED</div>
+        <div class="approval">AICTE APPLICATION NO. 1-46478978</div>
+        <p class="about-college-description">
+          Government Polytechnic College Balaghat (MP) was established in July
+          1962 under Open door policy of Central Government. Initially it was
+          run by a society and became a Government Institute in the year 1984.
+          The area of this college is about 10.50 Acres surrounded by a
+          Wainganga river and a dense teak wood forest. Our college is
+          approved by AICTE and running four diploma courses named Civil,
+          Mechanical, Electrical and Comp. Sc. & Engineering affiliated to
+          Technical University RGPV, Bhopal Madhya Pradesh. The College
+          produces highly skilled technicians which are well placed in reputed
+          companies through campus placement and direct recruitment. Some
+          students go for higher studies. Our college is well equipped with
+          latest instruments having well qualified and experienced faculty and
+          staff members. Our college is committed to produce skilled and
+          expert technicians in various branches of Engineering and also
+          involved in various activities and latest developments for providing
+          value based education to students for their coming bright future.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Students</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">80+</div>
+        <div class="stat-label">Faculty Members</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">4+</div>
+        <div class="stat-label">Programs Offered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">5000+</div>
+        <div class="stat-label">Alumnies</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Labs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">90+</div>
+        <div class="stat-label">Subjects Covered</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notice And News Section -->
+  <section style="padding: 40px">
+    <div style="
+          display: flex;
+          gap: 30px;
+          justify-content: center;
+          flex-wrap: wrap;
+          max-width: 1800px;
+          margin: auto;
+        ">
+      <!-- 🔔 Notice Board -->
+      <div style="flex: 1; min-width: 400px; max-width: 800px">
+        <div style="
+              background-color: #1a4e94;
+              color: white;
+              padding: 15px 20px;
+              border-radius: 8px 8px 0 0;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            ">
+          <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="24" />
+          <h2 style="font-size: 22px; margin: 0">Notice Board</h2>
+        </div>
+        <div id="notifications" style="
+              background: white;
+              max-height: 500px;
+              overflow-y: auto;
+              padding: 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+              border-radius: 0 0 8px 8px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            "></div>
+      </div>
+
+      <!-- 📰 News -->
+      <div style="flex: 1; min-width: 400px; max-width: 800px">
+        <div style="
+              background-color: #1a4e94;
+              color: white;
+              padding: 15px 20px;
+              border-radius: 8px 8px 0 0;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            ">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" width="24" />
+          <h2 style="font-size: 22px; margin: 0">News</h2>
+        </div>
+        <div id="news" style="
+              background: white;
+              max-height: 500px;
+              overflow-y: auto;
+              padding: 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+              border-radius: 0 0 8px 8px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            "></div>
+      </div>
+    </div>
+
+    <style>
+      .card-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .card-item:hover .card-title {
+        text-decoration: underline;
+      }
+
+      .card-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: #1a4e94;
+        margin-bottom: 4px;
+      }
+
+      .card-content {
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+
+    <script>
+      const notificationSound = new Audio("./audio/notoication.mp3");
+      let lastNotifIds = [];
+      let lastNewsIds = [];
+
+      function createCard(item, isNews = false) {
+        const fullAttach = item.image && item.image.trim() !== ""
+          ? `http://localhost/backend/${item.image}`
+          : null;
+      
+        const wrapper = document.createElement("div");
+        wrapper.className = "card-item";
+      
+        wrapper.innerHTML = `
+          <div class="card-title">${item.title || "Untitled"}</div>
+          <div class="card-content">${item.content || ""}</div>
+        `;
+      
+        if (fullAttach) {
+          wrapper.style.cursor = "pointer";
+          wrapper.title = "Click to open attachment";
+          wrapper.addEventListener("click", () => {
+            window.open(`${fullAttach}?v=${Date.now()}`, "_blank");
+          });
+      
+          console.log("Opening:", fullAttach);
+        }
+      
+        return wrapper;
+      }
+      
+      
+
+      function loadData(table, targetId, lastIdsRef, isNews = false) {
+        fetch(
+          `http://localhost/backend/data.php?table=${table}&rand=` +
+          Date.now()
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            const container = document.getElementById(targetId);
+            const data = result.data;
+
+            if (!Array.isArray(data) || data.length === 0) {
+              container.innerHTML =
+                '<p style="color:red;">No data found.</p>';
+              return;
+            }
+
+            const currentIds = data.map((item) => item.id);
+            const isNew =
+              JSON.stringify(currentIds) !== JSON.stringify(lastIdsRef);
+
+            if (!isNews && isNew && lastIdsRef.length > 0) {
+              notificationSound
+                .play()
+                .catch((err) => console.log("Sound error:", err));
+              if (Notification.permission === "granted") {
+                new Notification("🔔 New Notification", {
+                  body: data[0].title || "You have a new notification!",
+                  icon: "notif-icon.png",
+                });
+              }
+            }
+
+            lastIdsRef.splice(0, lastIdsRef.length, ...currentIds);
+            container.innerHTML = "";
+            data.forEach((item) => {
+              const card = createCard(item, isNews);
+              container.appendChild(card);
+            });
+          })
+          .catch((err) => {
+            console.error(`${table} error:`, err);
+            document.getElementById(targetId).innerHTML =
+              '<p style="color:red;">Failed to load data.</p>';
+          });
+      }
+
+      if ("Notification" in window && Notification.permission === "default") {
+        Notification.requestPermission();
+      }
+
+      loadData("notifications", "notifications", lastNotifIds);
+      loadData("news", "news", lastNewsIds, true);
+    </script>
+  </section>
+
+  <!-- News-section
+       -->
+
+  <!-- Principal Section -->
+  <div class="heading-container">
+    <div class="line"></div>
+    <div class="heading-box">Principal Desk</div>
+    <div class="line"></div>
+  </div>
+  <section class="main-principle-desk-section">
+    <div class="hod-desk-container">
+      <div class="hod-profile">
+        <div class="hod-info">
+          <div class="hod-left">
+            <img src="/Faculty and Staff/principal.jpg" alt="Mr. R. M. Sonway" class="hod-photo" />
+            <div class="hod-details">
+              <h2 class="hod-name">Mr. R. M. Sonway</h2>
+              <p class="hod-title">Principal</p>
+              <p class="hod-qualifications">B.E.(Civil Eng.) M.Tech(Edu.)</p>
+              <p class="hod-experience">31+ Years of Academic Excellence</p>
+            </div>
+          </div>
+
+          <div class="hod-message">
+            <h3 class="message-title">Message from Principal</h3>
+            <div class="message-quote">
+              "Empowering minds, inspiring innovation, and shaping the leaders
+              of tomorrow"
+            </div>
+            <div class="message-content">
+              <p>
+                Welcome to Government Polytechnic colllege Balaghat. As the
+                principal, it is my privilege to lead an institution that
+                stands at the forefront of educational innovation and academic
+                distinction.
+              </p>
+
+              <p>
+                Our college is more than just a place of learning; it's a
+                vibrant community where ideas flourish, talents are nurtured,
+                and futures are shaped. We pride ourselves on our cutting-edge
+                facilities, distinguished faculty, and a curriculum that
+                seamlessly blends traditional wisdom with modern technological
+                advancements.
+              </p>
+
+              <p>
+                At Government Polytechnic College Balaghat, we believe in
+                fostering an environment that encourages critical thinking,
+                creativity, and personal growth. Our goal is not just to
+                impart knowledge, but to inspire a lifelong love for learning
+                and a commitment to excellence in all endeavors.
+              </p>
+              <p>
+                We are dedicated to preparing our students for the challenges
+                of the rapidly evolving global landscape. Through innovative
+                teaching methodologies, industry partnerships, and a focus on
+                holistic development, we ensure that our graduates are not
+                just job-ready, but are capable of becoming leaders and
+                change-makers in their chosen fields.
+              </p>
+            </div>
+
+            <div class="contact-info">
+              <h4 class="contact-title">Contact Information</h4>
+              <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <span><b>Email:</b> principal@gpcbalaghat.ac.in</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span><b>Phone:</b> 9977018004</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">🕒</span>
+                <span><b>Office Hours:</b> Monday - Saturday, 10:00 AM - 4:00
+                  PM</span>
+              </div>
+              <br />
+              <div class="contact-item">
+                <span><b>Mr. R. M. Sonway</b></span>
+              </div>
+              <div class="contact-item">
+                <span>Principal</span>
+              </div>
+              <div class="contact-item">
+                <span>Government Polytechnic College Balaghat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department Section -->
+  <div class="department-section">
+    <div class="heading-container">
+      <div class="line"></div>
+      <div class="heading-box" style="text-align: center">
+        Our Academic Department's
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="grid-container">
+      <a href="Departments/computer.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/genetic-engineering.png" alt="Computer Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Computer Science<br />& Engineering</div>
+        </div>
+      </a>
+      <a href="Departments/civil.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/CIVIL.png" alt="Building Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Civil Engineering</div>
+        </div>
+      </a>
+      <a href="Departments/mechanical.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/MECH.png" alt="Tools Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Mechanical Engineering</div>
+        </div>
+      </a>
+      <a href="Departments/electrical.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/ELECT.png" alt="Bulb Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Electrical Engineering</div>
+        </div>
+      </a>
+      <a href="Departments/science.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/SCIENCE.png" alt="Molecule Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Science & Humanities</div>
+        </div>
+      </a>
+      <a href="Departments/workshop.html">
+        <div class="card">
+          <div class="icon">
+            <img src="/photos/WORKSHOP.png" alt="Factory Icon" />
+          </div>
+          <div class="card-title" style="color: white;">Workshop's</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Event Section -->
+  <div class="heading-container">
+    <div class="line"></div>
+    <div class="heading-box">LATEST HAPPENINGS</div>
+    <div class="line"></div>
+  </div>
+  <div class="event-container">
+    <div class="slider-container">
+      <div class="event-slider">
+        <div class="event-card">
+          <img class="event-image" src="/photos/republic 2025.jpg" alt="Republic Day 2024" />
+          <div class="event-content">
+            <h3 class="event-caption">Republic Day 2024</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/nsha.png" alt="Nasha Mukti Abhiyan" />
+          <div class="event-content">
+            <h3 class="event-caption">Nasha Mukti Abhiyan</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/mulna jayanti (1).jpg" alt="Mulna Jayanti" />
+          <div class="event-content">
+            <h3 class="event-caption">Mulna Jayanti</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/teacher day.jpg" alt="Teacher's Day 2024" />
+          <div class="event-content">
+            <h3 class="event-caption">Teacher's Day 2024</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/annual.png" alt="Annual Function 2023" />
+          <div class="event-content">
+            <h3 class="event-caption">Annual Function 2023</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/republic 2025.jpg" alt="Republic Day 2025" />
+          <div class="event-content">
+            <h3 class="event-caption">Republic Day 2025</h3>
+          </div>
+        </div>
+        <div class="event-card">
+          <img class="event-image" src="/photos/vasant p. 2025.jpg" alt="Basant Panchami 2025" />
+          <div class="event-content">
+            <h3 class="event-caption">Basant Panchami 2025</h3>
+          </div>
+        </div>
+      </div>
+      <button class="slider-button slider-button-prev" aria-label="Previous slide">
+        &lt;
+      </button>
+      <button class="slider-button slider-button-next" aria-label="Next slide">
+        &gt;
+      </button>
+    </div>
+    <script>
+      function loadDynamicEvents() {
+        fetch("http://localhost/backend/data.php?table=event&rand=" + Date.now())
+          .then((response) => response.json())
+          .then((data) => {
+            const eventSlider = document.querySelector(".event-cards-container");
+            // Clear existing events
+            eventSlider.innerHTML = ''; 
+            console.log(data);
+            // Loop through each event in the API response
+            data.data.forEach((event) => {
+              const eventCard = document.createElement("div");
+              eventCard.className = "event-card";
+              
+              // Set the inner HTML for the new event card
+              eventCard.innerHTML = `
+                <img class="event-image" src="http://localhost/backend/${event.file}" alt="${event.title}" />
+                <div class="event-content">
+                  <h3 class="event-caption">${event.title}</h3>
+                </div>
+              `;
+              
+              // Append the new event card to the container
+              eventSlider.appendChild(eventCard);
+            });
+          })
+          .catch((error) => {
+            console.error("Error loading events:", error);
+          });
+      }
+    
+      // Load dynamic events when the page is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        loadDynamicEvents();
+      });
+    </script>
+    
+    
+    
+  </div>
+
+  <!-- Gallery Section -->
+  <div class="heading-container">
+    <div class="line"></div>
+    <div class="heading-box">OUR GALLERY</div>
+    <div class="line"></div>
+  </div>
+  <div class="gallery" id="gallery-albm">
+    <div class="category-row">
+      <a href="Gallery/latest/latest_in_gallery.html" class="category">
+        <img src="/photos/office.jpg" alt="Department" />
+        <div class="caption">Latest in gallery</div>
+      </a>
+      <a href="Gallery/department-gallery.html" class="category">
+        <img src="/photos/office.jpg" alt="Department" />
+        <div class="caption">Department</div>
+      </a>
+      <a href="Gallery/campus-gallery.html" class="category">
+        <img src="/photos/campus.jpg" alt="Campus" />
+        <div class="caption">Campus</div>
+      </a>
+      <a href="Gallery/seminar-galley.html" class="category">
+        <img src="/photos/Workshops.jpg" alt="Seminars" />
+        <div class="caption">Seminar's</div>
+      </a>
+
+      <a href="Gallery/canteen.html" class="category">
+        <img src="/photos/canteen banner.jpg" alt="Canteen" />
+        <div class="caption">Canteen</div>
+      </a>
+
+      <a href="Gallery/labs-gallery.html" class="category">
+        <img src="/photos/Lab banner.jpg" alt="Labs" />
+        <div class="caption">Labs</div>
+      </a>
+      <a href="Gallery/sports-gallery.html" class="category">
+        <img src="/Gallery/sports/Screenshot_20250427_151534_Instagram.jpg" alt="Sports" />
+        <div class="caption">Sports</div>
+      </a>
+      <a href="Gallery/wokshops-gallery.html" class="category">
+        <img src="/photos/ws banner.jpg" alt="Workshops" />
+        <div class="caption">Workshops</div>
+      </a>
+      <a href="Gallery/Alumnies.html" class="category">
+        <img src="/Gallery/alumnies/DSC_0360 - Copy.JPG" alt="Alumnies" />
+        <div class="caption">Alumnies</div>
+      </a>
+    </div>
+    
+    
+    
+  </div>
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Government Polytechnic College Balaghat</h3>
+        <div class="underline"></div>
+        <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+        <p>07632 242443</p>
+        <p>
+          <a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a>
+        </p>
+        <p>
+          <a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a>
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon" target="_blank"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+            target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="underline"></div>
+        <ul class="footer-links">
+          <li><a href="./navbar_pages/about.html">About Us</a></li>
+          <li><a href="#gallery-albm">Photo Gallery</a></li>
+          <li>
+            <a href="./navbar_pages/admission process.html">Admission Process</a>
+          </li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Important Links</h3>
+        <div class="underline"></div>
+        <ul class="footer-links">
+          <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+          <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+          <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+          <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+          <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>College Tour & Activities</h3>
+        <div class="underline"></div>
+        <div class="f-video-container">
+          <iframe src="https://www.youtube.com/embed/Hc-1AupiO2A" title="College Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>
+        Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+        Reserved
+      </p>
+    </div>
+  </footer>
+  <script src="/js/script.js"></script>
+  <script>
+    //=======================Pre Loader script===========================
+
+    const icons = [
+      "fas fa-graduation-cap",
+      "fas fa-university",
+      "fas fa-book-open",
+      "fas fa-users",
+    ];
+    let iconIndex = 0;
+    const iconElement = document.querySelector("#icon i");
+
+    setInterval(() => {
+      iconIndex = (iconIndex + 1) % icons.length;
+      iconElement.className = icons[iconIndex];
+    }, 500);
+
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("loader").style.opacity = 0;
+        setTimeout(function () {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          document.body.style.overflow = "auto";
+        }, 500);
+      }, 2000);
+    });
+  </script>
+</body>
+
+</html>

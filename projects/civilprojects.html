@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Department - Final Year Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #1717ef;
+            /* Adjust color to match college theme */
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 3%;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Responsive grid */
+            gap: 20px;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            /* Slight lift effect on hover */
+        }
+
+        .project-card h2 {
+            margin-top: 0;
+            color: #004080;
+            /* Header color */
+            font-size: 1.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            margin: 8px 0;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+
+        .project-card strong {
+            color: #555;
+        }
+
+        .project-card .leader {
+            font-weight: bold;
+            color: #0060c0;
+            /* Highlight leader */
+        }
+
+        .project-card .guide {
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #333;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                /* Stack cards on smaller screens */
+            }
+            header {
+                margin-top: 4%;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="../navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <!-- ==================== Navigation Ends Here================================ -->
+
+
+
+
+    <header>
+        <h1>Civil Department Final Year Projects</h1>
+    </header>
+    <main>
+        <div class="project-grid" id="projectGrid">
+        </div>
+    </main>
+
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data extracted from the PDF [cite: 1, 2]
+            const projects = [
+                { groupNo: 1, members: ["DEEPESH", "DEVIKA NEWARE", "DEVANSHU LANJEWAR", "DIKSHA BISEN", "VISHAL BISEN", "ABHISHEK THAKRE"], leader: "DIKSHA BISEN", name: "Estimation of low cost building", guide: "MOHIT RANGARE" },
+                { groupNo: 2, members: ["SAMEER DHURWEY", "KULDEEP NAGPURE", "GITANSHU BHAGAT", "ANKIT KUMAR"], leader: "GITANSHU BHAGAT", name: "Study of water treatment plant", guide: "SUDHIR B. PATEL" },
+                { groupNo: 3, members: ["SANGHARSH GAJBHIYE", "PANKAJ KUSHRAM", "SHITAL BOPCHE", "BHAVESH"], leader: "SHITAL BOPCHE", name: "Estimate of seating arrangment in Government Ground Balaghat", guide: "SUDHIR B. PATEL" },
+                { groupNo: 4, members: ["RITESH KUMAR PIPARE", "ΜΟΝΙΚΑ", "YOGITA", "AAYUSH RINAYAT"], leader: "YOGITA", name: "Bridge Analysis of the site near by Balaghat", guide: "MOHIT RANGARE" },
+                { groupNo: 5, members: ["NAVEEN AAMADARE", "VIKASH BISEN", "RAHUL", "VINOD KUMAR"], leader: "RAHUL", name: "Traffic Evaluation Study Of sahastrbahu Chowk", guide: "G. KASHYAP" },
+                { groupNo: 6, members: ["NIKITA KHANDRE", "HARSHITA", "MINAL RINAYAT", "GOUREE BISEN"], leader: "MINAL RINAYAT", name: "Comparison between RCC beam and bamboo beam", guide: "ABHISHEK S. DESHMUKH" },
+                { groupNo: 7, members: ["DIKSHA SILAHE", "MOUSAM BISEN", "SAJIYA ANJUM", "SHIKHA BAGHEL"], leader: "SAJIYA ANJUM", name: "Design of Drainage of rain water in College Campus", guide: "G. KASHYAP" },
+                { groupNo: 8, members: ["MANISH CHAUDHARY", "AJAY SONWANE", "PRATIK KALPURE", "ANMOL THAKRE"], leader: "PRATIK KALPURE", name: "Duilding design of 1 floor 2 BHK building", guide: "SUDHIR B. PATEL" },
+                { groupNo: 9, members: ["SHEETALPRASAD LILHARE", "DIKSHA", "TEJASVINI NAGPURE", "KUNAL CHAUDHARY"], leader: "TEJASVINI NAGPURE", name: "Design of Rain water harvesting in college campus", guide: "G. KASHYAP" },
+                { groupNo: 10, members: ["GAJENDRA KUMAR NEWARE", "AJAY BIJEWAR", "MONIKA YADAV"], leader: "MONIKA YADAV", name: "Study of vertical lift rail Bridge (New Pamban bridge)", guide: "ABHISHEK S. DESHMUKH" }
+            ];
+
+            const projectGrid = document.getElementById('projectGrid');
+
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('project-card');
+
+                // Format members list
+                let membersHtml = project.members.map(member =>
+                    member === project.leader ? `<span class="leader">${member} (Leader)</span>` : member
+                ).join(', ');
+
+                card.innerHTML = `
+            <h2>${project.name}</h2>
+            <p><strong>Group ${project.groupNo}</strong></p>
+            <p><strong>Members:</strong> ${membersHtml}</p>
+            <p><strong>Guide:</strong> <span class="guide">${project.guide}</span></p>
+        `;
+                projectGrid.appendChild(card);
+            });
+
+            // Add interactivity (Example: Simple console log on click)
+            projectGrid.addEventListener('click', function (e) {
+                const card = e.target.closest('.project-card');
+                if (card) {
+                    const projectName = card.querySelector('h2').textContent;
+                    console.log(`Clicked on project: ${projectName}`);
+                    // You can expand this to show a modal with more details, etc.
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

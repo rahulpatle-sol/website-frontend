@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>Administration</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .section-container {
+                width: 100%;
+            }
+        }
+
+
+        h1 {
+            font-size: 27px;
+            font-weight: 800;
+            color: #0e3c6a;
+
+
+        }
+
+        .section-container {
+
+            background-color: rgb(119, 152, 207);
+            max-width: 100%;
+            justify-content: center;
+            justify-self: center;
+            border-radius: 10px;
+            margin-left: 2%;
+        }
+
+        /* Staff Container */
+        .staff-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* Staff Card */
+        .staff-card {
+            background: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Staff Images */
+        .staff-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .staff-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .annual-reports {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .title-annual-reports {
+            font-size: 30px;
+            font-weight: 800;
+            padding: 20px;
+            color: #0e3c6a;
+            width: 100%;
+            text-align: center;
+        }
+
+        .annual-reports {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin: 20px;
+
+        }
+
+        .annual-report-links {
+            text-decoration: none;
+            color: black;
+            background-color: #b800e6;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .quick-btn {
+            margin-left: 2%;
+            display: flex;
+            transition: ease-in-out 0.2ms;
+        }
+
+        .btn {
+
+            background-color: #4c51af;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            gap: 6px;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        .btn:hover {
+            background-color: #267fb2;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="/navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <h1>Meet Our Office Staff</h1>
+    </header>
+    <div class="section-container">
+        <H1 style="color: white">PRINCIPAL</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/principal.jpg" alt="John Doe">
+                <h2>Mr. R. M. Sonway</h2>
+                <p>Principal</p>
+                <p>Contact: 07632 242443</p>
+                <p>Email: prinpoly.bgt@mp.gov.in</p>
+            </div>
+        </section>
+        <H1 style="color: white">HEAD OF DEPARTMENTS</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/hod me.jpg" alt="John Doe">
+                <h2>Mr. Alok Chouhan</h2>
+                <p>HOD (M.E.)</p>
+                <p>Contact:6265535901 </p>
+                <p>Email: alokchouhan@gov.ac.in
+                </p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/civilhod.jpg" alt="Jane Smith">
+                <h2>Mr. Sudhir Babu Patel</h2>
+                <p>I/C HOD (Civil)</p>
+                <p>Contact:7049265782</p>
+                <p>Email:sudhirpatel2012@gmail.com</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/hod cse.jpg" alt="Robert Brown">
+                <h2>Miss Uma Ghosh</h2>
+                <p>I/C HOD (CSE)</p>
+                <p>Contact: 9977018004</p>
+                <p>Email:csegpc@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/hod ee.jpg" alt="Robert Brown">
+                <h2>Mr. Yogesh Chile</h2>
+                <p>I/C HOD (EE)</p>
+                <p>Contact:9340827520</p>
+                <p>Email: ychile3876@gmail.com</p>
+            </div>
+        </section>
+        <H1 style="color: white">LECTURERS</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/uday sir.jpg" alt="John Doe">
+                <h2>Mr. Uday Singh Uikey</h2>
+                <p>Lecturer</p>
+                <p>Contact: 9424352789</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/kanti mam.jpg" alt="Jane Smith">
+                <h2>Mrs. Kanti Uikey</h2>
+                <p>Lecturer</p>
+                <p>Contact: 9407033414</p>
+                <p>Email:kanti0303@gmail.com</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/dipti mam.jpg" alt="Robert Brown">
+                <h2>Mrs. Deepti Hanvat</h2>
+                <p>Lecturer</p>
+                <p>Contact: 9425436797</p>
+                <p>Email:dptp0219@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/maravi sir.jpg" alt="Robert Brown">
+                <h2>Mr. B. R. Maravi</h2>
+                <p>Lecturer</p>
+                <p>Contact:9407387539</p>
+                <p>Email:basant0704@gmail.com</p>
+            </div>
+        </section>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/bhalave sir.jpg" alt="John Doe">
+                <h2>Mr. Santosh Bhalave</h2>
+                <p>Lecturer</p>
+                <p>Contact: 9770468684</p>
+                <p>Email:santoshbhalave@gmail.com</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/shailesh sir.jpg" alt="Jane Smith">
+                <h2>Mr. Shailesh Kumar Singh</h2>
+                <p>Lecturer</p>
+                <p>Contact:9717665306, 8319689761</p>
+                <p>Email: udayshailesh1991@gmail.com</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/gungun mam.jpg" alt="Robert Brown">
+                <h2>Mrs. Gungun Kashyap </h2>
+                <p> Lecturer</p>
+                <p>Contact: 9009140738</p>
+                <p>Email:gungun.kashyap@gpcbalaghat.ac.in</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/ravi sir.jpg" alt="Robert Brown">
+                <h2>Mr. Ravi Giri Goswami</h2>
+                <p>Lecturer</p>
+                <p>Contact:8989127469</p>
+                <p>Email:ravigirigoswami@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/saurabh k.jpg" alt="Robert Brown">
+                <h2>Mr. Sourabh Kaithwas</h2>
+                <p>Lecturer</p>
+                <p>Contact:9406652784</p>
+                <p>Email:sourabhkaithwas8@gmail.com</p>
+            </div>
+        </section>
+        <H1 style="color: white">Training And Placement Officer</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/tpo.jpg" alt="John Doe">
+                <h2>Mr. Shailesh Kumar Singh</h2>
+                <p>Training & Placement Officer</p>
+                <p>Contact:9717665306, 8319689761</p>
+                <p>Email:udayshailesh1991@gmail.com</p>
+            </div>
+        </section>
+
+        <H1 style="color: white">Workshop Staffs</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/narnore sir.jpg" alt="John Doe">
+                <h2>Mr. B. K. Narnore</h2>
+                <p>Workshop Inapector</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/rp meshram.jpg" alt="John Doe">
+                <h2>Mr.R. P. Meshram</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/sp tekam.jpg" alt="John Doe">
+                <h2>Mr. S. P. Tekam</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/bhure sir.jpg" alt="John Doe">
+                <h2>Mr.B. P. Bhure</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/br dharne.jpg">
+                <h2>Mr.B. R. Dharne</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. Baisaku Markam</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. U. L. Gurde</h2>
+                <p>Workshop Instructor</p>
+                <p>Contact: 7828634666</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. Shirvesh Varle</h2>
+                <p>Workshop Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/markamsir.png" alt="John Doe">
+                <h2>Mr. V. K. Markam</h2>
+                <p>Boiler Attendant</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/ma khan.jpg" alt="John Doe">
+                <h2>Mr. M. A.Khan</h2>
+                <p>Instrument Repair</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/br nayak.jpg" alt="John Doe">
+                <h2>Mr. B. R.Nayak</h2>
+                <p>Electrician</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg">
+                <h2>Mr. Devendra Ghormare</h2>
+                <p>Cartographer</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/bagde sir.jpg">
+                <h2>Mr. Rajkumar Bagde</h2>
+                <p> Craft Instructor</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/Pradeep Lilhare.jpg" alt="John Doe">
+                <h2>Mr. Pradeep Lilhare</h2>
+                <p>Engine Attendant</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/raj rajeshlal.jpg" alt="John Doe">
+                <h2>Mr. Raj Rajeshlal</h2>
+                <p>Skilled Assistant</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. Nilesh Dhuware</h2>
+                <p>Skilled Assistant</p>
+
+            </div>
+        </section>
+        <H1 style="color: white">Lab Technicians</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/vidyavati mam.jpg" alt="John Doe">
+                <h2>Mrs. Vidyavati Ukey</h2>
+                <p>Lab Technician</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/tilgam sir.jpg" alt="John Doe">
+                <h2>Mr. Ashok singh Tilgam</h2>
+                <p>Lab Technician</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/sk rana.jpg" alt="John Doe">
+                <h2>Mr. S. K. Rana</h2>
+                <p>Lab Technician</p>
+
+            </div>
+
+        </section>
+        <H1 style="color: white">Office staffs</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/RK Rangare.jpg" alt="John Doe">
+                <h2>Mr. R. K. Rangare</h2>
+                <p>Chief Clerk</p>
+
+            </div>
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/Mahesh Pawar.jpg">
+                <h2>Mr. Mahesh Pawar</h2>
+                <p>Assistant Grade 03</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/vineet kumar wasnik.jpg" alt="John Doe">
+                <h2>Mr. Vineet Vasnik </h2>
+                <p>Assistant Grade 03</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/nagendra tiwari.jpg" alt="John Doe">
+                <h2>Mr. Nagendra Tiwari</h2>
+                <p>Assistant Grade 03</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/ashish nag.jpg">
+                <h2>Mr. Aahish Nagdaune </h2>
+                <p>Assistant Grade 03</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/shek iqbal m.jpg" alt="John Doe">
+                <h2>Mr. Shekh Iqbal Muhammad</h2>
+                <p>Assistant Grade 03</p>
+
+            </div>
+
+        </section>
+        <H1 style="color: white">Office staffs</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/rajesh patle.jpg" alt="John Doe">
+                <h2>Mr. Rajesh Patle</h2>
+                <p> Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mrs. Pushpa Bhalavi</h2>
+                <p>Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/satendra asetkar.jpg" alt="John Doe">
+                <h2>Mr. Satendra Asetkar</h2>
+                <p>Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/laxmi yadu.jpg" alt="John Doe">
+                <h2>Mr. Laxmi Yadu</h2>
+                <p>Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/pushtakala cse.jpg" alt="John Doe">
+                <h2>Mrs. Pustakala Shyamkuwar</h2>
+                <p>Helper</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. Sunil Lodhe</h2>
+                <p>Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/gaurav chaudhary.jpg" alt="John Doe">
+                <h2>Mr. Gaurav Choudhary</h2>
+                <p>Peon</p>
+
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/Zibrail Khan.jpg" alt="John Doe">
+                <h2>Mr. Jibrael Khan</h2>
+                <p>Servant</p>
+
+            </div>
+
+            <div class="staff-card">
+                <img src="/photos/5856.jpg" alt="John Doe">
+                <h2>Mr. Lalsingh </h2>
+                <p>Peon</p>
+
+            </div>
+
+        </section>
+
+        <H1 style="color: white">Guest Faculties(CSE)</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/dahateSir.png" alt="John Doe">
+                <h2>Mr. Sharad Dahate</h2>
+                <p>Guest Faculty</p>
+                <p>Contact:9589413144 </p>
+                <p>Email: sharaddahate@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/vimla mam.jpg" alt="John Doe">
+                <h2>Mrs. Vimla Uikey</h2>
+                <p>Guest Faculty</p>
+                <p>Contact: 9479699757</p>
+                <p>Email:vimlau780@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/triptiadkane.jpg" alt="John Doe">
+                <h2>Mrs. Tripti Aadkane</h2>
+                <p>Guest Faculty</p>
+                <p>Contact:8989127469</p>
+                <p>Email: traptiadkane@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/laxmi thakur.jpg" alt="John Doe">
+                <h2>Miss Laxmi Thakur</h2>
+                <p>Guest Faculty</p>
+                <p>Contact:9685384815</p>
+                <p>Email: luckythakur1418@gmail.com</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/pragya mam.jpg" alt="John Doe">
+                <h2>Mrs. Pragya Balley</h2>
+                <p>Guest Faculty</p>
+                <p>Contact:9340418126</p>
+                <p>Email: pragyaballey26@gmail.com</p>
+            </div>
+
+        </section>
+
+        <H1 style="color: white">Guest Faculties(Electrical Engineering)</H1>
+        <section class="staff-container">
+
+            <div class="staff-card">
+                <img src="/Faculty and Staff/sunil sir.jpg" alt="John Doe">
+                <h2>Mr. Sunil Patel</h2>
+                <p>Guest Faculty</p>
+                <p>Contact: 7509297088</p>
+                <p>Email: sunilpatlegpcbgt@gmail.com</p>
+            </div>
+
+        </section>
+
+        <H1 style="color: white">Guest Faculties(Civil Engineering)</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/abhisekh d.jpg" alt="John Doe">
+                <h2>Mr. Abhishek Deshmukh</h2>
+                <p>Guest Faculty</p>
+                <p>Contact:9039960304 </p>
+                <p>Email:abhishek.d@gpcbalaghat.ac.in</p>
+            </div>
+            <div class="staff-card">
+                <img src="/Faculty and Staff/mohit sir.jpg" alt="John Doe">
+                <h2>Mr. Mohit Rangare</h2>
+                <p>Guest Faculty</p>
+                <p>Contact: 9806008394</p>
+                <p>Email: mohit.rangare@gpcbalaghat.ac.in
+
+                </p>
+            </div>
+        </section>
+        <H1 style="color: white">Guest Faculties(Mechanical Engineering)</H1>
+        <section class="staff-container">
+            <div class="staff-card">
+                <img src="/Faculty and Staff/saurabh h.jpg" alt="John Doe">
+                <h2>Mr.Saurabh Hanvat</h2>
+                <p>Guest Faculty</p>
+                <p>Contact: 9340880438 </p>
+                <p>Email:saurabhanwat1@gmail.com</p>
+            </div>
+        </section>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="../contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

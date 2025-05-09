@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <title>Student Project Showcase</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+      padding: 20px;
+    }
+
+    .container {
+      margin-top: 4%;
+    }
+
+    .project {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .project h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    .project p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .photos img {
+      flex: 1 1 calc(33.333% - 10px);
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+      margin-top: 10%;
+    }
+      .photos img {
+        flex: 1 1 calc(50% - 10px);
+      }
+      p{
+        text-align: justify;
+      }
+      .team-members {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+    
+      .photos img {
+        flex: 1 1 100%;
+      }
+    }
+
+    .team {
+      margin-top: 25px;
+    }
+
+    .team h3 {
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .team-members {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      background-color: #0077cc;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+
+    }
+
+    .member {
+      text-align: center;
+      flex: 1 1 100px;
+      color: white;
+    }
+
+    .member img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0077cc;
+    }
+
+    .member div {
+      margin-top: 8px;
+      font-weight: 500;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--===============================Navigation Menu=========================================== -->
+
+  <!-- Mobile Header with toggle menus and back navigation-->
+  <div class="mobile-header">
+    <div class="back-button" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+  </div>
+
+  <!-- Overlay for mobile menu -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Main-Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-items">
+      <div class="nav-item">
+        <a href="../index.html">Home</a>
+      </div>
+      <div class="nav-item">
+        <a href="#">About</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/about.html">About College</a>
+          <a href="/navbar_pages/vision.html">Vision & Mission</a>
+          <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+          <a href="/navbar_pages/administration.html">Administration</a>
+          <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+          <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Academic</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/admission process.html">Admission Process</a>
+          <a href="/navbar_pages/fees.html">Fees Structure</a>
+          <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+          <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+            Syllabus</a>
+          <a href="/navbar_pages/scholarship.html">Scholarships</a>
+          <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Departments</a>
+        <div class="dropdown">
+          <a href="../Departments/computer.html">Computer Science & Engineering</a>
+          <a href="../Departments/Electrical.html">Electrical Engineering</a>
+          <a href="../Departments/civil.html">Civil Engineering</a>
+          <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="../Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Placements</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/TPO.HTML">Overview</a>
+          <a href="/navbar_pages/mou.html">M.O.U.</a>
+          <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+          <a href="/navbar_pages/internship.html">Internships</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Student Zone</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#">Grievance Redressal</a>
+        <div class="dropdown">
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+          <a href="/navbar_pages/women cell.html">Women Cell</a>
+          <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+          <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="">Downloads</a>
+        <div class="dropdown">
+          <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+          <a href="../navbar_pages/forms.html">Forms</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Bottom Navigation -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-items">
+      <a href="#" class="bottom-nav-item active" data-panel="home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" class="bottom-nav-item" data-panel="academic">
+        <i class="fas fa-book"></i>
+        <span>Departments</span>
+      </a>
+      <a href="#" class="bottom-nav-item" data-panel="student">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Student Zone</span>
+      </a>
+      <a href="#" class="bottom-nav-item" data-panel="about">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Admin</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Nav Panels -->
+  <!-- Home Panel -->
+  <div class="bottom-nav-panel" id="home-panel">
+    <div class="panel-header">
+      <h3>Home</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+        <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+        <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+        <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+        <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Department Panel -->
+  <div class="bottom-nav-panel" id="academic-panel">
+    <div class="panel-header">
+      <h3>Department</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="../Departments/computer.html">Computer Science & Engineering</a>
+        <a href="../Departments/Electrical.html">Electrical Engineering</a>
+        <a href="../Departments/civil.html">Civil Engineering</a>
+        <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+        <a href="../Departments/Science.html">Science & Humanities</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Panel -->
+  <div class="bottom-nav-panel" id="student-panel">
+    <div class="panel-header">
+      <h3>Student Zone</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+        <a href="/navbar_pages/library2.html">Library</a>
+        <a href="/navbar_pages/hostel.html">Hostel</a>
+        <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+        <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+        <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+        <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Panel -->
+  <div class="bottom-nav-panel" id="about-panel">
+    <div class="panel-header">
+      <h3>Admin Login</h3>
+      <button class="panel-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-links">
+        <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+      </div>
+    </div>
+  </div>
+  <script src="../js/nav.js"></script>
+
+  <div class="container">
+    <div class="project">
+      <h2>E-Panchayat Garhi</h2>
+      <p>e-Panchayat Garhi is a digital initiative aimed at empowering the rural community of Garhi village through
+        technology-driven governance and development. This platform serves as a centralized digital hub for the
+        villagers, providing transparent access to information, government schemes, village development plans, notices,
+        services, and local administration updates.</p>
+      <div class="photos">
+        <img src="/projects/e panchayat 01.jpg" alt="Project photo 1">
+
+      </div>
+      <div class="team">
+        <h2>Team Members</h2>
+
+        <div class="team-members">
+          <div class="member">
+
+            <div class="member-name" style="color: white;">Aditya Banshpal</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Ankit Pardhi</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Govinda Matre</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Ritu Baghele</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Rupali Rahangdale</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Shikha Goswami</div>
+          </div>
+          <div class="member">
+            <div class="member-name" style="color: white;">Sanam Sharnagat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="project">
+      <h2>Website Of Government Polytechnic College</h2>
+      <p> With the growing importance of digital presence of “College Website” this project seeks to our college
+        Government Polytechnic College Balaghat, this website is affiliated by Government Polytechnic College Balaghat
+        Which Provides diploma courses that help students gain practical skills and useful knowledge for real jobs, Our
+        goal is to help students build a strong future by preparing them for careers and further studies The main
+        purpose of this website is to provide information to all of those students those are being studying or
+        interested to get here admission by providing them information such as Notices, News, Academic results, and
+        Admission Procedure, Our College website includes an overview of our college tour on our homepage which is done
+        by aerial videography through Drone camera, which can be easier for the students to get to know about the
+        college campus without visiting the college.
+
+        The website has some beneficial features such as overview of the college Department details, Faculty details,
+        Academic calendar, Latest news, Notifications, Results, Scholarships information and contact information. Apart
+        from this website also has an admin login system and admin dashboard where the admin can update and manage the
+        information this website has been built using modern web technology such as HTML, CSS, & JAVASCRIPT for the
+        frontend and PHP & MYSQL database for the backend for providing security, fast and easier maintenance, This
+        website has been made full responsive so every user can render well on a variety of devices and window or screen
+        sizes from minimum to maximum display size to ensure usability and satisfaction.
+      </p>
+      <div class="photos">
+        <img src="/projects/Screenshot 2025-05-06 133528.jpg" alt="Project photo 1">
+
+      </div>
+      <div class="team">
+        <h2>Team Members</h2>
+
+        <div class="team-members">
+          <div class="member">
+
+            <div style="color: white;">Abhishek jagjivan</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Anisha Daharwal</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Harshit Bagde</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Rahul Patle </div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Shailesh Pardhi</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Shreya Bawane</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Tushar Badhai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div class="project">
+      <h2>E-Garden Mulna Vatika</h2>
+      <p>Our project is a web-based portal developed to showcase the garden of our college, providing detailed
+        information about various plants present on the campus along with their botanical details and practical uses.
+        The primary objective is to promote environmental awareness, support educational purposes, and create a digital
+        archive of the flora within the institution.</p>
+      <div class="photos">
+        <img src="/projects/e garden.jpg" alt="Project photo 1">
+
+      </div>
+      <div class="team">
+        <h2>Team Members</h2>
+
+        <div class="team-members">
+          <div class="member">
+
+            <div style="color: white;">Aachal Jamre</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Ashish Kawre</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Aman Meshram</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Bharti Patle</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Manju Sonwane</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Mansee Silare</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Payal Phundne</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Prakash Jamre</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Sakshi Bhimte</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Savita Lilhare</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Swati Katre</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Umeshwari Bhagat</div>
+          </div>
+          <div class="member">
+            <div style="color: white;">Yashwant Bahetwar</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <div class="container">
+          <div class="project">
+            <h2>Hardware Maintenance and Troubleshooting Website </h2>
+            <p>Our project focuses on hardware maintenance, where we explored and understood the internal components of
+              a
+              computer system, including the CPU, RAM, motherboard, hard drives, power supply, and peripheral devices.
+              Through
+              hands-on learning and troubleshooting exercises, we gained practical knowledge of identifying, diagnosing,
+              and
+              resolving common hardware issues.
+
+              To extend the utility of our learning, we developed a user-friendly website that serves as a resource hub
+              for
+              hardware-related problems and their solutions. The website categorizes common hardware issues and provides
+              step-by-step guides, tips, and troubleshooting techniques. It is designed to assist users—from beginners
+              to tech
+              enthusiasts—in maintaining their systems effectively.
+
+              This project not only enhanced our technical skills in hardware but also integrated web development
+              practices to
+              share our knowledge with a wider audience.</p>
+            <div class="photos">
+              <img src="/projects/hw and main.jpg" alt="Project photo 1">
+
+            </div>
+            <div class="team">
+              <h2>Team Members</h2>
+
+              <div class="team-members">
+                <div class="member">
+
+                  <div style="color: white;">Rupali Gadpande</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Ruchi Nagpure</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Kanak Thakre</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Punam Matre</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Diksha Pardhi</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Neha Bisen</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Akansha Meshram</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Muskan Kawre</div>
+                </div>
+
+              </div>
+              <br>
+              <div class="team-members">
+                <div class="member">
+
+                  <div style="color: white;">Manmohan Khairwar</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Divyansh Hirkane</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Abhimanyu Sharnagat</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Gaurav Panche</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Viyush Thakur</div>
+                </div>
+                <div class="member">
+                  <div style="color: white;">Arvind Baheshwar</div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+
+</html>

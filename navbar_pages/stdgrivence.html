@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Redressal Committee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <style>
+        /* Base styles and variables */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --text-color: #333;
+            --text-light: #666;
+            --background-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --success-color: #4caf50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+     
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .subtitle {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2%;
+        }
+
+        /* Committee section */
+        .committee-section {
+            margin: 3rem 0;
+        }
+
+
+
+        /* Table styles */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+            display: none;
+            /* Hidden on mobile */
+        }
+
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .committee-table th,
+        .committee-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .committee-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .committee-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .committee-table tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .member-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Card styles for mobile */
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .member-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .card-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-position {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .card-details {
+            padding: 1rem;
+        }
+
+        .card-detail {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            min-width: 100px;
+        }
+
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+
+            .table-container {
+                display: block;
+                /* Show table on larger screens */
+            }
+
+            .card-container {
+                display: none;
+                /* Hide cards on larger screens */
+            }
+        }
+
+        @media (min-width: 992px) {
+
+            .committee-table th,
+            .committee-table td {
+                padding: 1.25rem;
+            }
+
+            .member-photo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* For print */
+        @media print {
+
+            .header,
+            .contact-section,
+            .btn {
+                display: none;
+            }
+
+            .table-container {
+                display: block;
+                overflow: visible;
+            }
+
+            .card-container {
+                display: none;
+            }
+
+            body {
+                background-color: white;
+            }
+
+            .committee-table {
+                box-shadow: none;
+            }
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 5%;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="/navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <header class="header">
+        <div class="container">
+            <h1>Grievance Redressal Committee</h1>
+            <p class="subtitle" style="text-align: center;">Committed to addressing your concerns with fairness and transparency</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>About the Committee</h2>
+            <p>Our Grievance Redressal Committee is dedicated to resolving issues and concerns raised by students,
+                faculty, and staff. The committee ensures that all grievances are addressed promptly and fairly.</p>
+
+        </section>
+
+        <section class="committee-section">
+            <h2>Committee Members</h2>
+
+
+            <div class="table-container">
+                <table class="committee-table" id="committeeTable">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-container" id="cardContainer">
+                <!-- Cards will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <br>
+    <div class="form-container">
+        
+        <form action="sendemail.php" method="post" enctype="text/plain">
+            <h2>Grievance Redressal Form</h2>
+            <form action="#" method="post">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="type">Grievance Type</label>
+                <select id="type" name="type" required>
+                    <option value="">-- Select --</option>
+                    <option value="academic">Academic</option>
+                    <option value="administrative">Administrative</option>
+                    <option value="harassment">Harassment</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="description">Grievance Description</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+                <button type="submit">Submit Grievance</button>
+            </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+
+
+        // Sample data for committee members
+        const committeeMembers = [
+            {
+                id: 1,
+                name: "Mr. R M Sonway (Principal)",
+                position: "Cell Head",
+                department: "Belongs to All Departments ",
+                email: "prinpolybgt@mp.gov.in",
+                phone: "9425447837",
+                photo: "/Faculty and Staff/principal.jpg"
+            },
+            {
+                id: 2,
+                name: "Mr. Alok Chouhan",
+                position: "HOD, Mech. Engg.",
+                email: "alokchouhan@gov.ac.in",
+                department: "Mech. Engg.",
+                phone: "9425448048",
+                photo: "/faculty and Staff/hod me.jpg"       
+            },
+            {
+                id: 3,
+                name: "Miss Uma Ghosh",
+                position: "	I/C HOD, CSE",
+                department: "CSE",
+                email: "csegpc@gmail.com",
+                phone: "9977018004",
+                photo: "/faculty and Staff/hod cse.jpg"
+            },
+            {
+                id: 4,
+                name: "Mr. Yogesh Chile",
+                position: "I/C HOD (EE)",
+                department: "Elect. Engg.",
+                email: " ychile3876@gmail.com",
+                phone: "9340827520",
+                photo: "/Faculty and Staff/hod ee.jpg"
+            },
+            {
+                id: 5,
+                name: "Mr. Suddhir Babu Patel",
+                position: "I/C HOD, Civil Engg.",
+                department: "Civil Engg.",
+                email: "sudhirpatel2012@gmail.com",
+                phone: "7049265782",
+                photo: "/faculty and Staff/civilhod.jpg"
+            },
+            {
+                id: 6,
+                name: "Smt. Kanti Uikey",
+                position: "Lecturer, Elect. Engg.",
+                department: "Elect. Engg.",
+                email: "kanti0303@gmail.com",
+                phone: "7771079125",
+                photo: "/faculty and Staff/kanti mam.jpg"
+            },
+
+
+        ];
+
+        // DOM elements
+        const tableBody = document.querySelector('#committeeTable tbody');
+        const cardContainer = document.getElementById('cardContainer');
+        const searchInput = document.getElementById('memberSearch');
+        const departmentFilter = document.getElementById('departmentFilter');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMembers(committeeMembers);
+            setupEventListeners();
+            checkScreenSize();
+        });
+
+        // Render committee members in both table and card formats
+        function renderMembers(members) {
+            // Clear existing content
+            tableBody.innerHTML = '';
+            cardContainer.innerHTML = '';
+
+            if (members.length === 0) {
+                const noResultsRow = document.createElement('tr');
+                noResultsRow.innerHTML = `<td colspan="5" style="text-align: center;">No members found</td>`;
+                tableBody.appendChild(noResultsRow);
+
+                const noResultsCard = document.createElement('div');
+                noResultsCard.className = 'member-card';
+                noResultsCard.innerHTML = `<div class="card-details" style="text-align: center;">No members found</div>`;
+                cardContainer.appendChild(noResultsCard);
+                return;
+            }
+
+            // Render table rows
+            members.forEach(member => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td><img src="${member.photo}" alt="${member.name}" class="member-photo"></td>
+            <td>${member.name}</td>
+            <td>${member.position}</td>
+            <td>${member.department}</td>
+            <td>
+                <div>${member.email}</div>
+                <div>${member.phone}</div>
+            </td>
+        `;
+                tableBody.appendChild(row);
+
+                // Render cards for mobile view
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+            <div class="card-header">
+                <img src="${member.photo}" alt="${member.name}" class="card-photo">
+                <div>
+                    <div class="card-name">${member.name}</div>
+                    <div class="card-position">${member.position}</div>
+                </div>
+            </div>
+            <div class="card-details">
+                <div class="card-detail">
+                    <span class="detail-label">Department:</span>
+                    <span>${member.department}</span>
+                </div>
+                <div class="card-detail">
+                    <span class="detail-label">Email:</span>
+                    <span>${member.email}</span>
+                </div>
+                <div class="card-detail">
+                    <span class="detail-label">Phone:</span>
+                    <span>${member.phone}</span>
+                </div>
+            </div>
+        `;
+                cardContainer.appendChild(card);
+            });
+        }
+
+        // Set up event listeners for search and filter
+        function setupEventListeners() {
+            // Search functionality
+            searchInput.addEventListener('input', filterMembers);
+            departmentFilter.addEventListener('change', filterMembers);
+
+            // Check screen size on resize
+            window.addEventListener('resize', checkScreenSize);
+        }
+
+        // Filter members based on search input and department filter
+        function filterMembers() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const departmentValue = departmentFilter.value;
+
+            const filteredMembers = committeeMembers.filter(member => {
+                const nameMatch = member.name.toLowerCase().includes(searchTerm);
+                const positionMatch = member.position.toLowerCase().includes(searchTerm);
+                const departmentMatch = !departmentValue || member.department === departmentValue;
+
+                return (nameMatch || positionMatch) && departmentMatch;
+            });
+
+            renderMembers(filteredMembers);
+        }
+
+        // Check screen size to toggle between table and card view
+        function checkScreenSize() {
+            const tableContainer = document.querySelector('.table-container');
+            const cardContainer = document.querySelector('.card-container');
+
+            if (window.innerWidth >= 768) {
+                tableContainer.style.display = 'block';
+                cardContainer.style.display = 'none';
+            } else {
+                tableContainer.style.display = 'none';
+                cardContainer.style.display = 'grid';
+            }
+        }
+    </script>
+</body>
+
+</html>

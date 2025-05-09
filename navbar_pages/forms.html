@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Forms & Downloads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin-top: 2%;
+            background-color: #315be4;
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+       
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #e5e7eb;
+            text-align: center;
+          bottom: 0;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #146aed, #0060ee, #0056ee, #004bed, #123eeb);
+            width: 100%;
+            padding: 0 5%;
+            height: 50px;
+            list-style: none;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .main-nav.scrolled {
+            height: 60px;
+            background: rgba(71, 118, 230, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+
+        .nav-items {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 8px 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .nav-item>a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            white-space: nowrap;
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item>a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover>a::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            border-radius: 10px;
+            background: white;
+            min-width: 300px;
+            white-space: nowrap;
+            /* Prevents text wrapping */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(10px);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a:hover {
+            color: #0d2d79;
+            border-left: 5px solid #163478;
+
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle:active {
+            transform: scale(0.9);
+        }
+
+        /* Mobile Bottom Navigation */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            height: 65px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+        }
+
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: #777;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bottom-nav-item.active {
+            color: #4776E6;
+        }
+
+        .bottom-nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav-item span {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .bottom-nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #4776E6;
+            transition: width 0.3s ease;
+        }
+
+        .bottom-nav-item.active::before {
+            width: 40%;
+        }
+
+
+        /* Overlay for mobile menu */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animation for dropdown items */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown a {
+            animation: fadeIn 0.3s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .dropdown a:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .dropdown a:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .dropdown a:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .dropdown a:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .dropdown a:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .dropdown a:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        /* Bottom nav panel */
+        /* Fix for bottom nav panels */
+        .bottom-nav-panel {
+            position: fixed;
+            bottom: 65px;
+            left: 0;
+            right: 0;
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            z-index: 98;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .bottom-nav-panel.active {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        /* Fix for panel links to make them clickable */
+        .panel-links {
+            position: relative;
+            z-index: 100;
+        }
+
+        .panel-links a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+            position: relative;
+            z-index: 101;
+        }
+
+        .panel-links a:last-child {
+            border-bottom: none;
+        }
+
+        .panel-links a:hover {
+            color: #4776E6;
+            padding-left: 25px;
+            background-color: rgba(71, 118, 230, 0.05);
+        }
+
+        /* Fix for overlay to not block panel links */
+        .overlay.active {
+            z-index: 97;
+        }
+
+        /* Fix for panel header */
+        .panel-header {
+            position: relative;
+            z-index: 100;
+            color: #145ab6;
+            margin-left: 10px;
+        }
+
+        .panel-close {
+            margin-left: 90%;
+
+        }
+
+        /* Pulse animation for active bottom nav */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .bottom-nav-item.active i {
+            animation: pulse 1s infinite;
+        }
+
+
+        /* Mobile Styles Navigation */
+        @media (max-width: 2000px) {
+            .contact-info-icons {
+                display: none;
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+                padding-bottom: 65px;
+                /* Space for bottom nav */
+            }
+
+            .menu-toggle {
+                display: flex;
+                gap: 15px;
+            }
+
+            .contact-info-icons {
+                display: flex;
+                gap: 10px;
+                border: none;
+            }
+
+            .contact-info-icons a {
+                text-decoration: none;
+                color: white;
+                font-size: 1.2rem;
+
+            }
+
+            .main-nav {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 83%;
+                height: 100vh;
+                background: linear-gradient(135deg, #4776E6, #8E54E9);
+                padding: 80px 20px 20px;
+                transition: left 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                overflow-y: auto;
+                border-radius: 0;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .main-nav.active {
+                left: 0;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+
+
+            .nav-items {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+                gap: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: left;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-item>a::after {
+                display: none;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: transparent;
+                box-shadow: none;
+                min-width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                margin-top: 10px;
+            }
+
+            .nav-item.active .dropdown {
+                max-height: 500px;
+            }
+
+            .dropdown a {
+                color: rgba(255, 255, 255, 0.8);
+                padding: 10px 20px;
+                border-left: 3px solid transparent;
+            }
+
+            .dropdown a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+                border-left: 3px solid white;
+            }
+
+            /* Show bottom navigation on mobile */
+            .bottom-nav {
+                display: block;
+            }
+
+            /* Mobile header bar */
+            .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: linear-gradient(135deg, #4776E6, #8E54E9);
+                padding: 0 20px;
+                z-index: 99;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .back-button {
+                display: inline-flex;
+                align-items: center;
+                font-size: 1.2rem;
+                cursor: pointer;
+                color: #ffffff;
+                padding: 10px;
+            }
+
+            .back-button:hover {
+                color: #68fefe;
+            }
+        }
+    </style>
+</head>
+
+<body>
+ <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+   <!-- Main-Navigation -->
+   <nav class="main-nav" id="mainNav">
+    <div class="nav-items">
+        <div class="nav-item">
+            <a href="../index.html">Home</a>
+            </div>
+        <div class="nav-item">
+            <a href="#">About</a>
+            <div class="dropdown">
+                <a href="/navbar_pages/about.html">About College</a>
+                <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                <a href="/navbar_pages/administration.html">Administration</a>
+                <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#">Academic</a>
+            <div class="dropdown">
+                <a href="/navbar_pages/admission process.html">Admission Process</a>
+                <a href="/navbar_pages/fees.html">Fees Structure</a>
+                <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                    Syllabus</a>
+                <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#">Departments</a>
+            <div class="dropdown">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a> 
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#">Placements</a>
+            <div class="dropdown">
+                <a href="/navbar_pages/TPO.HTML">Overview</a>
+                <a href="/navbar_pages/mou.html">M.O.U.</a>
+                <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                <a href="/navbar_pages/internship.html">Internships</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#">Student Zone</a>
+            <div class="dropdown">
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#">Grievance Redressal</a>
+            <div class="dropdown">
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                <a href="/navbar_pages/women cell.html">Women Cell</a>
+                <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="">Downloads</a>
+            <div class="dropdown">
+                <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                <a href="/navbar_pages/forms.html">Forms</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+<script src="../js/nav.js"></script>
+
+    <header>
+        <div>
+            <h1>College Forms & Downloads</h1>
+        </div>
+    </header>
+
+    <main>
+       
+        <!-- Downloads Section -->
+        <section>
+            <h2>Downloadable Forms</h2>
+            <ul>
+                <li>
+                    <span>Exam Form</span>
+                    <a href="/Documents Pdf/Exam Form.pdf" target="_blank">Download</a>
+                </li>
+                <li>
+                    <span>Hostel Admission Form</span>
+                    <a href="/Documents Pdf/hostel form.pdf" target="_blank">Download</a>
+                </li>
+                <li>
+                    <span>Application For leave </span>
+                    <a href="/Documents Pdf/application for leave.pdf" target="_blank">Download</a>
+                </li><li>
+                    <span>NO Dues Form for staff</span>
+                    <a href="/Documents Pdf/no dues for staff.pdf" target="_blank">Download</a>
+                </li><li>
+                    <span>No Dues Form For Students</span>
+                    <a href="/Documents Pdf/no duse for students.pdf" target="_blank">Download</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Government Polytechnic College Balaghat. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <title>College Clubs</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f8f9fa;
+
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-top: 3%;
+        color: #2c3e50;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 5%;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #34495e;
+      }
+
+      .card p {
+        flex-grow: 1;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #555;
+      }
+
+      .card button {
+        margin-top: 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        font-size: 0.9rem;
+      }
+
+      .card button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="../index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="../Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="../Departments/Electrical.html">Electrical Engineering</a>
+            <a href="../Departments/civil.html">Civil Engineering</a>
+            <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="../Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="#" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../index.html"
+            ><i class="fas fa-home mr-2"></i> Go to Home</a
+          >
+          <a href="../navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="../navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="../navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="../Departments/Electrical.html">Electrical Engineering</a>
+          <a href="../Departments/civil.html">Civil Engineering</a>
+          <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="../Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <h1>College Clubs</h1>
+
+    <div class="grid-container">
+      <!-- Sports Club -->
+      <div class="card">
+        <img src="../photos/sport club.png" alt="Sports Club" />
+        <div class="card-body">
+          <h2>Sports Club</h2>
+          <p>
+            Promotes fitness, discipline, and teamwork through various indoor
+            and outdoor sports activities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dance Club -->
+      <div class="card">
+        <img src="../photos/dance club.png" alt="Dance Club" />
+        <div class="card-body">
+          <h2>Dance Club</h2>
+          <p>
+            A vibrant club for students passionate about classical,
+            contemporary, and street dance forms.
+          </p>
+        </div>
+      </div>
+
+      <!-- Music Club -->
+      <div class="card">
+        <img src="../photos/music club.png" alt="Music Club" />
+        <div class="card-body">
+          <h2>Music Club</h2>
+          <p>
+            Encourages students to explore vocals and instruments through
+            regular jam sessions and events.
+          </p>
+        </div>
+      </div>
+
+      <!-- Art and Craft Club -->
+      <div class="card">
+        <img src="../photos/art and craft.png" alt="Art and Craft Club" />
+        <div class="card-body">
+          <h2>Art & Craft Club</h2>
+          <p>
+            Unleashes creativity with sketching, painting, origami, and hands-on
+            craft workshops.
+          </p>
+        </div>
+      </div>
+
+      <!-- Drama Club -->
+      <div class="card">
+        <img src="../photos/drama club.png" alt="Drama Club" />
+        <div class="card-body">
+          <h2>Drama Club</h2>
+          <p>
+            Fosters acting talent and stagecraft through short plays, skits, and
+            inter-college performances.
+          </p>
+        </div>
+      </div>
+
+      <!-- Literature Events Club -->
+      <div class="card">
+        <img src="../photos/litrarture club.png" alt="Literature Club" />
+        <div class="card-body">
+          <h2>Literature Events Club</h2>
+          <p>
+            For poetry lovers, debaters, writers, and bookworms. Hosts open
+            mics, quizzes, and writing contests.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../photos/developerszone.jpg" alt="Literature Club" />
+        <div class="card-body">
+          <h2>Developers Zone</h2>
+          <p>
+            A hub for coding enthusiasts, tech innovators, and problem-solvers.
+            Hosts hackathons, coding challenges, and tech talks. Encourages
+            collaboration on open-source projects, app development, and AI
+            research.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../photos/photography.png" alt="Literature Club" />
+        <div class="card-body">
+          <h2>Photography Club</h2>
+          <p>
+            A creative space for shutterbugs and visual storytellers. Hosts
+            photo walks, editing workshops, and competitions. Explore the art of
+            capturing moments with fellow enthusiasts.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Government Polytechnic College Balaghat</h3>
+          <div class="underline"></div>
+          <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+          <p>07632 242443</p>
+          <p>
+            <a href="mailto:principal@gpcbalaghat.ac.in"
+              >principal@gpcbalaghat.ac.in</a
+            >
+          </p>
+          <p>
+            <a href="https://www.gpcbalaghat.ac.in" target="_blank"
+              >www.gpcbalaghat.ac.in</a
+            >
+          </p>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61574799926006"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/poly.bgt1962/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="" class="social-icon" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li><a href="../navbar_pages/about.html">About Us</a></li>
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li>
+              <a href="../navbar_pages/admission process.html"
+                >Admission Process</a
+              >
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Important Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
+                target="_blank"
+                >DTE Counselling</a
+              >
+            </li>
+            <li>
+              <a href="https://mprojgar.gov.in/" target="_blank"
+                >MP Rojgar Portal</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx"
+                target="_blank"
+                >MP Rojgar E-Patrika</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE="
+                target="_blank"
+                >MP Scholarship Portal</a
+              >
+            </li>
+            <li>
+              <a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>College Tour & Activities</h3>
+          <div class="underline"></div>
+          <div class="f-video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="College Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+          Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

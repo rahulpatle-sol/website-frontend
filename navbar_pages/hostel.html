@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Hostel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <style>
+        /* Base Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #4a6baf;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff7f50;
+            --text-color: #333;
+            --light-text: #fff;
+            --dark-bg: #1a1a1a;
+            --card-bg: #fff;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/photos/hostel.jpg') no-repeat center center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-content .btn-primary {
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Facilities Section */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Wardens Section */
+        .warden-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .warden-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .warden-image {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+        }
+
+        .warden-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .warden-card:hover .warden-image img {
+            transform: scale(1.1);
+        }
+
+        .warden-info {
+            padding: 20px;
+        }
+
+        .warden-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .warden-info p {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .warden-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+
+
+
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Responsive columns */
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+
+
+
+        @media screen and (max-width: 768px) {
+            .gallery {
+                display: block;
+                gap: 10px;
+            }
+        }
+
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .info-item {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+        <div class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/about.html">About College</a>
+                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
+                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
+                    <a href="/navbar_pages/administration.html">Administration</a>
+                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Academic</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/admission process.html">Admission Process</a>
+                    <a href="/navbar_pages/fees.html">Fees Structure</a>
+                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
+                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
+                        Syllabus</a>
+                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
+                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Departments</a>
+                <div class="dropdown">
+                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                    <a href="../Departments/civil.html">Civil Engineering</a>
+                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                    <a href="../Departments/Science.html">Science & Humanities</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Placements</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/TPO.HTML">Overview</a>
+                    <a href="/navbar_pages/mou.html">M.O.U.</a>
+                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+                    <a href="/navbar_pages/internship.html">Internships</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Student Zone</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/library2.html">Library</a>
+                    <a href="/navbar_pages/hostel.html">Hostel</a>
+                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                    <a href="/navbar_pages/alumni.html">Alumni</a>
+
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#">Grievance Redressal</a>
+                <div class="dropdown">
+                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+                    <a href="/navbar_pages/women cell.html">Women Cell</a>
+                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="">Downloads</a>
+                <div class="dropdown">
+                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+                    <a href="/navbar_pages/forms.html">Forms</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="#" class="bottom-nav-item active" data-panel="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="academic">
+                <i class="fas fa-book"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="student">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Zone</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-panel="about">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+        <div class="panel-header">
+            <h3>Home</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
+                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
+                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
+                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+        <div class="panel-header">
+            <h3>Department</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../Departments/computer.html">Computer Science & Engineering</a>
+                <a href="../Departments/Electrical.html">Electrical Engineering</a>
+                <a href="../Departments/civil.html">Civil Engineering</a>
+                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+                <a href="../Departments/Science.html">Science & Humanities</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+        <div class="panel-header">
+            <h3>Student Zone</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
+                <a href="/navbar_pages/library2.html">Library</a>
+                <a href="/navbar_pages/hostel.html">Hostel</a>
+                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+                <a href="/navbar_pages/alumni.html">Alumni</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+        <div class="panel-header">
+            <h3>Admin Login</h3>
+            <button class="panel-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-links">
+                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Our Hostels</h2>
+            <div class="about-content animate-on-scroll">
+                <div class="about-text">
+                    <h1>Boy's Hostel</h1>
+                    <p>
+                        The boy's hostel was established in 1995 and has a capacity to accommodate 100 students. It is
+                        well-equipped with all necessary facilities to support the student's academic and personal
+                        needs. The hostel caters to students from both the home district and other districts, offering a
+                        conducive environment for study and social interaction. Additionally, a mess facility is
+                        available to provide nutritious meals to the residents.</p>
+                    <h1>Girl's Hostel</h1>
+                    <p>
+                        The girl's hostel is a newly constructed facility, built in 2019, and designed to accommodate 50
+                        female students. Like the boy's hostel, it is equipped with all essential amenities to ensure a
+                        comfortable and secure stay for the residents. To enhance security, a boundary wall surrounds
+                        the girl's hostel, and security personnel are deployed to ensure the safety of the students at
+                        all times.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Girls Hostel Gallery</h2>
+            <div class="about-content animate-on-scroll">
+                <div class="gallery">
+                    <img src="/photos/girlshostel/IMG_20250201_132155.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_131232.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_131302.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_131311.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_132114.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_132122.jpg" alt="">
+                    <img src="/photos/girlshostel/IMG_20250201_132153.jpg" alt="">
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <br><br>
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Boys Hostel Gallery</h2>
+            <div class="about-content animate-on-scroll">
+                <div class="gallery">
+                    <img src="/photos/boyshostel/IMG_20241224_155632.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_155649.jpg" alt="">
+
+                    <img src="/photos/boyshostel/IMG_20241224_155749.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_155758.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_155821.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_155831.jpg" alt="">
+
+                    <img src="/photos/boyshostel/IMG_20241224_155920.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_155945.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241224_160016.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241225_125152.jpg" alt="">
+                    <img src="/photos/boyshostel/IMG_20241225_125329.jpg" alt="">
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities" id="facilities">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">FACILITIES</h2>
+            <div class="card-grid">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Secure Environment</h3>
+                    <p>Secured and well maintained environment.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Modern Dining Hall</h3>
+                    <p>A Fully facilated hall for dining.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Sports</h3>
+                    <p>Fully equipped sports facilities including indoor games and outdoor courts.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Dedicated Rooms for Study</h3>
+                    <p>24/7 study rooms with reference materials and comfortable seating for focused learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wardens" id="wardens">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Hostel Wardens</h2>
+            <div class="card-grid">
+                <div class="warden-card animate-on-scroll">
+                    <div class="warden-image">
+                        <img src="/Faculty and Staff/kanti mam.jpg" alt="Warden 1">
+                    </div>
+                    <div class="warden-info">
+                        <h3>Mrs. Kanti Uikey</h3>
+                        <p>Girls Hostel Incharge</p>
+                        <p><i class="fas fa-phone"></i>7771079125</p>
+                        <p><i class="fas fa-envelope"></i> kanti0303@gmail.com</p>
+                    </div>
+                </div>
+                <div class="warden-card animate-on-scroll">
+                    <div class="warden-image">
+                        <img src="/Faculty and Staff/saurabh k.jpg" alt="Warden 2">
+                    </div>
+                    <div class="warden-info">
+                        <h3>Mr. Sourabh Khaitwas</h3>
+                        <p>Boys Hostel Incharge</p>
+                        <p><i class="fas fa-phone"></i>9406652784 </p>
+                        <p><i class="fas fa-envelope"></i>  sourabhkaithwas8@gmail.com</p>
+                    </div>
+                </div>
+                <div class="warden-card animate-on-scroll">
+                    <div class="warden-image">
+                        <img src="/photos/5856.jpg" alt="Warden 3">
+                    </div>
+                    <div class="warden-info">
+                        <h3>Mrs. Pushpa Bhalavi</h3>
+                        <p>Girls Hostel Warden</p>
+                        <p><i class="fas fa-phone"></i> 9424925368</p>
+                        <p><i class="fas fa-envelope"></i> ......</p>
+                    </div>
+                </div>
+                <div class="warden-card animate-on-scroll">
+                    <div class="warden-image">
+                        <img src="/Faculty and Staff/markamsir.png" alt="Warden 4">
+                    </div>
+                    <div class="warden-info">
+                        <h3>V.K. Markam</h3>
+                        <p> Boys Hostel Caretaker </p>
+                        <p><i class="fas fa-phone"></i> 8435776564</p>
+                        <p><i class="fas fa-envelope"></i> baisakoomarkamgp@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>07632 242443</p>
+                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+
+
+        // Scroll animation
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        const animateOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < triggerBottom) {
+                    element.classList.add('show');
+                }
+            });
+        };
+
+        // Initial check for elements in view
+        window.addEventListener('load', animateOnScroll);
+
+        // Check for elements in view on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // Here you would typically send the form data to a server
+                // For demo purposes, we'll just log it and show an alert
+                console.log('Form submitted:', { name, email, message });
+
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+
+                // Reset form
+                contactForm.reset();
+            });
+        }
+
+        // Add smooth parallax effect to hero section
+        const hero = document.querySelector('.hero');
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+
+            if (hero) {
+                // Move the background slightly as user scrolls
+                hero.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+            }
+        });
+
+        // Add hover effect to facility cards
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cards.forEach(c => {
+                    if (c !== card) {
+                        c.style.opacity = '0.7';
+                    }
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                cards.forEach(c => {
+                    c.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

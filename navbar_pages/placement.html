@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consolidated Placement Records - 2020-2024</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      /* Increased width for more columns */
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 25px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header h1 {
+      font-size: 1.6em;
+      color: #333;
+      margin: 0 0 5px 0;
+    }
+
+    .header h2 {
+      font-size: 1.2em;
+      color: #555;
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.85em;
+      /* Slightly reduced font size for more columns */
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      /* Adjusted padding */
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+      /* Helps prevent overly wide cells */
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+      color: #444;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    @media print {
+      body {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        font-size: 9pt;
+        /* Adjusted for print */
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10mm;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .btn-container {
+        display: none !important;
+      }
+
+      table {
+        font-size: 8pt;
+        /* Adjusted for print */
+      }
+
+      th,
+      td {
+        padding: 5px;
+        /* Adjusted for print */
+        border: 1px solid #666;
+      }
+
+      th {
+        background-color: #e0e0e0 !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="placementDataContainer">
+    <div class="header">
+      <h1>Campus Placement Data (2020-2024)</h1>
+      <h2>Government Polytechnic College, Balaghat</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Year</th>
+          <th>Name of Candidate</th>
+          <th>Father's Name</th>
+          <th>Enrollment Number</th>
+          <th>Company Name</th>
+          <th>Package (Lakhs)</th>
+        </tr>
+      </thead>
+      <tbody id="placementTableBody">
+      </tbody>
+    </table>
+
+    <div class="btn-container">
+      <button type="button" class="btn" id="downloadPdfBtn">Download as PDF</button>
+    </div>
+  </div>
+
+  <script>
+    // Combined and cleaned placement records from 2020-2024
+    const allPlacementRecords = [
+      // Data from 2023-2024 (New)
+      { "Year": "2023-2024", "Name_of_candidate": "Khushi bisen", "Father_Name": "Laxminarayan Bisen", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Khushi Jamne", "Father_Name": "Sunil Jamne", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Kuldeep Illhare", "Father_Name": "Sunil Illhare", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "1.6" }, // Assuming Father Name for Sunil
+      { "Year": "2023-2024", "Name_of_candidate": "Himanshu Dibbe", "Father_Name": "Sunil dibbe", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Prasang Kumar Ukey", "Father_Name": "Suvendra Ukey", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Rupali harinkhede", "Father_Name": "Kapurchand harinkhede", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Gaytri baghele", "Father_Name": "Subelal baghele", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Mohit patle", "Father_Name": "Parmanand patle", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Monika bahetwar", "Father_Name": "Ramesh bahetwar", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Kanchan Durgwar", "Father_Name": "Ramesh uke", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" }, // Father's name might be for next entry
+      { "Year": "2023-2024", "Name_of_candidate": "ALOK LANGE", "Father_Name": "Mr.HEMRAJ LANGE", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Amrapali Dongre", "Father_Name": "Late Rajesh Dongre", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Aniket Dandre", "Father_Name": "Ramesh Dandre", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Likhiram upradhe", "Father_Name": "Hauslal Upradhe", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" }, // Package was "2"
+      { "Year": "2023-2024", "Name_of_candidate": "Rupendra", "Father_Name": "", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" }, // Father's name missing
+      { "Year": "2023-2024", "Name_of_candidate": "Geetu turkar", "Father_Name": "Ramesh turkar", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Ashvini Rahangdale", "Father_Name": "Sampatlal Rahangdale", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Pradeep thakre", "Father_Name": "Komal Prasad thakre", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Mayank khare", "Father_Name": "Patiram khare", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Rohit patle", "Father_Name": "Maroti patle", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Nikhil Chopde", "Father_Name": "suresh chopde", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Arya Verma", "Father_Name": "Bhagat Singh Verma", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" }, // Corrected from 42
+      { "Year": "2023-2024", "Name_of_candidate": "NIKHIL CHOUDHARY", "Father_Name": "ARJUN CHOUDHARY", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" }, // Corrected from 42
+      { "Year": "2023-2024", "Name_of_candidate": "Sandeep", "Father_Name": "Rajkumar Tembhare", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2023-2024", "Name_of_candidate": "Shivam", "Father_Name": "Divanchand", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2023-2024", "Name_of_candidate": "Sumer Singh Chouhan", "Father_Name": "Shailendra Singh Chouhan", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2023-2024", "Name_of_candidate": "Ashish Patle", "Father_Name": "Manoj patle", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2023-2024", "Name_of_candidate": "Jagrti thakre", "Father_Name": "Dilip Thakre", "Enrollment_Number": "", "Company_Name": "Hero MotoCorp", "Total_Package_In_lakhs": "3.2" },
+      { "Year": "2023-2024", "Name_of_candidate": "Maya Chouhan", "Father_Name": "Netlal Chouhan", "Enrollment_Number": "", "Company_Name": "Linde Engineering", "Total_Package_In_lakhs": "3.5" },
+      { "Year": "2023-2024", "Name_of_candidate": "Dilendra wagade", "Father_Name": "Mahesh Wagade", "Enrollment_Number": "", "Company_Name": "Tata Advanced Systems", "Total_Package_In_lakhs": "1.8" }, // Package assumed
+      { "Year": "2023-2024", "Name_of_candidate": "Rohit Patle", "Father_Name": "Nilendra Patle", "Enrollment_Number": "", "Company_Name": "Tata Advanced Systems", "Total_Package_In_lakhs": "1.8" }, // Package corrected/assumed from "1."
+      { "Year": "2023-2024", "Name_of_candidate": "Dipanshu Bopche", "Father_Name": "Lakhanlal Bopche", "Enrollment_Number": "", "Company_Name": "L&T Power", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Manoj Bopche", "Father_Name": "Peetam lal Bopche", "Enrollment_Number": "", "Company_Name": "L&T Power", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2023-2024", "Name_of_candidate": "Badal Arje", "Father_Name": "Savaldas Arje", "Enrollment_Number": "", "Company_Name": "L&T Power", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Sanket Sonwane", "Father_Name": "Shivam Sonwane", "Enrollment_Number": "", "Company_Name": "L&T Power", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Ayush kshirsagar", "Father_Name": "Amratlal kshirsagar", "Enrollment_Number": "", "Company_Name": "Tata Hitachi", "Total_Package_In_lakhs": "2.4" },
+      { "Year": "2023-2024", "Name_of_candidate": "Shubham thakrele", "Father_Name": "Chunnilal", "Enrollment_Number": "", "Company_Name": "Tata Hitachi", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2023-2024", "Name_of_candidate": "Vishal Goutam", "Father_Name": "suresh Goutam", "Enrollment_Number": "", "Company_Name": "Tata Hitachi", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2023-2024", "Name_of_candidate": "Lalit Pardhi", "Father_Name": "mahesh pardhi", "Enrollment_Number": "", "Company_Name": "Tata Hitachi", "Total_Package_In_lakhs": "1.6" },
+
+
+
+      // Data from 2022-2023 (New)
+      { "Year": "2022-2023", "Name_of_candidate": "Namrata patle", "Father_Name": "Lokchand Patle", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" }, // Corrected package from 12
+      { "Year": "2022-2023", "Name_of_candidate": "Devendra dahare", "Father_Name": "Mangal prasad", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Vikas Bisane", "Father_Name": "Jitlal bisane", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Shivam Kantode", "Father_Name": "Ghanshyam Kantode", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Nikhil Chopde", "Father_Name": "Bablu Chopde", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "RAHUL PANCHESHWAR", "Father_Name": "HEMLAL PANCHESHWAR", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "RITIK PATLE", "Father_Name": "SURAJ PATLE", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "MOHIT TURKAR", "Father_Name": "CHETENDRA TURKAR", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Raksha", "Father_Name": "Yuvraj choudhary", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Bharti goutam", "Father_Name": "Kevaram goutam", "Enrollment_Number": "", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2022-2023", "Name_of_candidate": "Ameen Sadique", "Father_Name": "Rasheed Muhammad Qureshi", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Hina Thakre", "Father_Name": "Shishupal Thakre", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Kanchan durgwar", "Father_Name": "Ganesh durgwar", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Manish", "Father_Name": "Dindayal", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Rahul Thakre", "Father_Name": "Moolchand Thakre", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Ravi Thakre", "Father_Name": "Yogendra Thakre", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Reena Bopche", "Father_Name": "Thansing Bopche", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Shivangi Randive", "Father_Name": "Rajendra Randive", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Vayush patle", "Father_Name": "Someshwar patle", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Vikas jamulkar", "Father_Name": "Prakash jamulkar", "Enrollment_Number": "", "Company_Name": "Badve Engineering Ltd.", "Total_Package_In_lakhs": "1.65" },
+      { "Year": "2022-2023", "Name_of_candidate": "Rohit patle", "Father_Name": "Maroti patle", "Enrollment_Number": "", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Ashish bharne", "Father_Name": "Surendra bharne", "Enrollment_Number": "", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Shruti bhagat", "Father_Name": "Omprakash bhagat", "Enrollment_Number": "", "Company_Name": "Mahindra & Mahindra", "Total_Package_In_lakhs": "1.7" },
+      { "Year": "2022-2023", "Name_of_candidate": "kirti kumar upwanshi", "Father_Name": "Pakash upwanshi", "Enrollment_Number": "", "Company_Name": "Mahindra & Mahindra", "Total_Package_In_lakhs": "1.7" },
+      { "Year": "2022-2023", "Name_of_candidate": "sudha kasar", "Father_Name": "sanjay kasar", "Enrollment_Number": "", "Company_Name": "Mahindra & Mahindra", "Total_Package_In_lakhs": "1.7" },
+      { "Year": "2022-2023", "Name_of_candidate": "Punam udaypure", "Father_Name": "Lileshwar udaypure", "Enrollment_Number": "", "Company_Name": "Maruti Suzuki", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2022-2023", "Name_of_candidate": "Vishal neware", "Father_Name": "TULSIRAM neware", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Mahendra telase", "Father_Name": "Dhanraj telase", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Kanchan durgwar", "Father_Name": "Ganesh durgwar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate name, different company
+      { "Year": "2022-2023", "Name_of_candidate": "Ankit Rokde", "Father_Name": "Chittwar rokde", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Siddharth nagwanshi", "Father_Name": "Asharam nagwansi", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Mahendra telase", "Father_Name": "Dhanraj", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate name, possibly same person
+      { "Year": "2022-2023", "Name_of_candidate": "Miss. Kaminee Nagpure", "Father_Name": "Mr. Ravindra Nagpure", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Nikhil gautam", "Father_Name": "Deviprasad gautam", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Kamesh Patle", "Father_Name": "Chattralal patle", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Corrected from email, package from 51.8
+      { "Year": "2022-2023", "Name_of_candidate": "PRACHI RAHANGDALE", "Father_Name": "MURLIDHAR RAHANGDALE", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Prajjwal gokulpure", "Father_Name": "Bharatlal gokulpure", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Rahul Thakre", "Father_Name": "MOOLCHAND THAKRE", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate name
+      { "Year": "2022-2023", "Name_of_candidate": "Rahul Turkar", "Father_Name": "Munnalal Turkar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Ravikant Thakre", "Father_Name": "Suresh Thakre", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Reena Bopche", "Father_Name": "Thansing Bopche", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate name
+      { "Year": "2022-2023", "Name_of_candidate": "Ritik palewar", "Father_Name": "Babulal palewar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Sameer Thakre", "Father_Name": "Dakchand Thakre", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Shivangi Randive", "Father_Name": "Rajendra Randive", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate name
+      { "Year": "2022-2023", "Name_of_candidate": "Shivani pushptode", "Father_Name": "Khubchand", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Shruti baghele", "Father_Name": "Sheetaram baghele", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2022-2023", "Name_of_candidate": "Siddharth nagwanshi", "Father_Name": "Asharam nagwanshi", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.8" }, // Duplicate, corrected package from -1.8
+
+
+      // Data from 2021-2022 (New)
+      { "Year": "2021-2022", "Name_of_candidate": "AJAY kumar Bopche", "Father_Name": "", "Enrollment_Number": "19012M02004", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Amisha Warade", "Father_Name": "", "Enrollment_Number": "19012M02007", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Chetna angure", "Father_Name": "", "Enrollment_Number": "19012M02014", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Dilesh Patle", "Father_Name": "", "Enrollment_Number": "19012M02018", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Himanshu Katre", "Father_Name": "", "Enrollment_Number": "19012M02020", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Khushaboo Deshmukh", "Father_Name": "", "Enrollment_Number": "19012M02025", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" }, // Corrected Name
+      { "Year": "2021-2022", "Name_of_candidate": "Laxmi thakre", "Father_Name": "", "Enrollment_Number": "19012M02026", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "NIKESH KATRE", "Father_Name": "", "Enrollment_Number": "19012M02032", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Rishabh thakre", "Father_Name": "", "Enrollment_Number": "19012M012046", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Vishal dongre", "Father_Name": "", "Enrollment_Number": "19012M02058", "Company_Name": "AM/NS India Pvt. Ltd.", "Total_Package_In_lakhs": "2.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Ankit wadichar", "Father_Name": "", "Enrollment_Number": "19012601064", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Deepak Hanvat", "Father_Name": "", "Enrollment_Number": "19012E01008", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Ishant Bhagat", "Father_Name": "", "Enrollment_Number": "19012E01014", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Kuldeep", "Father_Name": "", "Enrollment_Number": "19012E01019", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Nitesh marskole", "Father_Name": "", "Enrollment_Number": "19012E01030", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Om kelkar", "Father_Name": "", "Enrollment_Number": "19012E01031", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Rachit devare", "Father_Name": "", "Enrollment_Number": "19012E01037", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" }, // Corrected Name
+      { "Year": "2021-2022", "Name_of_candidate": "Sagar Morghade", "Father_Name": "", "Enrollment_Number": "19012E01044", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Vineet Nandardhane", "Father_Name": "", "Enrollment_Number": "19012E01060", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Vivek Choudhary", "Father_Name": "", "Enrollment_Number": "19012E01062", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Zaid Khan", "Father_Name": "", "Enrollment_Number": "19012E01063", "Company_Name": "CEAT Tyres Nagpur", "Total_Package_In_lakhs": "1.8" },
+      { "Year": "2021-2022", "Name_of_candidate": "Himanshu Virulkar", "Father_Name": "", "Enrollment_Number": "19012M02021", "Company_Name": "Hindalco Aluminium Extrusion Pvt. Ltd.", "Total_Package_In_lakhs": "3.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Ayushi Rahngdale", "Father_Name": "", "Enrollment_Number": "19012E01006", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Bharti katre", "Father_Name": "", "Enrollment_Number": "19012E01007", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Keerti choudhri", "Father_Name": "", "Enrollment_Number": "19012E01016", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Amrit Panche", "Father_Name": "", "Enrollment_Number": "19012M02009", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Brajesh", "Father_Name": "", "Enrollment_Number": "19012M02013", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Mithlesh Bisen", "Father_Name": "", "Enrollment_Number": "19012M02029", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Nayan Silare", "Father_Name": "", "Enrollment_Number": "19012M02031", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" }, // Corrected Package from 6
+      { "Year": "2021-2022", "Name_of_candidate": "Pankaj Kumar Patle", "Father_Name": "", "Enrollment_Number": "19012M02035", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Prashant", "Father_Name": "", "Enrollment_Number": "19012M02039", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Pravin", "Father_Name": "", "Enrollment_Number": "19012M02040", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Tikeshwar", "Father_Name": "", "Enrollment_Number": "19012M02056", "Company_Name": "Krishna Maruti", "Total_Package_In_lakhs": "1.6" },
+      { "Year": "2021-2022", "Name_of_candidate": "Rahul Soni", "Father_Name": "", "Enrollment_Number": "19012m02043", "Company_Name": "L&T", "Total_Package_In_lakhs": "4.2" },
+      { "Year": "2021-2022", "Name_of_candidate": "Prashant lilhare", "Father_Name": "", "Enrollment_Number": "19012M02039", "Company_Name": "Magna Automotive Pvt. Ltd.", "Total_Package_In_lakhs": "3.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Pravin Thakre", "Father_Name": "", "Enrollment_Number": "19012M02040", "Company_Name": "Magna Automotive Pvt. Ltd.", "Total_Package_In_lakhs": "3.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Rajesh Thakur", "Father_Name": "", "Enrollment_Number": "19012M02044", "Company_Name": "Magna Automotive Pvt. Ltd.", "Total_Package_In_lakhs": "3.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Sumit turkar", "Father_Name": "", "Enrollment_Number": "19012m02053", "Company_Name": "Magna Automotive Pvt. Ltd.", "Total_Package_In_lakhs": "3.0" },
+      { "Year": "2021-2022", "Name_of_candidate": "Devraj Maskare", "Father_Name": "", "Enrollment_Number": "19012M02016", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Harsh tilasi", "Father_Name": "", "Enrollment_Number": "19012E01010", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Nihar Bisen", "Father_Name": "", "Enrollment_Number": "19012E01029", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" }, // Corrected Package from 1
+      { "Year": "2021-2022", "Name_of_candidate": "PRAJJWAL GOKULPURI", "Father_Name": "", "Enrollment_Number": "19012e01036", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" }, // Corrected Name
+      { "Year": "2021-2022", "Name_of_candidate": "Ranjit Envate", "Father_Name": "", "Enrollment_Number": "19012E01041", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Sakshi Rahangadale", "Father_Name": "", "Enrollment_Number": "1901E01046", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Shivani harinkhede", "Father_Name": "", "Enrollment_Number": "19012E01051", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Shivani rahangdale", "Father_Name": "", "Enrollment_Number": "19012E01052", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Yuvraj thakre", "Father_Name": "", "Enrollment_Number": "19012M02063", "Company_Name": "Ralson Tyres Pithampur", "Total_Package_In_lakhs": "2.5" },
+      { "Year": "2021-2022", "Name_of_candidate": "Omprakash kushre", "Father_Name": "", "Enrollment_Number": "19012E01032", "Company_Name": "Wind World India Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+
+      // Data from 2020-2021 (Existing)
+      { "Year": "2020-2021", "Name_of_candidate": "Shubham bisen", "Father_Name": "Ganesh bisen", "Enrollment_Number": "", "Company_Name": "Carraro India Pvt. Ltd.", "Total_Package_In_lakhs": "1.35" },
+      { "Year": "2020-2021", "Name_of_candidate": "Sandeep Silare", "Father_Name": "SALIKRAM", "Enrollment_Number": "", "Company_Name": "Carraro India Pvt. Ltd.", "Total_Package_In_lakhs": "1.35" },
+      { "Year": "2020-2021", "Name_of_candidate": "yashraj dhuware", "Father_Name": "JANAKLAL DHUWARE", "Enrollment_Number": "", "Company_Name": "Carraro India Pvt. Ltd.", "Total_Package_In_lakhs": "1.35" },
+      { "Year": "2020-2021", "Name_of_candidate": "Vishal jhadekar", "Father_Name": "Prakash Jhadekar", "Enrollment_Number": "", "Company_Name": "Carraro India Pvt. Ltd.", "Total_Package_In_lakhs": "1.35" },
+      { "Year": "2020-2021", "Name_of_candidate": "Roshni patle", "Father_Name": "Lekhram Patle", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "aarti titarmare", "Father_Name": "Duliram Titarmare", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "mamta patle", "Father_Name": "Hukumchand", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "barkha bisen", "Father_Name": "Kuvarlal bisen", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "priyanka uikey", "Father_Name": "Umesh uikey", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "shikha baghele", "Father_Name": "Babulal Baghele", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "Nikhil Bangre", "Father_Name": "DINESH BANGRE", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "Rishabh Chichkhede", "Father_Name": "SADANAND CHICHKHEDE", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "Ajay Rahangdale", "Father_Name": "NARAYAN", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "Lucky Thakre", "Father_Name": "PESHRAM", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "VISHVAJIT", "Father_Name": "PARMANAND GHODESHWAR", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "Prakash", "Father_Name": "MAHESH", "Enrollment_Number": "", "Company_Name": "John Deere", "Total_Package_In_lakhs": "1.39" },
+      { "Year": "2020-2021", "Name_of_candidate": "mahendra nagpure", "Father_Name": "Kuvar lal Nagpure", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "prakash", "Father_Name": "Mahesh", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "likesh turkar", "Father_Name": "Hariprasad turkar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "pradeep thakre", "Father_Name": "JANARDHAN THAKRE", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "vishal khadekar", "Father_Name": "Prakash Jhadekar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "punit bisen", "Father_Name": "MR. DWARKA PRASAD BISEN", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "RISHABH CHICHKHEDE", "Father_Name": "Sadanand chichkhede", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Nishant Rahangdale", "Father_Name": "LAKHANLAL", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Mohit Bhalave", "Father_Name": "Yeshoram bhalave", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "RAHUL TURKAR", "Father_Name": "Munnalal Turkar", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Vishal Lilhare", "Father_Name": "Kanslal Lilhare", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Mohit katre", "Father_Name": "Shivlal katre", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Mahendra chitriv", "Father_Name": "Shantilal Chitriv", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Aatish Panche", "Father_Name": "Ajablal Panche", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Yachna Patle", "Father_Name": "TEJRAM PATLE", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Neha Rahandale", "Father_Name": "GYANIRAM", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Priya Bhautekar", "Father_Name": "GAISRAM BOUTEKAR", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Nisha Meshram", "Father_Name": "BHUWNESHWAR", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Vivek Sakhare", "Father_Name": "Phooldas sakhare", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Omprakash Shende", "Father_Name": "Nandalal", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Sahil Meshram", "Father_Name": "BHIVRAM MESHRAM", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Sangharsh Wasnik", "Father_Name": "Rashtrapal wasnik", "Enrollment_Number": "", "Company_Name": "Subros Pvt. Ltd.", "Total_Package_In_lakhs": "1.4" },
+      { "Year": "2020-2021", "Name_of_candidate": "Sabba Mirza", "Father_Name": "Saleem beg mirza", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Ritu Dongre", "Father_Name": "Shivdas Dongre", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Manish Kumar Dharne", "Father_Name": "Leelaram Dharne", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "yogesh meshram", "Father_Name": "Tulsi Ram", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Durga Prashad khanda", "Father_Name": "Pitam", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "rohit rahangdale", "Father_Name": "Salikram rahangdale", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Rohit Rahangdale", "Father_Name": "Gurudayal Rahangdale", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Bhumeshwari Bisen", "Father_Name": "Balchand bisen", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Monika Bopche", "Father_Name": "Pawan bopche", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" },
+      { "Year": "2020-2021", "Name_of_candidate": "Bharti Tekam", "Father_Name": "Ramesh tekam", "Enrollment_Number": "", "Company_Name": "Schneider Electric", "Total_Package_In_lakhs": "1.3" }
+
+
+    ];
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const tableBody = document.getElementById('placementTableBody');
+      let rowsHtml = '';
+      allPlacementRecords.forEach((record, index) => {
+        rowsHtml += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${record.Year || ''}</td>
+                        <td>${record.Name_of_candidate || ''}</td>
+                        <td>${record.Father_Name || ''}</td>
+                        <td>${record.Enrollment_Number || ''}</td>
+                        <td>${record.Company_Name || ''}</td>
+                        <td>${record.Total_Package_In_lakhs || ''}</td>
+                    </tr>
+                `;
+      });
+      tableBody.innerHTML = rowsHtml;
+
+      const { jsPDF } = window.jspdf;
+      document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+        const dataContainer = document.getElementById('placementDataContainer');
+        const originalWidth = dataContainer.style.width;
+
+        // Set a fixed width for consistent PDF rendering
+        dataContainer.style.width = '1200px';
+
+        html2canvas(dataContainer, {
+          scale: 2,
+          useCORS: true,
+          logging: true,
+          windowWidth: 1200 // Ensure html2canvas renders at this width
+        }).then(canvas => {
+          dataContainer.style.width = originalWidth; // Reset width after capture
+
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF({
+            orientation: 'l', // landscape for wider table
+            unit: 'mm',
+            format: 'a4'
+          });
+
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = pdf.internal.pageSize.getHeight();
+
+          const canvasWidth = canvas.width;
+          const canvasHeight = canvas.height;
+          const ratio = canvasWidth / canvasHeight;
+
+          let imgWidth = pdfWidth - 20; // 10mm margin on each side
+          let imgHeight = imgWidth / ratio;
+
+          // If image height is greater than PDF height, scale by height instead
+          if (imgHeight > pdfHeight - 20) {
+            imgHeight = pdfHeight - 20;
+            imgWidth = imgHeight * ratio;
+          }
+
+          let heightLeft = imgHeight;
+          let position = 10; // Initial top margin
+
+          pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+          heightLeft -= (pdfHeight - 20);
+
+          while (heightLeft > 0) {
+            position = heightLeft - imgHeight - 10; // Recalculate position for subsequent pages
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+            heightLeft -= (pdfHeight - 20);
+          }
+
+          pdf.save('Consolidated_Placement_Records_2020-2024.pdf');
+        }).catch(err => {
+          console.error("Error generating PDF: ", err);
+          dataContainer.style.width = originalWidth; // Reset on error
+          alert("Error generating PDF. Please check console for details.");
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

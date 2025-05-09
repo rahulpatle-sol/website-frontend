@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 1 Lab Guide</title>
+    <link rel="stylesheet" href="./sem1.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css//nav.css" />
+    <link rel="stylesheet" href="/css/lab-sec.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="/index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="/Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="/Departments/Electrical.html">Electrical Engineering</a>
+            <a href="/Departments/civil.html">Civil Engineering</a>
+            <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="/Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="/index.html" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+          <a href="/navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="/navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="/navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="/Departments/Electrical.html">Electrical Engineering</a>
+          <a href="/Departments/civil.html">Civil Engineering</a>
+          <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="/Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="http://backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="/js/nav.js"></script>
+    <header class="lab-header">
+      <h1>Semester 1 Lab Guide</h1>
+      <nav>
+        <ul class="lab-nav-list">
+          <li><a href="#physics"> Appiled Physics Lab</a></li>
+          <li><a href="#chemistry">Applied Chemistry Lab</a></li>
+          <li><a href="#graphics">Engineering Graphics</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="physics">
+      <h2>Applied Physics Lab -I</h2>
+      <p>Physics Lab experiments:</p>
+      <img
+      src="https://i.pinimg.com/originals/04/1b/e5/041be592bc36e0b8de5cb16d83aefe6d.png"
+      alt=""
+    />
+    <ul class="lab-experiments">
+      <li>To measure length, radius of a given cylinder, a test tube, and a beaker using a Vernier caliper and find the volume of each object.</li>
+      <li>To determine the diameter of a wire, a solid ball, and the thickness of cardboard using a screw gauge.</li>
+      <li>To determine the radius of curvature of a convex and concave mirror/surface using a spherometer.</li>
+      <li>To verify the triangle and parallelogram law of forces.</li>
+      <li>To find the coefficient of friction between wood and glass using a horizontal board.</li>
+      <li>To determine the force constant of a spring using Hook’s Law.</li>
+      <li>To verify the law of conservation of mechanical energy (PE to KE).</li>
+      <li>To find the moment of inertia of a flywheel.</li>
+      <li>To find the viscosity of a given liquid (Glycerin) by Stoke’s law.</li>
+      <li>To find the coefficient of linear expansion of the material of a rod.</li>
+      <li>To determine atmospheric pressure at a place using Fortin’s barometer.</li>
+      <li>To measure room temperature and the temperature of a hot bath using a mercury thermometer and convert it into different scales.</li>
+  </ul>
+  
+    
+    </section>
+
+    <section id="chemistry">
+      <h2> Applied Chemistry Lab -I</h2>
+      <p> Chemistry experiments:</p>
+      <img
+      src="https://mountliteraschool.edu.in/wp-content/uploads/2023/01/CHEMISTRY-LAB-2.jpeg"
+      alt=""
+    />
+    <ul class="lab-experiments">
+      <li>Volumetric and Gravimetric analysis:</li>
+      <li>Preparation of standard solution of oxalic acid or potassium permanganate.</li>
+      <li>To determine strength of given sodium hydroxide solution by titrating against standard oxalic acid solution using phenolphthalein indicator.</li>
+      <li>Standardization of KMnO<sub>4</sub> solution using standard oxalic acid and determine the percentage of iron present in given Hematite ore by KMnO<sub>4</sub> solution.</li>
+      <li>Iodometric estimation of copper in the copper pyrite ore.</li>
+      <li>Volumetric estimation of total acid number (TAN) of given oil.</li>
+      <li>Volumetric estimation of:
+          <ul>
+              <li>Total hardness of given water sample using standard EDTA solution.</li>
+              <li>Alkalinity of given water sample using 0.01M sulphuric acid.</li>
+          </ul>
+      </li>
+      <li>Proximate analysis of coal:
+          <ul>
+              <li>Gravimetric estimation of moisture in given coal sample.</li>
+              <li>Gravimetric estimation of ash in given coal sample.</li>
+          </ul>
+      </li>
+  </ul>
+  
+    </section>
+
+    <section id="graphics">
+      <h2>ENGINEERING GRAPHICS Lab</h2>
+      <p>Experiments :</p>
+      <img
+      src="https://damassets.autodesk.net/content/dam/autodesk/www/images/cs-f-1.jpg"
+      alt=""
+    />
+    <ul class="lab-experiments">
+      <li>Draw horizontal, vertical, 30-degree, 45-degree, 60-degree, and 75-degree lines, different types of lines, dimensioning styles using Tee and Set squares/drafter. (do this exercise in sketch book) - Part I - 02 hrs</li>
+      <li>Write alphabets and numerical (Vertical only) (do this exercise in sketch book) - 02 hrs</li>
+      <li>Draw regular geometric constructions and redraw the given figure (do this exercise in sketch book) - Part I - 02 hrs</li>
+      <li>Draw regular geometric construction and redraw the given figure (do this exercise in sketch book) - Part II - 02 hrs</li>
+      <li>Draw a problem on orthographic projections using the first angle method of projection having plain surfaces and slanting - Part I - 02 hrs</li>
+      <li>Draw another problem on orthographic projections using the first angle method of projection having slanting surfaces with slots - Part II - 02 hrs</li>
+      <li>Draw two problems on orthographic projections using the first angle method of projection having cylindrical surfaces and ribs - Part I - 02 hrs</li>
+      <li>Draw two problems on isometric view of simple objects having plain and slanting surfaces by using natural scale - Part I - 02 hrs</li>
+      <li>Draw two problems on isometric projection of simple objects having cylindrical surfaces by using isometric scale - Part I - 02 hrs</li>
+      <li>Draw freehand sketches/conventional representation of machine elements in sketch book such as thread profiles, nuts, bolts, studs, set screws, washers, locking arrangements - Part I - 02 hrs</li>
+      <li>Problem-based learning: Given the orthographic views of at least three objects with a few missing lines, the student will try to imagine the corresponding objects, complete the views, and draw these views in sketch book - Part I - 02 hrs</li>
+      <li>Draw basic 2D entities like Rectangle, Rhombus, Polygon using AutoCAD (Printout should be a part of progressive assessment) - Part I - 02 hrs</li>
+      <li>Draw basic 2D entities like Circles, Arcs using AutoCAD (Printout should be a part of progressive assessment) - Part II - 02 hrs</li>
+      <li>Draw basic 2D entities like Circular and rectangular array using AutoCAD (Printout should be a part of progressive assessment) - Part III - 02 hrs</li>
+      <li>Draw blocks of 2D entities comprising Rectangle, Rhombus, Polygon, Circles, Arcs, circular and rectangular array bodies using AutoCAD (Printout should be a part of progressive assessment) - Part IV - 02 hrs</li>
+      <li>Draw basic 3D entities and their components in 2D using AutoCAD (Printout should be a part of progressive assessment) - Part I - 02 hrs</li>
+      <li>Draw basic 3D entities and their components in 2D using AutoCAD (Printout should be a part of progressive assessment) - Part II - 02 hrs</li>
+  </ul>
+  
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Government Polytechnic College Balaghat</h3>
+          <div class="underline"></div>
+          <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+          <p>07632 242443</p>
+          <p>
+            <a href="mailto:principal@gpcbalaghat.ac.in"
+              >principal@gpcbalaghat.ac.in</a
+            >
+          </p>
+          <p>
+            <a href="https://www.gpcbalaghat.ac.in" target="_blank"
+              >www.gpcbalaghat.ac.in</a
+            >
+          </p>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61574799926006"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/poly.bgt1962/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="" class="social-icon" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li><a href="/navbar_pages/about.html">About Us</a></li>
+            <li><a href="/gallery.html">Photo Gallery</a></li>
+            <li>
+              <a href="/navbar_pages/admission process.html"
+                >Admission Process</a
+              >
+            </li>
+            <li><a href="/contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Important Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
+                target="_blank"
+                >DTE Counselling</a
+              >
+            </li>
+            <li>
+              <a href="https://mprojgar.gov.in/" target="_blank"
+                >MP Rojgar Portal</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx"
+                target="_blank"
+                >MP Rojgar E-Patrika</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE="
+                target="_blank"
+                >MP Scholarship Portal</a
+              >
+            </li>
+            <li>
+              <a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>College Tour & Activities</h3>
+          <div class="underline"></div>
+          <div class="f-video-container">
+            <iframe
+              src=""
+              title="College Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+          Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

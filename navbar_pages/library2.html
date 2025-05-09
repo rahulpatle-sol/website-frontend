@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Libraries | Government Polytechnic College</title>
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Base Styles */
+      :root {
+        --primary-color: #1e3a8a;
+        --secondary-color: #3b82f6;
+        --accent-color: #f97316;
+        --text-color: #1f2937;
+        --light-text: #6b7280;
+        --bg-color: #f9fafb;
+        --card-bg: #ffffff;
+        --footer-bg: #1e293b;
+        --footer-text: #e2e8f0;
+        --border-color: #e5e7eb;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      a:hover {
+        color: var(--secondary-color);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Page Banner */
+      .page-banner {
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .page-banner h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .breadcrumbs {
+        font-size: 0.9rem;
+      }
+
+      .breadcrumbs a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .breadcrumbs a:hover {
+        color: white;
+      }
+
+      .breadcrumbs span {
+        color: white;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 80px 0;
+      }
+
+      .section-heading {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-heading h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-heading h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent-color);
+      }
+
+      .section-heading p {
+        color: var(--light-text);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Library Cards */
+      .library-card {
+        display: flex;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin-bottom: 40px;
+      }
+
+      .library-card.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .library-image {
+        flex: 1;
+        min-height: 400px;
+      }
+
+      .library-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .library-content {
+        flex: 1;
+        padding: 40px;
+      }
+
+      .library-content h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .library-content p {
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
+
+      .library-stats {
+        display: flex;
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-number {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--light-text);
+      }
+
+      /* Library Features */
+      .library-features {
+        background-color: #f1f5f9;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      .feature-icon i {
+        font-size: 30px;
+        color: var(--primary-color);
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+
+      .feature-card p {
+        color: var(--light-text);
+      }
+
+      /* Library Hours */
+      .hours-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        display: flex;
+        overflow: hidden;
+      }
+
+      .hours-content,
+      .contact-info {
+        flex: 1;
+        padding: 40px;
+      }
+
+      .hours-content {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .hours-content h3,
+      .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+      }
+
+      .hours-grid {
+        margin-bottom: 20px;
+      }
+
+      .day {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .day:last-child {
+        border-bottom: none;
+      }
+
+      .note {
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-top: 20px;
+      }
+
+      .contact-info p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .read{
+        text-align: center;
+        text-decoration: none;
+        background: blue;
+        padding: 10px;
+        margin-left: 50%;
+        text-transform: uppercase;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: var(--transition);
+        width: 100px;
+        margin-top: 20px;
+      }
+      .contact-info i {
+        color: var(--primary-color);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .library-card,
+        .library-card.reverse {
+          flex-direction: column;
+        }
+
+        .library-image {
+          min-height: 300px;
+        }
+
+        .hours-card {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .library-content,
+        .hours-content,
+        .contact-info {
+          padding: 25px;
+        }
+
+        .library-stats {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .stat {
+          margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+          font-size: 1.8rem;
+        }
+
+        .page-banner {
+          padding: 40px 0;
+        }
+
+        .page-banner h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--===============================Navigation Menu=========================================== -->
+
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="../index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="../Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="../Departments/Electrical.html">Electrical Engineering</a>
+            <a href="../Departments/civil.html">Civil Engineering</a>
+            <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="../Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="#" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../index.html"
+            ><i class="fas fa-home mr-2"></i> Go to Home</a
+          >
+          <a href="../navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="../navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="../navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="../Departments/Electrical.html">Electrical Engineering</a>
+          <a href="../Departments/civil.html">Civil Engineering</a>
+          <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="../Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="http://localhost/backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="../js/nav.js"></script>
+
+    <main>
+      <section class="page-banner">
+        <div class="container">
+          <h1>College Libraries</h1>
+          <p>
+            Explore our libraries designed to support all students' academic
+            needs
+          </p>
+        </div>
+      </section>
+
+      <section class="library-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Our Libraries</h2>
+            <p>
+              Explore our specialized libraries designed to support all
+              students' academic needs
+            </p>
+          </div>
+
+          <div class="library-card">
+            <div class="library-image">
+              <img src="../photos/obclib.png" alt="OBC Library" />
+            </div>
+            <div class="library-content">
+              <h3>OBC Library</h3>
+              <p>
+                The OBC Library is a well-equipped knowledge center designed to
+                support the academic and research needs of students belonging to
+                the Other Backward Classes (OBC) category. It provides a rich
+                collection of books, reference materials, research journals,
+                periodicals, and digital resources across various disciplines,
+                ensuring that students have access to high-quality educational
+                materials.
+              </p>
+              <p>
+                The library is open throughout the academic year, with flexible
+                hours to accommodate students' study schedules. Equipped with
+                comfortable seating arrangements, Wi-Fi connectivity, and a
+                peaceful reading atmosphere, the OBC Library serves as an
+                essential resource center for students striving for academic
+                excellence.
+              </p>
+            </div>
+          </div>
+
+          <div class="library-card reverse">
+            <div class="library-image">
+              <img src="https://static.collegedekho.com/media/uploads/2016/06/03/delhi-public-library.jpg" alt="SC/ST Library" />
+            </div>
+            <div class="library-content">
+              <h3>SC/ST Library</h3>
+              <p>
+                The SC/ST Library is a dedicated facility that aims to support
+                the educational and research pursuits of students belonging to
+                the Scheduled Castes (SC) and Scheduled Tribes (ST) categories.
+                This library is a crucial initiative toward promoting
+                educational equity, ensuring that students from marginalized
+                communities have unrestricted access to academic and research
+                materials.
+              </p>
+              <p>
+                In addition to academic resources, the SC/ST Library conducts
+                skill development programs, guest lectures, and mentorship
+                sessions led by educators and professionals. These programs aim
+                to bridge the gap between theoretical learning and practical
+                application, equipping students with industry-relevant skills.
+              </p>
+            </div>
+          </div>
+          <div class="library-card">
+            <div class="library-image">
+              <img src="../photos/nationallib.png" alt="OBC Library" />
+            </div>
+            <div class="library-content">
+              <h3>National library</h3>
+              <p>
+                National Digital Library of India (NDLI) is a virtual repository
+                of learning resources which is not just a repository with
+                search/browse facilities but provides a host of services for the
+                learner community. It is sponsored and mentored by Ministry of
+                Education, Government of India, through its National Mission on
+                Education through Information and Communication Technology
+                (NMEICT). Filtered and federated searching is employed to
+                facilitate focused searching so that learners can find the right
+                resource with least effort and in minimum time. NDLI provides
+                user group-specific services such as Examination Preparatory for
+                School and College students and job aspirants. Services for
+                Researchers and general learners are also provided. NDLI is
+                designed to hold content of any language and provides interface
+                support for 10 most widely used Indian languages. It is built to
+                provide support for all academic levels including researchers
+                and life-long learners, all disciplines, all popular forms of
+                access devices and differently-abled learners. It is designed to
+                enable people to learn and prepare from best practices from all
+                over the world and to facilitate researchers to perform
+                inter-linked exploration from multiple sources. It is developed,
+                operated and maintained from Indian Institute of Technology
+                Kharagpur.
+              </p>
+              <a  class="read" href="https://www.ndl.gov.in/">Get The Book </a>
+            </div>
+          </div>
+          <div class="library-card reverse">
+            <div class="library-image">
+              <img src="../photos/aictelib.png" alt="SC/ST Library" />
+            </div>
+            <div class="library-content">
+              <h3>Aicte    Library</h3>
+              <p>
+                The National Education policy (NEP) was launched by the Ministry
+                of Education Government of India in the year 2020. The major
+                emphasis of NEP-2020 is to impart education in mother tongue so
+                as to enhance the creativity, critical thinking among the
+                students. In alignment with the above provisions of National
+                Education Policy (NEP) 2020, All India Council for Technical
+                Education (AICTE) has initiated Technical Book writing scheme
+                initially in a 09 languages viz Hindi, Tamil, Gujarati, Kannada,
+                Marathi, Bengali, Telugu, Punjabi, Odia. Subsequently, 03 more
+                languages Assamese, Malayalam & Urdu are added in it. The
+                journey of first year engineering book writing was started with
+                identification of 20 courses, 11 at Diploma level and 9 at
+                Degree level. Subsequently, author from different institutions
+                were identified, for writing original book in English languages.
+                At the same time a parallel exercise was initiated to identify
+                the translators & reviewers by involving technical universities
+                across India. For every identified language, the work was given
+                to the universities so as to provide quality text books to the
+                various stakeholders. For the second year total 88 courses, 42
+                at the Degree and 46 at Diploma level have been identified
+                across five major disciplines viz Computer Science &
+                Engineering, Electrical Engineering, Mechanical Engineering,
+                Electronics & Communication Engineering & Civil Engineering, for
+                the purpose of original book writing in English and its
+                subsequent translation in the 12 Indian Languages
+              </p>
+              <a class="read" href="https://ekumbh.aicte-india.org/">Get the Book</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="library-features">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Library Features</h2>
+            <p>
+              Our libraries offer a range of facilities to enhance your learning
+              experience
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <h3>Free Wi-Fi</h3>
+              <p>High-speed internet access throughout the library premises</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <h3>Digital Resources</h3>
+              <p>Access to e-books, online journals, and research databases</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Study Rooms</h3>
+              <p>
+                Dedicated spaces for group discussions and collaborative work
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-print"></i>
+              </div>
+              <h3>Dedicated Guides</h3>
+              <p>Dedicated Guides are there to help students.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="library-hours">
+        <div class="container">
+          <div class="hours-card">
+            <div class="hours-content">
+              <h3>Library Hours</h3>
+              <div class="hours-grid">
+                <div class="day">
+                  <span>Monday - Saturday</span>
+                  <span>10:30 AM - 5:00 PM</span>
+                </div>
+
+                <div class="day">
+                  <span>Sunday</span>
+                  <span>Closed</span>
+                </div>
+              </div>
+              <p class="note">
+                * Hours may vary during holidays and examination periods
+              </p>
+            </div>
+            <div class="contact-info">
+              <h3>Contact Information</h3>
+              <p>
+                <i class="fas fa-phone"></i>
+                <a href="tel:07632242443">07632 242443</a>
+              </p>
+              <p>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:library@gpcbalaghat.ac.in"
+                  >www.gpcbalaghat.ac.in</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Government Polytechnic College Balaghat</h3>
+          <div class="underline"></div>
+          <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+          <p>07632 242443</p>
+          <p>
+            <a href="mailto:principal@gpcbalaghat.ac.in"
+              >principal@gpcbalaghat.ac.in</a
+            >
+          </p>
+          <p>
+            <a href="https://www.gpcbalaghat.ac.in" target="_blank"
+              >www.gpcbalaghat.ac.in</a
+            >
+          </p>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61574799926006"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/poly.bgt1962/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="" class="social-icon" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li><a href="../navbar_pages/about.html">About Us</a></li>
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li>
+              <a href="../navbar_pages/admission process.html"
+                >Admission Process</a
+              >
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Important Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
+                target="_blank"
+                >DTE Counselling</a
+              >
+            </li>
+            <li>
+              <a href="https://mprojgar.gov.in/" target="_blank"
+                >MP Rojgar Portal</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx"
+                target="_blank"
+                >MP Rojgar E-Patrika</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE="
+                target="_blank"
+                >MP Scholarship Portal</a
+              >
+            </li>
+            <li>
+              <a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>College Tour & Activities</h3>
+          <div class="underline"></div>
+          <div class="f-video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="College Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+          Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
