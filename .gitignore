@@ -1,0 +1,6 @@
+# Ignore video files
+.pub
+.pub.pub-cache
+
+
+# Optional: ignore video folders
