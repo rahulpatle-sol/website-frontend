@@ -1119,10 +1119,11 @@ body {
         width: 83%;
         height: 100vh;
         background: linear-gradient(135deg, #4776E6, #8E54E9);
-        padding: 80px 20px 20px;
+        padding: 100px 20px 20px;
         transition: left 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         overflow-y: auto;
         border-radius: 0;
+        
         align-items: flex-start;
         justify-content: flex-start;
     }

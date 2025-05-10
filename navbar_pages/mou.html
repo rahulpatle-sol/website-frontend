@@ -1,399 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MOU GPC BALAGHAT</title>
-    <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
 
-   
-       
-        .container {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
+      .container {
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+      }
 
-        h1 {
-            color: #003366;
-            margin-bottom: 30px;
-            margin-top: 10%;
-        }
+      h1 {
+        color: #003366;
+        margin-bottom: 30px;
+        margin-top: 10%;
+      }
 
-        .mou-item {
-            background-color: #fff;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            overflow: hidden;
-        }
+      .mou-item {
+        background-color: #fff;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        overflow: hidden;
+      }
 
-        .mou-header {
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            background-color: #f1f1f1;
-        }
+      .mou-header {
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        background-color: #f1f1f1;
+      }
 
-        .mou-header:hover {
-            background-color: #e6e6e6;
-        }
+      .mou-header:hover {
+        background-color: #e6e6e6;
+      }
 
-        .mou-content {
-            display: none;
-            padding: 20px;
-            border-top: 1px solid #ccc;
-        }
+      .mou-content {
+        display: none;
+        padding: 20px;
+        border-top: 1px solid #ccc;
+      }
 
-        .download-link {
-            margin-top: 10px;
-            display: inline-block;
-            background-color: #003366;
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+      .download-link {
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #003366;
+        color: white;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 4px;
+      }
 
-        .download-link:hover {
-            background-color: #0055aa;
-        }
+      .download-link:hover {
+        background-color: #0055aa;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--===============================Navigation Menu=========================================== -->
 
     <!-- Mobile Header with toggle menus and back navigation-->
     <div class="mobile-header">
-        <div class="back-button" onclick="goBack()">
-            <i class="fas fa-arrow-left"></i>
-        </div>
-        <!-- Mobile Menu Toggle Button -->
-        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
 
     <!-- Overlay for mobile menu -->
     <div class="overlay" id="overlay"></div>
     <!-- Main-Navigation -->
     <nav class="main-nav" id="mainNav">
-        <div class="nav-items">
-            <div class="nav-item">
-                <a href="../index.html">Home</a>
-            </div>
-            <div class="nav-item">
-                <a href="#">About</a>
-                <div class="dropdown">
-                    <a href="/navbar_pages/about.html">About College</a>
-                    <a href="/navbar_pages/vision.html">Vision & Mission</a>
-                    <a href="/Documents Pdf/organizational-chart.pdf">Organizational Chart</a>
-                    <a href="/navbar_pages/administration.html">Administration</a>
-                    <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
-                    <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#">Academic</a>
-                <div class="dropdown">
-                    <a href="/navbar_pages/admission process.html">Admission Process</a>
-                    <a href="/navbar_pages/fees.html">Fees Structure</a>
-                    <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx">Academic Calender</a>
-                    <a href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$">RGPV Schemes &
-                        Syllabus</a>
-                    <a href="/navbar_pages/scholarship.html">Scholarships</a>
-                    <a href="../Documents Pdf/25ordinance020915050238.pdf" target="_blank">Ordinance</a>
-
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#">Departments</a>
-                <div class="dropdown">
-                    <a href="../Departments/computer.html">Computer Science & Engineering</a>
-                    <a href="../Departments/Electrical.html">Electrical Engineering</a>
-                    <a href="../Departments/civil.html">Civil Engineering</a>
-                    <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
-                    <a href="../Departments/Science.html">Science & Humanities</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#">Placements</a>
-                <div class="dropdown">
-                    <a href="/navbar_pages/TPO.HTML">Overview</a>
-                    <a href="/navbar_pages/mou.html">M.O.U.</a>
-                    <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
-                    <a href="/navbar_pages/internship.html">Internships</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#">Student Zone</a>
-                <div class="dropdown">
-                    <a href="/navbar_pages/library2.html">Library</a>
-                    <a href="/navbar_pages/hostel.html">Hostel</a>
-                    <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
-                    <a href="/navbar_pages/studentclub.html">Student Clubs</a>
-                    <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
-                    <a href="/navbar_pages/alumni.html">Alumni</a>
-
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="#">Grievance Redressal</a>
-                <div class="dropdown">
-                    <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
-                    <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
-                    <a href="/navbar_pages/women cell.html">Women Cell</a>
-                    <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
-                    <a href="/navbar_pages/internalcomp.html">Internal Complaints Commitee</a>
-                </div>
-            </div>
-            <div class="nav-item">
-                <a href="">Downloads</a>
-                <div class="dropdown">
-                    <a href="https://ekumbh.aicte-india.org/">E-Books</a>
-                    <a href="/navbar_pages/forms.html">Forms</a>
-                </div>
-            </div>
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="../index.html">Home</a>
         </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="../Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="../Departments/Electrical.html">Electrical Engineering</a>
+            <a href="../Departments/civil.html">Civil Engineering</a>
+            <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="../Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
     </nav>
     <!-- Mobile Bottom Navigation -->
     <div class="bottom-nav">
-        <div class="bottom-nav-items">
-            <a href="#" class="bottom-nav-item active" data-panel="home">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="bottom-nav-item" data-panel="academic">
-                <i class="fas fa-book"></i>
-                <span>Departments</span>
-            </a>
-            <a href="#" class="bottom-nav-item" data-panel="student">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Student Zone</span>
-            </a>
-            <a href="#" class="bottom-nav-item" data-panel="about">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Admin</span>
-            </a>
-        </div>
+      <div class="bottom-nav-items">
+        <a href="#" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
     </div>
 
     <!-- Bottom Nav Panels -->
     <!-- Home Panel -->
     <div class="bottom-nav-panel" id="home-panel">
-        <div class="panel-header">
-            <h3>Home</h3>
-            <button class="panel-close"><i class="fas fa-times"></i></button>
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../index.html"
+            ><i class="fas fa-home mr-2"></i> Go to Home</a
+          >
+          <a href="../navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="../navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="../navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
         </div>
-        <div class="panel-content">
-            <div class="panel-links">
-                <a href="../index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
-                <a href="../navbar_pages/about.html"><i class="fa-solid fa-building-columns"></i> About College</a>
-                <a href="../navbar_pages/vision.html"><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a>
-                <a href="../navbar_pages/TPO.HTML"><i class="fas fa-bell mr-2"></i>Placements Overview </a>
-                <a href="https://www.rgpvdiploma.in/" target="_blank"><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a>
-            </div>
-        </div>
+      </div>
     </div>
 
     <!-- Department Panel -->
     <div class="bottom-nav-panel" id="academic-panel">
-        <div class="panel-header">
-            <h3>Department</h3>
-            <button class="panel-close"><i class="fas fa-times"></i></button>
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="../Departments/Electrical.html">Electrical Engineering</a>
+          <a href="../Departments/civil.html">Civil Engineering</a>
+          <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="../Departments/Science.html">Science & Humanities</a>
         </div>
-        <div class="panel-content">
-            <div class="panel-links">
-                <a href="../Departments/computer.html">Computer Science & Engineering</a>
-                <a href="../Departments/Electrical.html">Electrical Engineering</a>
-                <a href="../Departments/civil.html">Civil Engineering</a>
-                <a href="../Departments/Mechanical.html">Mechanical Engineering</a>
-                <a href="../Departments/Science.html">Science & Humanities</a>
-            </div>
-        </div>
+      </div>
     </div>
 
     <!-- Student Panel -->
     <div class="bottom-nav-panel" id="student-panel">
-        <div class="panel-header">
-            <h3>Student Zone</h3>
-            <button class="panel-close"><i class="fas fa-times"></i></button>
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
         </div>
-        <div class="panel-content">
-            <div class="panel-links">
-                <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx">RGPV Student Portal Login </a>
-                <a href="/navbar_pages/library2.html">Library</a>
-                <a href="/navbar_pages/hostel.html">Hostel</a>
-                <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
-                <a href="/navbar_pages/studentclub.html">Student Clubs</a>
-                <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
-                <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
-                <a href="/navbar_pages/alumni.html">Alumni</a>
-
-            </div>
-        </div>
+      </div>
     </div>
 
     <!-- About Panel -->
     <div class="bottom-nav-panel" id="about-panel">
-        <div class="panel-header">
-            <h3>Admin Login</h3>
-            <button class="panel-close"><i class="fas fa-times"></i></button>
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="../backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
         </div>
-        <div class="panel-content">
-            <div class="panel-links">
-                <a href="../backend/login.php"><i class="fas fa-user mr-2"></i> Admin Login</a>
-            </div>
-        </div>
+      </div>
     </div>
     <script src="../js/nav.js"></script>
 
-
-
     <div class="container">
-        <h1>Memorandums of Understanding (M.O.U)</h1>
+      <h1>Memorandums of Understanding (M.O.U)</h1>
+
+      <div class="mou-item">
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span>MOU with Connect Shiksha</span>
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+            Connect Shiksha has signed 2nd MOU for 5-year with Government
+            Polytechnic Balaghat to conduct guest lectures in Computer Science,
+            Mechanical, Electrical, and Civil Engineering.
+          </p>
+
+          <h3>Key Focus Areas:</h3>
+          <ol>
+            <li>Industrial Robotics & Automation</li>
+            <li>Python for Data Science</li>
+            <li>Electric Vehicle Technology</li>
+            <li>Embedded Systems & IoT</li>
+            <li>Drone Design & Mobile Robotics</li>
+            <li>Hand Robot Design</li>
+            <li>Web Designing & Development</li>
+            <li>Data Science & AI</li>
+            <li>Soft Skills & Career Development</li>
+          </ol>
+        </div>
+      </div>
+      <div class="mou-item">
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span
+            >MOU with MSME-TOOL (INDO-GERMAN TOOL ROOM) , INDORE MADHYA
+            Pradesh</span
+          >
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+            MSME Tool Room (IGTR), Indore will provide technical training
+            programs e.g. AutoCAD, CNC Programming Turning & Milling, STAAD-Pro,
+            PLC, SCADA etc. (software based), vocational trainings, expert
+            lecture, technical visits and adjunct faculties to Government
+            Polytechnic College Balaghat as per their convenience comfort
+            schedule for Diploma students of Mechanical/Electrical/Civil and
+            Computer Science Engineering
+          </p>
+          <h3>Key Focus Areas:</h3>
+          <ol>
+            <li>
+              Conducting various training programs for the students of
+              engineering trades to upgrade their skills and knowledge in CNC
+              Technology, CAD/CAM, Architecture Software, PLC, SCADA training,
+              and the analysis field.
+            </li>
+            <li>Imparting quality education and training to students.</li>
+            <li>
+              Conducting training and awarding certificates to successful
+              students.
+            </li>
+            <li>
+              Carrying out similar activities and providing services that
+              increase skills, job opportunities, and productivity on mutual
+              agreement.
+            </li>
+          </ol>
+        </div>
 
         <div class="mou-item">
-            <div class="mou-header" onclick="toggleMOU(this)">
-                <span>MOU with Connect Shiksha</span>
-                <span>+</span>
-            </div>
-            <div class="mou-content">
-                <p>
-                    Connect Shiksha has signed 2nd MOU for 5-year with Government Polytechnic Balaghat to conduct guest
-                    lectures in Computer Science, Mechanical, Electrical, and Civil Engineering. </p>
+          <div class="mou-header" onclick="toggleMOU(this)">
+            <span>Dreams Automobile Balaghat(M.P.)</span>
+            <span>+</span>
+          </div>
+          <div class="mou-content">
+            <p>
+              DREAMS AUTOMOBILE BALAGHAT, the Second Party is engaged in
+              Business, Manufacturing, Skill Development, in the fields of
+              Automobile specially two wheeler related work
+            </p>
 
-                <h3>Key Focus Areas:</h3>
-                <ol>
-                    <li>Industrial Robotics & Automation </li>
-                    <li>Python for Data Science</li>
-                    <li> Electric Vehicle Technology</li>
-                    <li> Embedded Systems & IoT</li>
-                    <li>Drone Design & Mobile Robotics</li>
-                    <li> Hand Robot Design</li>
-                    <li> Web Designing & Development</li>
-                    <li> Data Science & AI</li>
-                    <li> Soft Skills & Career Development</li>
+            <h3>Key Focus Areas:</h3>
+            <ol>
+              
+    <li>Joint research in Automobile and Mechanical Engineering.</li>
+    <li>Skill development programs to bridge industry gaps.</li>
+    <li>Guest lectures on technology trends and in-house requirements.</li>
+    <li>Faculty training aligned with National Occupational Standards.</li>
+    <li>Support for student internships and job placements.</li>
+    <li>Internal approvals and permissions for program execution.</li>
+    <li>No financial commitment from Government Polytechnic College Balaghat; separate financial considerations if required.</li>
 
-                </ol>
-               
-            </div>
+
+            </ol>
+          </div>
         </div>
         <div class="mou-item">
-            <div class="mou-header" onclick="toggleMOU(this)">
-                <span>MOU with MSME-TOOL (INDO-GERMAN TOOL ROOM) , INDORE MADHYA Pradesh</span>
-                <span>+</span>
-            </div>
-            <div class="mou-content">
-          <P>
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span> MOU with WAINGANGA MINERAL INDUSTRY GARRA BALAGHAT (M.P.) 481001</span>
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+           M/s Wainganga Mineral Industry specializes in manufacturing FRP products for mineral benefaction and is establishing a mineral processing plant in Garra Industrial Area (Manganese). It is associated with Hyderabad-based Insmart Systems, a global leader in material handling and quality testing equipment for defense, heavy industry, mining, steel plants, research institutes, and educational institutions. Insmart Systems dominates 95% of India's quality testing market and exports to 32 countries across Asia, Africa, South America, and Europe.
+          </p>
+
+          <h3>Key Focus Areas:</h3>
+          <ol>
             
-          </P>
-                <h3>Key Focus Areas:</h3>
-                <ol>
-                    <li>Industrial Robotics & Automation </li>
-                    <li>Python for Data Science</li>
-                    <li> Electric Vehicle Technology</li>
-                    <li> Embedded Systems & IoT</li>
-                    <li>Drone Design & Mobile Robotics</li>
-                    <li> Hand Robot Design</li>
-                    <li> Web Designing & Development</li>
-                    <li> Data Science & AI</li>
-                    <li> Soft Skills & Career Development</li>
+    <li>Joint research in mineral processing and exploration.</li>
+    <li>Skill development training for students on emerging technologies.</li>
+    <li>Guest lectures on technology trends and industry requirements.</li>
+    <li>Faculty training aligned with National Occupational Standards.</li>
+    <li>Support for student internships and job placements.</li>
+    <li>Internal approvals, consents, and licenses for program execution.</li>
+    <li>No financial commitment from Government Polytechnic College Balaghat; separate financial considerations if required.</li>
 
-                </ol>
-               
-            </div>
+
+          </ol>
         </div>
+      </div>
+      </div>
+<div class="mou-item">
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span>MOU with  M/s Ramnic power & alloys pvt. ltd.</span>
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+            M/s Ramnik Power & Alloys Pvt. Ltd., promoted by Ramnik Group, operates in Ferro Manganese and Silico Manganese production, power generation, manufacturing, and skill development. Located in Sarandi, Waraseoni, Balaghat (M.P.), it plays a vital role in the industry.
+          </p>
+
+          <h3>Key Focus Areas:</h3>
+          <ol>
+          
+    <li>Joint research in Mining, Chemical, Mechanical, Electrical & Electronics.</li>
+    <li>Skill development training for students on emerging technologies.</li>
+    <li>Guest lectures on technology trends and industry needs.</li>
+    <li>Faculty training aligned with National Occupational Standards.</li>
+    <li>Support for student internships and job placements.</li>
+    <li>Internal approvals, consents, and licenses for program execution.</li>
+    <li>No financial commitment from Government Polytechnic College Balaghat; separate financial considerations if required.</li>
 
 
+          </ol>
+        </div>
+      </div>
+      <!-- Add more MOU items below as needed -->
+        <div class="mou-item">
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span>MOU with M/s WAINGANGA Bricks </span>
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+           M/s WAINGANGA BRICKS. the Second Party is engaged in Business, Manufacturing, Skill Development, in the fields of major construction of bridges, overhead water tank, water supply schemes, manufacturing of fly ash bricks, decorative tiles and floor tiles etc.
+          </p>
+
+          <h3>Key Focus Areas:</h3>
+          <ol>
+           
+    <li>Joint research in Civil Engineering and related fields.</li>
+    <li>Skill development training for students on emerging technologies.</li>
+    <li>Guest lectures on technology trends and industry needs.</li>
+    <li>Faculty training aligned with National Occupational Standards.</li>
+    <li>Support for student internships and job placements.</li>
+    <li>Internal approvals, consents, and licenses for program execution.</li>
+    <li>No financial commitment from Government Polytechnic College Balaghat; separate financial considerations if required.</li>
 
 
-        <!-- Add more MOU items below as needed -->
+        </div>
+      </div>  <!-- Add more MOU items below as needed -->
+       <div class="mou-item">
+        <div class="mou-header" onclick="toggleMOU(this)">
+          <span>MOU with NU Intelligency pvt. ltd.</span>
+          <span>+</span>
+        </div>
+        <div class="mou-content">
+          <p>
+            NU Intelligence Pvt. Ltd., Nagpur specializes in Industrial Robotics, Automation, Python for Data Science, Electric Vehicles, Embedded Systems, IoT, Drone Design, Mobile & Hand Robotics, Web Designing, Raspberry Pi, Linux Networking, and Soft Skills.
+          </p>
 
+          <h3>Key Focus Areas:</h3>
+          <ol>
+           
+    <li>Industry visits and training programs for faculty and students.</li>
+    <li>Guest lectures on technology trends and industry requirements.</li>
+    <li>Support for student training and job placements.</li>
+    <li>No financial commitment from Government Polytechnic College Balaghat; separate financial considerations if required.</li>
+    <li>Internal approvals, consents, and licenses for program execution.</li>
+
+
+          </ol>
+        </div>
+      </div>
     </div>
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Government Polytechnic College Balaghat</h3>
-                <div class="underline"></div>
-                <p>Moti Nagar, Ward No 33, Balaghat,<br>Madhya Pradesh 481001.</p>
-                <p>07632 242443</p>
-                <p><a href="mailto:principal@gpcbalaghat.ac.in">principal@gpcbalaghat.ac.in</a></p>
-                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
-                        target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
-                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <div class="underline"></div>
-                <ul class="footer-links">
-                    <li><a href="../navbar_pages/about.html">About Us</a></li>
-                    <li><a href="../gallery.html">Photo Gallery</a></li>
-                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Important Links</h3>
-                <div class="underline"></div>
-                <ul class="footer-links">
-                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
-                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
-                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
-                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
-                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>College Tour & Activities</h3>
-                <div class="underline"></div>
-                <div class="f-video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Government Polytechnic College Balaghat</h3>
+          <div class="underline"></div>
+          <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+          <p>07632 242443</p>
+          <p>
+            <a href="mailto:principal@gpcbalaghat.ac.in"
+              >principal@gpcbalaghat.ac.in</a
+            >
+          </p>
+          <p>
+            <a href="https://www.gpcbalaghat.ac.in" target="_blank"
+              >www.gpcbalaghat.ac.in</a
+            >
+          </p>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61574799926006"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/poly.bgt1962/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="" class="social-icon" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
         </div>
-        <div class="copyright">
-            <p>Copyright © 2025 Government Polytechnic College Balaghat. All Rights Reserved</p>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li><a href="../navbar_pages/about.html">About Us</a></li>
+            <li><a href="../gallery.html">Photo Gallery</a></li>
+            <li>
+              <a href="../navbar_pages/admission process.html"
+                >Admission Process</a
+              >
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
         </div>
+
+        <div class="footer-column">
+          <h3>Important Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
+                target="_blank"
+                >DTE Counselling</a
+              >
+            </li>
+            <li>
+              <a href="https://mprojgar.gov.in/" target="_blank"
+                >MP Rojgar Portal</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx"
+                target="_blank"
+                >MP Rojgar E-Patrika</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE="
+                target="_blank"
+                >MP Scholarship Portal</a
+              >
+            </li>
+            <li>
+              <a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>College Tour & Activities</h3>
+          <div class="underline"></div>
+          <div class="f-video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="College Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+          Reserved
+        </p>
+      </div>
     </footer>
     <script>
-        function toggleMOU(header) {
-            const content = header.nextElementSibling;
-            const isVisible = content.style.display === "block";
-            document.querySelectorAll('.mou-content').forEach(c => c.style.display = "none");
-            document.querySelectorAll('.mou-header span:last-child').forEach(s => s.textContent = '+');
+      function toggleMOU(header) {
+        const content = header.nextElementSibling;
+        const isVisible = content.style.display === "block";
+        document
+          .querySelectorAll(".mou-content")
+          .forEach((c) => (c.style.display = "none"));
+        document
+          .querySelectorAll(".mou-header span:last-child")
+          .forEach((s) => (s.textContent = "+"));
 
-            if (!isVisible) {
-                content.style.display = "block";
-                header.querySelector('span:last-child').textContent = '-';
-            }
+        if (!isVisible) {
+          content.style.display = "block";
+          header.querySelector("span:last-child").textContent = "-";
         }
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
