@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 4 Lab Guide</title>
+    <link rel="stylesheet" href="../cse/sem1.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css//nav.css" />
+    <link rel="stylesheet" href="/css/lab-sec.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="/index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="/Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="/Departments/Electrical.html">Electrical Engineering</a>
+            <a href="/Departments/civil.html">Civil Engineering</a>
+            <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="/Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="/index.html" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+          <a href="/navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="/navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="/navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="/Departments/Electrical.html">Electrical Engineering</a>
+          <a href="/Departments/civil.html">Civil Engineering</a>
+          <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="/Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="http://backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="/js/nav.js"></script>
+    <header class="lab-header">
+      <h1>Semester 4 Lab Guide</h1>
+      <nav>
+        <ul class="lab-nav-list">
+          <li><a href="#FUNDAMEMTALS OF POWER ELECTRONICS ">Fundamental of Power Electronics Lab</a></li>
+          <li><a href="#ELECTRIC POWER TRANSMISSION AND DISTRIBUTION ">Electric Power Transmission and Distribution Lab</a></li>
+          <li><a href="#INDUCTION,SYNCHRONOUS AND SPECIAL ELECTRIC MACHINES">Induction, Synchronous and Special Electric Machine Lab</a></li>
+          <li><a href="#INDUSTRIAL DRIVES ">Industrial Drives Lab</a></li>
+          <li><a href="#INDUSTRIAL AUTOMATION AND CONTROL ">Industrial Automation and Control Lab</a></li>
+          <li><a href="#ELECTRICAL TESTING AND COMMISIONING  ">Electrical testing and Commissioning Lab</a></li>
+          <li><a href="#ELECTRICAL ESTIMATION AND  CONTRACTING ">Electrical Estimation and Contacting Lab</a></li>
+
+
+
+
+        </ul>
+      </nav>
+    </header>
+
+    <section id="physics">
+      <h2>Fundamental of Power Electronics Lab</h2>
+      <p>Welcome to the Fundamental of Power Electronics Lab! Here are some key experiments:</p>
+      <img
+      src="https://web.uri.edu/wp-content/uploads/sites/1883/Pic-1.jpeg"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Test the proper functioning of power transistor.</li>
+        <li>Test the proper functioning of IGBT.</li>
+        <li>Test the proper functioning of DIAC to determine the break over voltage.</li>
+        <li>Determine the latching current and holding current using V-I characteristics of SCR.</li>
+        <li>Test the variation of R, C in R and RC triggering circuits on firing angle of SCR.</li>
+        <li>Test the effect of variation of R, C in UJT triggering technique.</li>
+        <li>Perform the operation of Class – A, B, C, turn off circuits.</li>
+        <li>Perform the operation of Class – D, E, F turn off circuits.</li>
+        <li>Use CRO to observe the output waveform of half wave controlled rectifier with resistive load and determine the load voltage.</li>
+        <li>Draw the output waveform of Full wave controlled rectifier with R load, RL load, free wheeling diode and determine the load voltage.</li>
+        <li>Determine the firing angle using DIAC and TRIAC phase controlled circuit on output power under different loads such as lamp, motor or heater.</li>
+        <li>Simulate above firing angle control on SCILAB software.</li>
+        <li>Test the performance of given SMPS, UPS.</li>
+        <li>Troubleshoot the Burglar’s alarm, Emergency light system, Speed control system, Temperature control system.</li>
+      </ul>
+      
+      </section>
+
+    <section id="chemistry">
+      <h2>Electric Power Transmission and Distribution Lab</h2>
+      <p>Welcome to the Electric Power Transmission and Distribution Lab!</p>
+      <img
+      src="https://bji.ac.in/image-uploads/8f53295a73878494e9bc8dd6c3c7104f_POWER_SYSTEMS_LAB_2.jpg"
+      alt=""
+    />
+    <p>Laboratory work is not applicable for this course.</p>
+    <p>Following are the suggested student-related co-curricular activities which can be undertaken to
+        accelerate the attainment of the various outcomes in this course: Students should conduct following
+        activities in group and prepare reports of about 5 pages for each activity, also collect/record physical
+        evidences for their (student’s) portfolio which will be useful for their placement interviews:</p>
+    <ul class="lab-experiments">
+        <li>Prepare a report based on transmission line network in Maharashtra</li>
+        <li>Collect the information on components of transmission line.</li>
+        <li>Evaluate transmission line performance parameters of a given line.</li>
+        <li>Library/Internet survey of electrical high voltage line and HVDC lines.</li>
+        <li>Visit to 33/11 KV and 11KV/400V Distribution Substation and write a report</li>
+      </ul>
+      
+      
+    </section>
+
+    <section id="graphics">
+      <h2>Induction, Synchronous and Special Electric Machine Lab</h2>
+      <p>Welcome to the Induction, Synchronous and Special Electric Machine Lab! Here are some key experiments:</p>
+      <img
+      src="https://lh6.googleusercontent.com/proxy/r1hBZQtdxDei5oBf3beUKgmQNZN6ra1u_BFrly2z-iODxHFOi9_xWJ7YkL6-am9UYrxNsxLm79lLDsrMyfrX3Y-dqMIv2tCzSc_moZAJAzlo8aOU6A"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Identify the different parts (along with function and materials) for the given single phase and three phase induction motor.</li>
+        <li>Connect and run the three phase squirrel cage induction motors (in both directions) using the DOL, star-delta, auto-transformer starters (any two).</li>
+        <li>Perform the direct load test on the three phase squirrel cage induction motor and plot the:
+          <ul>
+            <li>i) efficiency versus output,</li>
+            <li>ii) power factor versus output,</li>
+            <li>iii) power factor versus motor current, and</li>
+            <li>iv) torque – slip/speed characteristics.</li>
+          </ul>
+        </li>
+        <li>Conduct the No-load and Blocked-rotor tests on given 3-ϕ squirrel cage induction motor and determine the equivalent circuit parameters.</li>
+        <li>Conduct the No-load and Blocked-rotor tests on given 3-ϕ squirrel cage induction motor and plot the Circle diagram.</li>
+        <li>Control the speed of the given three phase squirrel cage/slip ring induction motor using the applicable methods:
+          <ul>
+            <li>i) auto-transformer,</li>
+            <li>ii) VVVF.</li>
+          </ul>
+        </li>
+        <li>Measure the open circuit voltage ratio of the three phase slip ring induction motor.</li>
+        <li>Conduct the direct load test to determine the efficiency and speed regulation for different loads on the given single phase induction motor; plot the efficiency and speed regulation curves with respect to the output power.</li>
+        <li>Perform the direct loading test on the given three phase alternator and determine the regulation and efficiency.</li>
+      </ul>
+      
+      
+      </section>
+   
+      <section id="chemistry">
+        <h2>Industrial Drive Lab</h2>
+        <p>Welcome to the Industrial Drive Lab! Here are some key experiments:</p>
+        <img
+        src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2009/09/power_electronics_laboratory_workspaces/9245301-5-eng-GB/Power_electronics_laboratory_workspaces.jpg"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Dismantle the given DC motor and identify its different parts.</li>
+        <li>Dismantle the given AC motor and identify its different parts.</li>
+        <li>Control the speed of DC Motor using armature voltage control method.</li>
+        <li>Control the speed of DC Motor using field current control method.</li>
+        <li>Measure the output voltage of chopper for resistive load by varying the frequency and/or duty cycle of chopper.</li>
+        <li>Control the speed of three phase squirrel cage induction motor using stator voltage control method.</li>
+        <li>Effect on speed of given D.C. series motor by varying armature voltage using step down chopper.</li>
+        <li>Observe the effect on speed of the given D.C. separately excited motor by varying voltage using step down chopper.</li>
+        <li>Control the speed of the given separately excited motor by changing the firing angle of SCR using single phase semi converter and measure the speed.</li>
+        <li>Control the speed of the given separately excited motor by changing the firing angle of SCR using single phase full converter and measure the speed.</li>
+        <li>Control the speed of the given three phase induction motor by using constant V/f method and plot the graph between speed and frequency.</li>
+        <li>Control the speed of the given three phase induction motor by varying frequency and plot the graph between speed and frequency.</li>
+        <li>Control the speed of the given synchronous motor drives using microcontroller.</li>
+        <li>Demonstrate High power SCR/power device and Heat sink and write their specifications and rating.</li>
+        <li>Control the speed of single phase capacitor split phase induction motor using DIAC–TRIAC circuit.</li>
+        <li>Control the speed of DC motor drives using microcontroller.</li>
+      </ul>
+      
+      
+        
+        
+      </section>
+      <section id="graphics">
+        <h2>Industrial Automation and Control Lab</h2>
+        <p>Welcome to the Industrial Automation and Control Lab! Here are some key experiments:</p>
+        <img
+        src="https://vir.com.vn/stores/news_dataimages/dinhthuy/012021/13/10/in_article/rockwell-automation-supports-automation-lab-launching-at-can-tho-university_1.jpg"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Identify various automation systems available in different appliances/devices/machines in day to day use.</li>
+        <li>Identify various parts of the given PLC and front panel status indicators.</li>
+        <li>Use PLC to test the START STOP logic using two inputs and one output.</li>
+        <li>Develop/Execute a ladder program for the given application using the following: timer, counter, comparison, logical, arithmetic instructions.</li>
+        <li>Use PLC to control the following devices like lamp, motor, push button switches, proximity sensor.</li>
+        <li>Measure the temperature of the given liquid using RTD or Thermocouple and PLC.</li>
+        <li>Develop/test ladder program to blink the LED/lamp.</li>
+        <li>Develop/test the ladder program for sequential control application of lamps/DC motors.</li>
+        <li>Develop ladder program for Traffic light control system.</li>
+        <li>Develop and test ladder program for pulse counting using limit switch/Proximity sensor.</li>
+        <li>Develop/test ladder program for Automated car parking system.</li>
+        <li>Develop/test ladder program for Automated elevator control.</li>
+        <li>Develop/test ladder program for rotating stepper motor in forward and reverse direction at constant speed.</li>
+        <li>Develop/test ladder program for tank water level control.</li>
+      </ul>
+      
+        
+        
+      </section>
+      <section id="physics">
+        <h2>Electrical testing and Commissioning Lab</h2>
+        <p>Welcome to the Electrical testing and Commissioning Lab! Here are some key experiments:</p>
+        <img
+        src="https://www.trccompanies.com/wp-content/uploads/2024/09/c27c7fe2-testing-commissioning.webp"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Determine breakdown strength of transformer oil.</li>
+        <li>Perform insulation resistance test on any one motor/transformer.</li>
+        <li>Prepare troubleshooting charts for electrical machines such as Transformer, D.C. machines, Induction motor, and Synchronous machines.</li>
+        <li>Measure impedance voltage and load losses of three-phase transformer.</li>
+        <li>Find regulation and efficiency of single-phase transformer by direct loading and back-to-back connection method and compare the results.</li>
+        <li>Determine efficiency of D.C. machine by Swinburne’s test.</li>
+        <li>Determine efficiency of D.C. machine by Hopkinson’s test.</li>
+        <li>Perform reduced voltage running up test on three-phase Induction motor as per I.S. 325-1967.</li>
+        <li>Measure no load losses and no load current of a transformer as per IS.</li>
+        <li>Perform no load test on single phase Induction motor for the measurements of no load current, power input, and speed at rated voltage as per I.S.</li>
+        <li>Perform temperature rise test on single-phase transformer.</li>
+        <li>Find efficiency of M.G. set.</li>
+      </ul>
+      
+        
+        
+      </section>
+      <section id="chemistry">
+        <h2>Electrical Estimation and Contacting Lab</h2>
+        <p>Welcome to the Electrical Estimation and Contacting Lab! Here are some key experiments:</p>
+        <img
+        src="https://urs-labs.com/wp-content/uploads/2022/12/electrical-electronic-testi.jpg"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Prepare a tender notice for purchasing a transformer of 200 KVA for commercial installation.</li>
+        <li>Prepare a quotation for purchasing different electrical material required.</li>
+        <li>Prepare a comparative statement for above material. Prepare purchase order for the same.</li>
+        <li>Design drawing, estimating and costing of hall/cinema theater/commercial installation. Prepare report and draw sheet.</li>
+        <li>Design electrical installation scheme for any one factory/small industrial unit. Draw detailed wiring diagram. Prepare material schedule and detailed estimate. Prepare report and draw sheet.</li>
+        <li>Estimate with a proposal of the electrical installation of streetlight scheme for small premises after designing.</li>
+        <li>Estimate with a proposal of the L.T. line installation. Prepare report and draw sheet.</li>
+        <li>Estimate with a proposal of the 500 KVA, 11/0.433 KV outdoor substation and prepare a report.</li>
+      </ul>
+      
+      
+        
+        
+      </section>
+
+   <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Near Sen  Chauk , Jagpur Road, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>7974298979</p>
+                <p><a href="mailto:prinpoly.bgt@mp.gov.in">prinpoly.bgt@mp.gov.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="../contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Computer Science & Engineering gpcbgt. All Rights Reserved</p>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 1 Lab Guide</title>
+    <link rel="stylesheet" href="../cse/sem1.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css//nav.css" />
+    <link rel="stylesheet" href="/css/lab-sec.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="/index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="/Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="/Departments/Electrical.html">Electrical Engineering</a>
+            <a href="/Departments/civil.html">Civil Engineering</a>
+            <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="/Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="/index.html" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+          <a href="/navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="/navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="/navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="/Departments/Electrical.html">Electrical Engineering</a>
+          <a href="/Departments/civil.html">Civil Engineering</a>
+          <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="/Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="http://backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="/js/nav.js"></script>
+    <header class="lab-header">
+      <h1>Semester 3 Lab Guide</h1>
+      <nav>
+        <ul class="lab-nav-list">
+          <li><a href="#INTRODUCTION TO ELECTRIC GENERATION SYSTEMS ">Introduction to Electronic Generation System Lab</a></li>
+          <li><a href="#ELECTRIC CIRCUITS ">Electric Cercuits Lab</a></li>
+          <li><a href="#ELECTRICAL AND ELECTRONIC MEASUREMENTS ">Electrical and Electronic Measurement Lab</a></li>
+          <li><a href="#ELECTRIC MOTORS AND TRANSFORMERS ">Electric Motors and Transformers Lab</a></li>
+          <li><a href="#RENEWABLE ENERGY POWER PLANTS ">Renewable Energy Power Plant Lab</a></li>
+
+
+        </ul>
+      </nav>
+    </header>
+
+    <section id="physics">
+      <h2>Introduction to Electronic Generation System Lab</h2>
+      <p>Welcome to the Introduction to Electronic Generation System Lab! Here are some key experiments:</p>
+      <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFAhuXNjxNFV7vSVp4UHx5DGecCWZazTtpxg&s"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Identify the routine maintenance parts of the coal-fired thermal power plant after watching a video programme.</li>
+        <li>Identify the routine maintenance parts of the gas-fired thermal power plant after watching a video programme.</li>
+        <li>Assemble and dismantle a small diesel generator power plant.</li>
+        <li>Identify the routine maintenance parts of the nuclear-fired thermal power plant after watching a video programme.</li>
+        <li>Identify the routine maintenance parts of the large hydro power plant after watching a video programme.</li>
+        <li>Identify the routine maintenance parts of the micro hydro power plant after watching a video programme.</li>
+        <li>Assemble a micro hydro power plant and then dismantle it.</li>
+        <li>Assemble the parabolic trough or parabolic dish Concentrated Solar Power (CSP) plant.</li>
+      </ul>
+      
+      </section>
+
+    <section id="chemistry"> 
+      <h2>Electric Cercuits Lab</h2>
+      <p>Welcome to the Electric Cercuits Lab! Here are some key experiments:</p>
+      <img
+      src="https://doee.pcampus.edu.np/wp-content/uploads/2022/01/IMG20220102152910-1-300x225.jpg"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Use dual trace oscilloscope to determine A.C voltage and current response in given R, L, C circuit.</li>
+        <li>Use voltmeter, ammeter, wattmeter to determine active, reactive and apparent power consumed in given R-L series circuit. Draw phasor diagram.</li>
+        <li>Use voltmeter, ammeter to determine active, reactive and apparent power consumed in given R-C series circuit. Draw phasor diagram.</li>
+        <li>Use voltmeter, ammeter, wattmeter to determine active, reactive and apparent power consumed in given R-L-C series circuit. Draw phasor diagram.</li>
+        <li>Use variable frequency supply to create resonance in given series R-L-C circuit or by using variable inductor or variable capacitor.</li>
+        <li>Use voltmeter, ammeter, wattmeter to determine current, p.f., active, reactive and apparent power in R-C parallel A.C. circuit.</li>
+        <li>Use voltmeter, ammeter, wattmeter, p.f meter to determine current, p.f., active, reactive and apparent power for given R-L-C parallel circuit with series connection of resistor and inductor in parallel with capacitor.</li>
+      </ul>
+      
+      
+    </section>
+
+    <section id="graphics">
+      <h2>Electrical and Electronic Measurement Lab</h2>
+      <p>Welcome to the Electrical and Electronic Measurement Lab! Here are some key experiments:</p>
+      <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj5w6B75j5EECMfYJ0BnpohkKYAd9nANH40Q&s"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Identify measuring instruments on the basis of symbols on dial, type, accuracy, class position and scale.</li>
+        <li>Identify the components of PMMC and MI instruments.</li>
+        <li>Troubleshoot PMMC and MI instruments.</li>
+        <li>Measure AC and DC quantities in a working circuit.</li>
+        <li>Extend range of ammeter and voltmeter by using (i) shunt and multiplier (ii) CT and PT.</li>
+        <li>Use Clamp-on meter for measurement of AC/DC current, AC/DC voltage.</li>
+        <li>Use electro-dynamic watt-meter for measurement of power in a single phase circuit.</li>
+        <li>Troubleshoot electrodynamic watt-meter for measurement of power in a single phase circuit.</li>
+        <li>Use single wattmeter for measurement of active and reactive power of three phase balanced load.</li>
+        <li>Use two watt-meters for measuring active power of three-phase balanced load.</li>
+      </ul>
+      
+      </section>
+   
+      <section id="physics">
+        <h2>Electric Motors and Transformers Lab</h2>
+        <p>Welcome to the Electric Motors and Transformers Lab! Here are some key experiments:</p>
+        <img
+        src="https://image.made-in-china.com/318f0j00zEYRQriMVcqy/Electrical-Engineer-mp4.webp"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Dismantle a DC machine.</li>
+        <li>Reverse the direction of rotation of the DC shunt motor.</li>
+        <li>Perform brake test on DC shunt motor.</li>
+        <li>Control the speed of DC shunt motor by different methods.</li>
+        <li>Control the speed of DC series motor by different methods.</li>
+        <li>Perform the brake test on DC series motor.</li>
+        <li>Check the functioning of single phase transformer.</li>
+        <li>Determine regulation and efficiency of single phase transformer by direct loading.</li>
+        <li>Perform open circuit and short circuit test on single phase transformer to determine equivalent circuit constants, voltage regulation and efficiency.</li>
+        <li>Perform parallel operation of two single phase transformers to determine the load current sharing.</li>
+        <li>Perform parallel operation of two single phase transformers and determine the apparent and real power load sharing.</li>
+        <li>Perform polarity test on a single phase transformer whose polarity markings are masked.</li>
+        <li>Perform phasing out test on a three phase transformer whose phase markings are masked.</li>
+        <li>Connect the auto-transformer in step-up and step-down modes noting the input/output readings.</li>
+        <li>Check the functioning of the CT, PT and isolation transformer.</li>
+        <li>Test the pulse transformer.</li>
+      </ul>
+      
+        
+        
+      </section>
+      <section id="physics">
+        <h2>Renewable Energy Power Plant Lab</h2>
+        <p>Welcome to the Renewable Energy Power Plant Lab! Here are some key experiments:</p>
+        <img
+        src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F5d488426-f5b9-4ab8-af55-34f941a5aa40.jpg?source=next-article&fit=scale-down&quality=highest&width=700&dpr=1"
+        alt=""
+      />
+      <ul class="lab-experiments">
+        <li>Dismantle the parabolic trough CSP plant.</li>
+        <li>Assemble the parabolic trough Concentrated Solar Power (CSP) plant.</li>
+        <li>Assemble the parabolic dish CSP plant.</li>
+        <li>Dismantle the parabolic dish CSP plant.</li>
+        <li>Assemble the solar PV plant to produce electric power.</li>
+        <li>Dismantle the solar PV plant.</li>
+        <li>Identify the routine maintenance parts of the large wind power plant after watching a video programme.</li>
+        <li>Assemble a horizontal axis small wind turbine to produce electric power.</li>
+        <li>Dismantle a horizontal axis small wind turbine.</li>
+        <li>Assemble a vertical axis small wind turbine to produce electric power.</li>
+        <li>Dismantle a vertical axis small wind turbine.</li>
+        <li>Identify the routine maintenance parts of the micro hydro power plant after watching a video programme.</li>
+        <li>Assemble a micro hydro power plant.</li>
+        <li>Dismantle a micro hydro power plant.</li>
+        <li>Assemble a small biogas plant to generate electric power.</li>
+        <li>Dismantle the biogas plant.</li>
+      </ul>
+      
+        
+        
+      </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Government Polytechnic College Balaghat</h3>
+          <div class="underline"></div>
+          <p>Moti Nagar, Ward No 33, Balaghat,<br />Madhya Pradesh 481001.</p>
+          <p>07632 242443</p>
+          <p>
+            <a href="mailto:principal@gpcbalaghat.ac.in"
+              >principal@gpcbalaghat.ac.in</a
+            >
+          </p>
+          <p>
+            <a href="https://www.gpcbalaghat.ac.in" target="_blank"
+              >www.gpcbalaghat.ac.in</a
+            >
+          </p>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/profile.php?id=61574799926006"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/poly.bgt1962/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/"
+              class="social-icon"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="" class="social-icon" target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li><a href="/navbar_pages/about.html">About Us</a></li>
+            <li><a href="/gallery.html">Photo Gallery</a></li>
+            <li>
+              <a href="/navbar_pages/admission process.html"
+                >Admission Process</a
+              >
+            </li>
+            <li><a href="/contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Important Links</h3>
+          <div class="underline"></div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx"
+                target="_blank"
+                >DTE Counselling</a
+              >
+            </li>
+            <li>
+              <a href="https://mprojgar.gov.in/" target="_blank"
+                >MP Rojgar Portal</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx"
+                target="_blank"
+                >MP Rojgar E-Patrika</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE="
+                target="_blank"
+                >MP Scholarship Portal</a
+              >
+            </li>
+            <li>
+              <a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>College Tour & Activities</h3>
+          <div class="underline"></div>
+          <div class="f-video-container">
+            <iframe
+              src=""
+              title="College Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright © 2025 Government Polytechnic College Balaghat. All Rights
+          Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

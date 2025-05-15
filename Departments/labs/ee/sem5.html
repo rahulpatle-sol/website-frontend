@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 4 Lab Guide</title>
+    <link rel="stylesheet" href="../cse/sem1.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css//nav.css" />
+    <link rel="stylesheet" href="/css/lab-sec.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <!-- Mobile Header with toggle menus and back navigation-->
+    <div class="mobile-header">
+      <div class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main-Navigation -->
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-items">
+        <div class="nav-item">
+          <a href="/index.html">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="#">About</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/about.html">About College</a>
+            <a href="/navbar_pages/vision.html">Vision & Mission</a>
+            <a href="/Documents Pdf/organizational-chart.pdf"
+              >Organizational Chart</a
+            >
+            <a href="/navbar_pages/administration.html">Administration</a>
+            <a href="/navbar_pages/mandatory.html">Mandatory Disclosures</a>
+            <a href="/navbar_pages/janbhagidari.html">Janbhagidari Samiti</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Academic</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/admission process.html">Admission Process</a>
+            <a href="/navbar_pages/fees.html">Fees Structure</a>
+            <a href="https://www.rgpvdiploma.in/Academics/Acadmic_calander.aspx"
+              >Academic Calender</a
+            >
+            <a
+              href="https://www.rgpvdiploma.in/UploadContent/frm_ViewScheme.aspx?id=@@$"
+              >RGPV Schemes & Syllabus</a
+            >
+            <a href="/navbar_pages/scholarship.html">Scholarships</a>
+            <a
+              href="../Documents Pdf/25ordinance020915050238.pdf"
+              target="_blank"
+              >Ordinance</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Departments</a>
+          <div class="dropdown">
+            <a href="/Departments/computer.html"
+              >Computer Science & Engineering</a
+            >
+            <a href="/Departments/Electrical.html">Electrical Engineering</a>
+            <a href="/Departments/civil.html">Civil Engineering</a>
+            <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+            <a href="/Departments/Science.html">Science & Humanities</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Placements</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/TPO.HTML">Overview</a>
+            <a href="/navbar_pages/mou.html">M.O.U.</a>
+            <a href="/navbar_pages/iiic.html">I.I.I.C.</a>
+            <a href="/navbar_pages/internship.html">Internships</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Student Zone</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/library2.html">Library</a>
+            <a href="/navbar_pages/hostel.html">Hostel</a>
+            <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+            <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+            <a href="/navbar_pages/stdmentorship.html"
+              >Student Mentorship Cell</a
+            >
+            <a href="/navbar_pages/alumni.html">Alumni</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#">Grievance Redressal</a>
+          <div class="dropdown">
+            <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+            <a href="/navbar_pages/AntiraggingC.html">Anti-Ragging Commitee</a>
+            <a href="/navbar_pages/women cell.html">Women Cell</a>
+            <a href="/navbar_pages/sc st comitee.html">SC/ST Commitee</a>
+            <a href="/navbar_pages/internalcomp.html"
+              >Internal Complaints Commitee</a
+            >
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="">Downloads</a>
+          <div class="dropdown">
+            <a href="https://ekumbh.aicte-india.org/">E-Books</a>
+            <a href="/navbar_pages/forms.html">Forms</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-items">
+        <a href="/index.html" class="bottom-nav-item active" data-panel="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="academic">
+          <i class="fas fa-book"></i>
+          <span>Departments</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="student">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Zone</span>
+        </a>
+        <a href="#" class="bottom-nav-item" data-panel="about">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Panels -->
+    <!-- Home Panel -->
+    <div class="bottom-nav-panel" id="home-panel">
+      <div class="panel-header">
+        <h3>Home</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/index.html"><i class="fas fa-home mr-2"></i> Go to Home</a>
+          <a href="/navbar_pages/about.html"
+            ><i class="fa-solid fa-building-columns"></i> About College</a
+          >
+          <a href="/navbar_pages/vision.html"
+            ><i class="fas fa-newspaper mr-2"></i> Mission & Vision</a
+          >
+          <a href="/navbar_pages/TPO.HTML"
+            ><i class="fas fa-bell mr-2"></i>Placements Overview
+          </a>
+          <a href="https://www.rgpvdiploma.in/" target="_blank"
+            ><i class="fas fa-calendar-alt mr-2"></i> Connect To RGPV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Panel -->
+    <div class="bottom-nav-panel" id="academic-panel">
+      <div class="panel-header">
+        <h3>Department</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="/Departments/computer.html"
+            >Computer Science & Engineering</a
+          >
+          <a href="/Departments/Electrical.html">Electrical Engineering</a>
+          <a href="/Departments/civil.html">Civil Engineering</a>
+          <a href="/Departments/Mechanical.html">Mechanical Engineering</a>
+          <a href="/Departments/Science.html">Science & Humanities</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Panel -->
+    <div class="bottom-nav-panel" id="student-panel">
+      <div class="panel-header">
+        <h3>Student Zone</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="https://www.rgpvdiploma.in/StudentLife/StudentLogin.aspx"
+            >RGPV Student Portal Login
+          </a>
+          <a href="/navbar_pages/library2.html">Library</a>
+          <a href="/navbar_pages/hostel.html">Hostel</a>
+          <a href="/navbar_pages/sportsyoga.html">Sports & Yoga</a>
+          <a href="/navbar_pages/studentclub.html">Student Clubs</a>
+          <a href="/navbar_pages/stdmentorship.html">Student Mentorship Cell</a>
+          <a href="/navbar_pages/stdgrivence.html">Grievance Redressal</a>
+          <a href="/navbar_pages/alumni.html">Alumni</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Panel -->
+    <div class="bottom-nav-panel" id="about-panel">
+      <div class="panel-header">
+        <h3>Admin Login</h3>
+        <button class="panel-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="panel-content">
+        <div class="panel-links">
+          <a href="http://backend/login.php"
+            ><i class="fas fa-user mr-2"></i> Admin Login</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="/js/nav.js"></script>
+    <header class="lab-header">
+      <h1>Semester 5 Lab Guide</h1>
+      <nav>
+        <ul class="lab-nav-list">
+          <li><a href="#FUNDAMEMTALS OF POWER ELECTRONICS ">Microcontroller Applications Lab</a></li>
+          <li><a href="#ELECTRIC POWER TRANSMISSION AND DISTRIBUTION ">Energy Conservation and Audit Lab</a></li>
+          <li><a href="#INDUCTION,SYNCHRONOUS AND SPECIAL ELECTRIC MACHINES">Electric Vehicles Lab</a></li>
+          <li><a href="#INDUSTRIAL DRIVES ">Electric Traction Lab</a></li>
+          <li><a href="#INDUSTRIAL AUTOMATION AND CONTROL ">Illumination Practices Lab</a></li>
+          <li><a href="#ELECTRICAL TESTING AND COMMISIONING  ">Switchgear and Protection Lab</a></li>
+         
+
+
+
+
+        </ul>
+      </nav>
+    </header>
+
+<section id="physics">
+      <h2>Microcontroller Applications Lab</h2>
+      <p>Welcome to the Microcontroller Applications Lab! Here are some key experiments:</p>
+      <img
+      src="https://th.bing.com/th/id/OIP.TlQUX8O9cT4J_C3sMOskVAHaFG?w=258&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Interpret details of Hardware kit for Microcontroller and practice to write and execute programs.</li>
+        <li>Identify different menus available in a simulator software RIDE/KEIL and demonstrate their use.</li>
+        <li>Develop and execute Assembly language programs using Arithmetic Instructions and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language programs using Logical Instructions and demonstrate outcome for a given input.</li>
+        <li>Develop and execute an Assembly language program for Addition of series of 8-bit numbers, 16-bit result, and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language program for addition/subtraction of 16-bit numbers/multi-byte numbers and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language program for Block transfer from and to Internal/External memory using directives and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language program to find Largest/Smallest of a given series of numbers from Internal/External memory and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language program to arrange numbers in ascending/descending order from Internal/External memory and demonstrate outcome for a given input data.</li>
+        <li>Develop and execute Assembly language program for LED blinking/LED sequences using delay/timer mode.</li>
+        <li>Develop and execute Assembly language program to interface LED with microcontroller.</li>
+      </ul>
+</section>
+
+
+    
+<section id="chemistry">
+      <h2>Energy Conservation and Audit Lab</h2>
+      <p>Welcome to the Energy Conservation and Audit Lab! Here are some key experiments:</p>
+      <img
+      src="https://assets.website-files.com/62f51e33915f9598328f4cc7/63555434f8f759b7741602ce_focus-green-energy-audit-6.jpg"
+      alt=""
+    />
+    <ul class="lab-experiments">
+        <li>Identify star labelled electrical apparatus and compare the data for various star ratings.</li>
+        <li>Determine the ‘% loading’ of the given loaded Induction motor.</li>
+        <li>Determine the reduction in power consumption in star mode operation of Induction motor compared to delta mode.</li>
+        <li>Use APFC unit for improvement of power factor of electrical load.</li>
+        <li>Compare power consumption of different types of TL with choke, electronic ballast, and LED lamps by direct measurements.</li>
+        <li>Determine the reduction in power consumption by replacement of lamps in a classroom/laboratory.</li>
+        <li>Determine the reduction in power consumption by replacement of Fans and regulators in a classroom/laboratory.</li>
+        <li>Collect electricity bill of an industrial consumer and suggest suitable tariff for energy conservation and its impact on energy bill.</li>
+        <li>Collect electricity bill of a commercial consumer and suggest suitable tariff for conservation and reduction of its energy bill.</li>
+        <li>Collect electricity bill of a residential consumer and suggest suitable means for conservation and reduction of the energy bill.</li>
+        <li>Estimate energy saving by improving power factor and load factor for given cases.</li>
+        <li>Prepare a sample energy audit questionnaire for the given industrial facility.</li>
+        <li>Prepare an energy audit report (Phase-I).</li>
+        <li>Prepare an energy audit report (Phase-II).</li>
+        <li>Prepare an energy audit report (Phase-III).</li>
+      </ul>
+</section>
+
+   
+      <section id="graphics]">
+      <h2>Electric Vehicles Lab</h2>
+      <p>Welcome to the Electric Vehicles Lab! Here are some key experiments:</p>
+    <img src="https://th.bing.com/th/id/OIP.BKsrbDt7Ie4hKH12cZ9NMgHaFP?w=243&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="">
+    <ul class="lab-experiments">
+        <li>Develop block diagram of Electric vehicle and identify parts.</li>
+        <li>Case study - Compare minimum four vehicles for economic and environmental analysis.</li>
+        <li>Develop schematic diagram of hybrid electric vehicle and identify the components.</li>
+        <li>Prepare report on Plug-in Electric vehicle by visiting a charging station.</li>
+        <li>Inspect and install inverter of given lead acid battery.</li>
+        <li>Prepare a report on batteries used from market survey.</li>
+        <li>Collect specifications of converters and inverters used for Electric vehicles.</li>
+        <li>Diagnose, repair, and maintain battery used in electric vehicle.</li>
+        <li>Prepare test procedure for equipment used in Electric vehicle.</li>
+        <li>List safety procedures and schedule for handling HEVs and EVs.</li>
+      </ul>
+</section>
+
+  <section id="physics">
+      <h2>Electric Traction Lab</h2>
+      <p>Welcome to the Electric Traction Lab! Here are some key experiments:</p>
+   <img src="https://th.bing.com/th/id/OIP._JxacevBokFOr9eqJypgXQHaE8?w=210&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="">
+    <ul class="lab-experiments">
+        <li>Dismantle a traction motor.</li>
+        <li>Assemble a traction motor.</li>
+        <li>Troubleshoot a traction motor.</li>
+        <li>Visit electric-traction train lighting system installation, identify components of the system, and prepare a report.</li>
+        <li>Visit electric-traction loco shed, investigate the working of each section, and prepare a report.</li>
+        <li>Visit a Traction Substation or feeding post (for layout and OHE) and write a report.</li>
+        <li>Visit a Railway Station (for signalling and train lighting) and write a report on the visit.</li>
+        <li>Draw traction substation layout on a drawing sheet and prepare a report.</li>
+        <li>Draw Pentagonal OHE Catenary, different Catenaries according to speed limit, OHE supporting structure on a drawing sheet, and prepare a report.</li>
+        <li>Draw Power Circuit of AC Locomotive on a drawing sheet and prepare a report.</li>
+      </ul>
+</section>
+
+      <section id="graphics">
+      <h2>Illumination Practices Lab</h2>
+      <p>Welcome to the Illumination Practices Lab! Here are some key experiments:</p>
+   <img src="https://th.bing.com/th/id/R.58566702eff82010f82171ccee1a9679?rik=kZdcFFxb0xYauw&riu=http%3a%2f%2fwww.colborlight.com%2fcdn%2fshop%2farticles%2fWhat_does_illumination_means_in_photography.jpg%3fv%3d1630636897&ehk=jUy53qCrQkXXXaZydBVM55DmSi5GbkqQLNAFp%2fPD8uc%3d&risl=&pid=ImgRaw&r=0" alt="">
+    <ul class="lab-experiments">
+        <li>Conduct illumination level assessment in workplace using a lux meter.</li>
+        <li>Fit the given lamp in the selected mounting.</li>
+        <li>Interpret the polar curves of the given type of lamp and verify it using the lux meter.</li>
+        <li>Measure the illumination output of different lamps (Incandescent, Fluorescent, CFL, LED, HPSV, HPMV) and compare it with their wattage.</li>
+        <li>Measure illumination level with and without reflectors used in various luminaries.</li>
+        <li>Estimate and compare luminous efficiency of incandescent and compact fluorescent lamps.</li>
+        <li>Prepare a light dimmer arrangement using the relevant dimmer type of transformer.</li>
+        <li>Identify the given types of dimmer transformers and their parts.</li>
+        <li>Build an electronic dimmer – Part I.</li>
+        <li>Build another type of electronic dimmer – Part II.</li>
+        <li>Build a single lamp control by single switch.</li>
+        <li>Build a single lamp control by two switches.</li>
+        <li>Build a single lamp control circuit for the two-point method.</li>
+        <li>Build a lamp control circuit for the three-point method.</li>
+        <li>Build a lamp control circuit for the four-point method.</li>
+      </ul>
+</section>
+<section id="physics">
+      <h2>Switchgear and Protection Lab</h2>
+      <p>Welcome to the Switchgear and Protection Lab! Here are some key experiments:</p>
+  <img src="data:image/jpeg;base64,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" alt="">
+    <ul class="lab-experiments">
+        <li>Identify various switchgears in the laboratory and write their specifications.</li>
+        <li>Test HRC fuse by performing the load test.</li>
+        <li>Test MCB by performing the load test.</li>
+        <li>Dismantle MCCB/ELCB and identify various parts.</li>
+        <li>Dismantle ACB/VCB and identify different parts.</li>
+        <li>Set the plug and time (with PSM, TSM) of induction type electromagnetic relay.</li>
+        <li>Test electromagnetic over-current relay by performing load test.</li>
+        <li>Simulate differential protection scheme for transformer with power system simulation kit.</li>
+        <li>Test the working of the single phasing preventer using a three-phase induction motor.</li>
+        <li>Simulate transmission line protection by using the impedance relay/over-current relay for various faults (on transmission line protection simulation kit).</li>
+        <li>Dismantle Thyrite type arrester and identify different parts.</li>
+        <li>Perform neutral earthing at different substations/locations.</li>
+      </ul>
+</section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Government Polytechnic College Balaghat</h3>
+                <div class="underline"></div>
+                <p>Near Sen  Chauk , Jagpur Road, Balaghat,<br>Madhya Pradesh 481001.</p>
+                <p>7974298979</p>
+                <p><a href="mailto:prinpoly.bgt@mp.gov.in">prinpoly.bgt@mp.gov.in</a></p>
+                <p><a href="https://www.gpcbalaghat.ac.in" target="_blank">www.gpcbalaghat.ac.in</a></p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61574799926006" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/poly.bgt1962/" class="social-icon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/polytechnic-college-balaghat-622736358/" class="social-icon"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="../navbar_pages/about.html">About Us</a></li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
+                    <li><a href="../navbar_pages/admission process.html">Admission Process</a></li>
+                    <li><a href="../contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <div class="underline"></div>
+                <ul class="footer-links">
+                    <li><a href="https://dte.mponline.gov.in/portal/services/onlinecounselling/counshomepage/home.aspx" target="_blank">DTE Counselling</a></li>
+                    <li><a href="https://mprojgar.gov.in/" target="_blank">MP Rojgar Portal</a></li>
+                    <li><a href="https://www.rojgarsamachar.gov.in/NewRS/Home.aspx" target="_blank">MP Rojgar E-Patrika</a></li>
+                    <li><a href="https://hescholarship.mp.gov.in/Public/OtherSchemes/GB.aspx?ID=MTE=" target="_blank">MP Scholarship Portal</a></li>
+                    <li><a href="https://www.rgpvdiploma.in/" target="_blank">RGPV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>College Tour & Activities</h3>
+                <div class="underline"></div>
+                <div class="f-video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="College Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Computer Science & Engineering gpcbgt. All Rights Reserved</p>
+        </div>
+    </footer>>
+  </body>
+</html>

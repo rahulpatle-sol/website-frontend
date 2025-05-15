@@ -1,7 +1,9 @@
 body {
     font-family: 'Poppins', sans-serif;
+  
     margin: 0;
     padding: 0;
+    
     background: #f5f5f5;
 }
 img{
@@ -13,6 +15,10 @@ img{
     transition: all 0.3s ease;
     cursor: pointer;
 }
+ul {
+    list-style-type: decimal; /* Numbering ke liye */
+}
+
 
 #graphics{
    
@@ -45,14 +51,16 @@ img{
 .lab-experiments{
     list-style-type: none;
     padding: 0;
+   
 
 }
 .lab-experiments li{
     margin: 10px 0;
     padding: 10px;
+  
     background-color: #ffffff31;
     border-radius: 5px;
-    width: fit-content;
+  text-align: start;
     margin-left: 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -101,4 +109,28 @@ section {
     padding: 20px;
     border-radius: 10px;
     
+}
+
+ul {
+    list-style-image: url('https://th.bing.com/th/id/OIP.VPCKm7zSul-H2eoZaZRw9gHaHa?rs=1&pid=ImgDetMain'); /* Apni icon image ka path de */
+}
+
+.lab-experiments li:hover {
+    background-color: #000000;
+    list-style: decimal;
+    transition: all 0.3s ease;
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(255, 253, 253, 0.2);
+
+    
+}
+.lab-experiments ol{
+    list-style-type: decimal;
+    padding: 0;
+    margin: 0;
+}
+.lab-experiment ul{
+    list-style-type:decimal;
+    padding: 0;
+    margin: 0;
 }
