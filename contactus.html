@@ -350,7 +350,84 @@ main {
     </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+  const formContainer = document.getElementById('examFormContainer');
+  const downloadBtn = document.getElementById('downloadPdfBtn');
+  const fileInput = document.getElementById('studentPhoto');
+  const photoInputLabel = document.querySelector('label[for="studentPhoto"]');
+
+  // Hide extra elements for PDF
+  downloadBtn.style.display = 'none';
+  fileInput.style.display = 'none';
+  if (photoInputLabel) photoInputLabel.style.display = 'none';
+
+  const originalWidth = formContainer.style.width;
+  const originalHeight = formContainer.style.height;
+
+  formContainer.style.width = '900px';
+  formContainer.style.height = 'auto';
+
+  html2canvas(formContainer, {
+    scale: 2,
+    useCORS: true,
+    logging: false,
+  })
+    .then((canvas) => {
+      // Restore UI
+      formContainer.style.width = originalWidth;
+      formContainer.style.height = originalHeight;
+      downloadBtn.style.display = 'block';
+      fileInput.style.display = 'block';
+      if (photoInputLabel) photoInputLabel.style.display = 'inline-block';
+
+      // Generate PDF
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+      });
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const ratio = canvas.width / canvas.height;
+      let imgWidth = pdfWidth - 20;
+      let imgHeight = imgWidth / ratio;
+      let heightLeft = imgHeight;
+      let position = 10;
+
+      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+      heightLeft -= pdfHeight - 20;
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight - 10;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight - 20;
+      }
+
+      const studentName = document.getElementById('studentName').value || 'student';
+      const enrollmentNo = document.getElementById('enrollmentNo').value || 'exam';
+      const email = document.getElementById('email').value || 'noemail@example.com';
+
+      pdf.save(`RGPV_ExamForm_${enrollmentNo}_${studentName.replace(/\s+/g, '_')}.pdf`);
+
+      // 💥 Submit to FormSubmit
+      document.getElementById('formStudentName').value = studentName;
+      document.getElementById('formStudentEmail').value = email;
+      document.getElementById('emailForm').submit();
+    })
+    .catch((err) => {
+      console.error('Error generating PDF:', err);
+      formContainer.style.width = originalWidth;
+      formContainer.style.height = originalHeight;
+      downloadBtn.style.display = 'block';
+      fileInput.style.display = 'block';
+      if (photoInputLabel) photoInputLabel.style.display = 'inline-block';
+      alert('PDF Error. Please check console.');
+    });
+});
+
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     
@@ -491,7 +568,7 @@ main {
             formStatus.style.display = 'none';
         });
     });
-});
+;
 </script>
 </body>
 </html>

@@ -18,6 +18,10 @@
             line-height: 1.6;
         }
 
+        @media print {
+  .btn-container { display: none !important; }
+}
+
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -55,22 +59,57 @@
             font-weight: 500;
         }
 
-        /* Photo Section */
-        .photo-section {
-            width: 130px; /* Increased size */
-            height: 160px; /* Increased size */
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #aaa;
-            font-size: 0.9em;
-            border-radius: 4px;
-            margin-left: auto; /* Pushes to the right if in a flex container */
-        }
-        
+.photo-section {
+  width: 130px;
+  height: 190px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  display: flex;
+  image-rendering: pixelated;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9em;
+  border-radius: 4px;
+  margin-left: auto;
+  padding: 10px;
+}
+
+#photoPreview {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: none;
+  border-radius: 4px;
+  border: 2px solid #007bff;
+}
+
+/* Hide the actual input */
+#studentPhoto {
+  display: none;
+}
+
+/* Styled label as a button */
+.custom-upload-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.custom-upload-btn:hover {
+  background-color: #0056b3;
+}
+
+
         /* Form Sections */
         .form-section {
             margin-bottom: 25px;
@@ -140,7 +179,51 @@
             box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
             outline: none;
         }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; align-items: center; justify-content: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
 
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease-out;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
         /* Header with Photo */
         .header-with-photo {
@@ -235,6 +318,7 @@
         .btn:hover {
             background-color: #0056b3;
         }
+      
 
         /* Footer */
         .form-footer {
@@ -396,9 +480,14 @@
                     </div>
                 </div>
             </div>
-            <div class="photo-section">
-                Affix recent passport size photograph
-            </div>
+<div class="photo-section">
+  <img id="photoPreview" src="" alt="Upload Photo" />
+  <label for="studentPhoto" class="custom-upload-btn">Select Photo</label>
+  <input type="file" id="studentPhoto" accept="image/*" />
+</div>
+
+
+
         </div>
 
         <div class="form-section">
@@ -495,7 +584,20 @@
                 </div>
             </div>
         </div>
-
+<div class="form-section office-use-section">
+            <h3>For HOD </h3>
+             <p>Certified that the student has fulfilled the attendance requirements and is eligible to appear for the examination. The details provided have been verified.</p>
+            <div class="form-grid two-cols" style="margin-top: 15px;">
+                 <div>
+                    <p><strong>Signature Department HOD (with Seal):</strong></p>
+                    <div class="signature-box"></div>
+                </div>
+                <div>
+                    <p><strong>Date:</strong></p>
+                    <div class="signature-box" style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
         <div class="form-section office-use-section">
             <h3>For Office Use / Verifying Officer</h3>
              <p>Certified that the student has fulfilled the attendance requirements and is eligible to appear for the examination. The details provided have been verified.</p>
@@ -511,145 +613,152 @@
             </div>
         </div>
 
-        <div class="btn-container">
-            <button type="button" class="btn" id="downloadPdfBtn">Download Receipt</button>
-        </div>
+     <button type="button" onclick="handleDownload()" class="btn" id="downloadPdfBtn">Download Receipt</button>
+
 
         <div class="form-footer">
             <p>&copy; Rajiv Gandhi Proudyogiki Vishwavidyalaya. All rights reserved.</p>
             <p>Generated on: <span id="generationDate"></span></p>
         </div>
     </div>
+    <div id="successModal" class="modal">
+    <div class="modal-content">
+        <h2>✅ PDF Generated Successfully!</h2>
+        <p>Your exam form has been successfully downloaded.</p>
+        <button id="closeModal" class="btn">OK</button>
+    </div>
+</div>
+
 
     <script>
-        // Auto-fill current date for student signature and generation date
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const formattedDate = today.toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-            
-            const currentDateElem = document.getElementById('currentDate');
-            if (currentDateElem) {
-                currentDateElem.textContent = formattedDate;
-            }
-            
-            const generationDateElem = document.getElementById('generationDate');
-            if (generationDateElem) {
-                generationDateElem.textContent = formattedDate;
-            }
+  const { jsPDF } = window.jspdf;
 
-            // Generate subject rows
-            const subjectRowsContainer = document.getElementById('subjectRows');
-            if (subjectRowsContainer) {
-                let subjectHtml = '';
-                for (let i = 1; i <= 16; i++) {
-                    subjectHtml += `
-                        <tr>
-                            <td class="center-text">${i}</td>
-                            <td><input type="text" name="subjectCode${i}" placeholder="e.g., CS-301"></td>
-                            <td><input type="text" name="subjectName${i}" placeholder="e.g., Data Structures"></td>
-                            <td class="center-text">
-                                <input type="checkbox" id="theory${i}" name="examType${i}" value="theory"> <label for="theory${i}">Th</label>
-                                <input type="checkbox" id="practical${i}" name="examType${i}" value="practical"> <label for="practical${i}">Pr</label>
-                            </td>
-                            <td class="center-text">
-                                <input type="checkbox" id="regular${i}" name="statusType${i}" value="regular"> <label for="regular${i}">Reg</label>
-                                <input type="checkbox" id="carry${i}" name="statusType${i}" value="carry"> <label for="carry${i}">CO</label>
-                            </td>
-                        </tr>
-                    `;
-                }
-                subjectRowsContainer.innerHTML = subjectHtml;
-            }
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Fill current date
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-IN', {
+      day: '2-digit', month: '2-digit', year: 'numeric'
+    });
 
-        // PDF Generation
-        const { jsPDF } = window.jspdf;
+    const currentDateElem = document.getElementById('currentDate');
+    if (currentDateElem) currentDateElem.textContent = formattedDate;
 
-        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
-            const formContainer = document.getElementById('examFormContainer');
-            const originalWidth = formContainer.style.width;
-            const originalHeight = formContainer.style.height;
-            
-            // For PDF generation, we want it to render as if on a wider screen
-            // to ensure the desktop layout is captured.
-            formContainer.style.width = '900px'; // A fixed width that matches desktop view
-            formContainer.style.height = 'auto';
+    const generationDateElem = document.getElementById('generationDate');
+    if (generationDateElem) generationDateElem.textContent = formattedDate;
+
+    // 2. Generate 16 subject rows
+    const subjectRowsContainer = document.getElementById("subjectRows");
+    let subjectHtml = "";
+    for (let i = 1; i <= 16; i++) {
+      subjectHtml += `
+        <tr>
+          <td class="center-text">${i}</td>
+          <td><input type="text" name="subjectCode${i}" placeholder="e.g., CS-301"></td>
+          <td><input type="text" name="subjectName${i}" placeholder="e.g., Data Structures"></td>
+          <td class="center-text">
+            <input type="checkbox" id="theory${i}" value="theory"> <label for="theory${i}">Th</label>
+            <input type="checkbox" id="practical${i}" value="practical"> <label for="practical${i}">Pr</label>
+          </td>
+          <td class="center-text">
+            <input type="checkbox" id="regular${i}" value="regular"> <label for="regular${i}">Reg</label>
+            <input type="checkbox" id="carry${i}" value="carry"> <label for="carry${i}">CO</label>
+          </td>
+        </tr>`;
+    }
+    if (subjectRowsContainer) subjectRowsContainer.innerHTML = subjectHtml;
+  });
+
+  // 3. Image preview + 1MB limit
+  const studentPhotoInput = document.getElementById("studentPhoto");
+  const photoPreview = document.getElementById("photoPreview");
+
+  studentPhotoInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (file.size > 1024 * 1024) {
+      alert("Photo must be less than 1MB");
+      this.value = "";
+      photoPreview.style.display = "none";
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      photoPreview.src = e.target.result;
+      photoPreview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // 4. PDF Generation on button click
+ function handleDownload() {
+  const formContainer = document.getElementById("examFormContainer");
+  const downloadBtn = document.getElementById("downloadPdfBtn");
+  const fileInput = document.getElementById("studentPhoto");
+  const labelBtn = document.querySelector("label[for='studentPhoto']");
+
+  // Hide elements before capture
+  downloadBtn.style.display = "none";
+  fileInput.style.display = "none";
+  if (labelBtn) labelBtn.style.display = "none";
+
+  html2canvas(formContainer, {
+    scale: 3, // Higher scale for better resolution
+    useCORS: true,
+    windowWidth: document.body.scrollWidth, 
+    windowHeight: document.body.scrollHeight 
+  }).then(canvas => {
+    const pdf = new jsPDF("p", "mm", "a4");
+    const imgWidth = 210; // A4 width
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    let position = 0;
+    pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, position, imgWidth, imgHeight);
+
+    // Handle page overflow
+    let heightLeft = imgHeight;
+    while (heightLeft > 297) {  // A4 page height in mm
+      position -= 297; 
+      pdf.addPage();
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, position, imgWidth, imgHeight);
+      heightLeft -= 297;
+    }
+
+    const studentName = document.getElementById("studentName").value.trim() || "Student";
+    const enrollmentNo = document.getElementById("enrollmentNo").value.trim() || "0000";
+
+    pdf.save(`RGPV_ExamForm_${enrollmentNo}_${studentName.replace(/\s+/g, "_")}.pdf`);
+
+    // Restore hidden elements
+    downloadBtn.style.display = "block";
+    fileInput.style.display = "block";
+    if (labelBtn) labelBtn.style.display = "inline-block";
+
+    alert("🎉 PDF generated successfully!");
+  }).catch(err => {
+    console.error("PDF Error:", err);
+    alert("Something went wrong while generating the PDF.");
+    
+    // Restore elements in case of error
+    downloadBtn.style.display = "block";
+    fileInput.style.display = "block";
+    if (labelBtn) labelBtn.style.display = "inline-block";
+       document.getElementById("successModal").style.display = "flex";
+    }).catch(err => {
+        console.error("PDF Error:", err);
+        alert("Error generating PDF.");
+    });
+}
+
+// Close modal function
+document.getElementById("closeModal").addEventListener("click", function() {
+    document.getElementById("successModal").style.display = "none";
+  });
 
 
-            html2canvas(formContainer, {
-                scale: 2, // Higher scale for better quality
-                useCORS: true, // If you have external images
-                logging: true,
-                onclone: (document) => {
-                    // This function is called when html2canvas clones the document.
-                    // We can make temporary changes here that only affect the canvas capture.
-                    // For example, ensure all form field values are visible.
-                    Array.from(document.querySelectorAll('input, select, textarea')).forEach(el => {
-                        if (el.type === 'select-one') {
-                            const selectedOption = el.options[el.selectedIndex];
-                            if (selectedOption) {
-                                const textNode = document.createTextNode(selectedOption.text);
-                                el.parentNode.insertBefore(textNode, el);
-                                el.style.display = 'none'; // Hide select, show text
-                            }
-                        } else if (el.type === 'checkbox' || el.type === 'radio') {
-                            if (el.checked) {
-                                el.setAttribute('checked', 'checked'); // Ensure visual state is captured
-                            }
-                        }
-                        // For text inputs, their value is usually captured correctly.
-                    });
-                }
-            }).then(canvas => {
-                // Reset form container style after capture
-                formContainer.style.width = originalWidth;
-                formContainer.style.height = originalHeight;
 
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF({
-                    orientation: 'p', // portrait
-                    unit: 'mm', // millimeters
-                    format: 'a4' // A4 size
-                });
+</script>
 
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = pdf.internal.pageSize.getHeight();
-                
-                const canvasWidth = canvas.width;
-                const canvasHeight = canvas.height;
-
-                // Calculate the aspect ratio
-                const ratio = canvasWidth / canvasHeight;
-                
-                let imgWidth = pdfWidth - 20; // 10mm margin on each side
-                let imgHeight = imgWidth / ratio;
-
-                let heightLeft = imgHeight;
-                let position = 10; // Initial top margin
-
-                // Add the first page
-                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                heightLeft -= (pdfHeight - 20); // Subtract usable page height (with margins)
-
-                // Add new pages if content overflows
-                while (heightLeft > 0) {
-                    position = heightLeft - imgHeight -10; // Negative offset for the image on new pages
-                    pdf.addPage();
-                    pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                    heightLeft -= (pdfHeight - 20);
-                }
-                
-                const studentName = document.getElementById('studentName').value || 'student';
-                const enrollmentNo = document.getElementById('enrollmentNo').value || 'exam';
-                pdf.save(`RGPV_ExamForm_${enrollmentNo}_${studentName.replace(/\s+/g, '_')}.pdf`);
-
-            }).catch(err => {
-                console.error("Error generating PDF: ", err);
-                formContainer.style.width = originalWidth; // Reset on error too
-                formContainer.style.height = originalHeight;
-                alert("Error generating PDF. Please check console for details.");
-            });
-        });
-    </script>
 </body>
 </html>
